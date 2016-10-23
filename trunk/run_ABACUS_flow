@@ -1,0 +1,737 @@
+#!/bin/bash
+# This script glues the ABACUS flow using the hybrid non-dominating sorting
+# genetic algorithm II (NSGA II).
+# Contact: hokchhay_tann at brown.edu or soheil_hashemi at brown.edu for questions.
+
+clear
+
+if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
+    echo "ABACUS Version 1.0.0 released Oct. 16."
+    exit 0
+fi
+
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+    echo "Accepted Options: -v (--version), -h (--help)"
+    echo "Run ABACUS script with \"/bin/bash run_ABACUS_flow testbench.config 0\""
+    exit 0
+fi
+
+testbench="$1"
+PARENT="$2"
+
+echo "Running ABACUS v1.0.0 flow using $testbench as config file"
+echo "Running on Single Process"
+
+if [ ! -f "$testbench" ] || [ -z "$PARENT" ]; then
+    echo "Error: testbench configuration file not found!" >&2
+    echo "... Run this script with \"/bin/bash run_ABACUS_flow testbench.config 0\""
+    echo "... See documentation for how to setup testbench.config"
+    exit 1
+fi
+
+source $testbench
+
+export CUR_DIR=`pwd`
+
+if [ ! -f $ORG_DIR'/'$DESIGN_NAME'.v' ]; then
+    echo "Error: Cannot locate the original input verilog source!" >&2
+    echo "... Note, do not include \'.v\' when defining DESIGN_NAME variable." >&2
+    exit 1
+else
+    ORG_VFILE=$CUR_DIR'/'$DESIGN_NAME
+    cp	$ORG_DIR'/'$DESIGN_NAME'.v' 	$ORG_VFILE'.v'
+fi
+
+# Number of Generations before termination: Num_Generation
+# Number of design variants in the first generation (NSGA2 Hybrid): Num_perGen_1st_gen
+# Number of design variants from the second generation (NSGA2 Hybrid): Num_perGen_2ndandup
+# Number of designs selected from each generation (NSGA2 Hybrid): Num_sel
+# Number of simulation test cases: Num_testCases
+
+if [ -z "$Num_Generation" ] || [ -z "$Num_perGen_1st_gen" ] \
+   || [ -z "$Num_perGen_2ndandup" ] || [ -z "$Num_sel" ] || [ -z "$Num_testCases" ]; then
+    echo "Error: Missing one or more of the following variables:" >&2
+    echo -n "Num_Generation, Num_perGen_1st_gen, " >&2
+    echo "Num_perGen_2ndandup, Num_sel, Num_testCases." >&2
+    exit 1
+fi
+
+# Folder for simulation and synthesis source code:
+#SOURCE_FOLDER=`awk '{if($1 == "SOURCE_FOLDER"){print $3}}' $testbench`
+if [ ! -d $SOURCE_FOLDER ]; then
+    echo "Error: Directory for simulation and synthesis source code not found!" >&2
+    exit 1
+fi
+
+# Simulation Files #####################################
+# Simulator switch 1 for verilator, 0 for modelsim (defaults to Verilator)
+if [ -z "$VERILATOR" ]; then
+    echo "Warning: Simulator switch not defined. Default to Verilator."
+    VERILATOR=1;
+fi
+#SIMULATION_DIR=`awk '{if($1 ~ /SIMULATION_DIR/){print $2}}' $testbench`
+if [ ! -d $SIMULATION_DIR ]; then
+    echo -n "Error: Simulation directory NOT found. You need to define a valid"
+    echo " directory for simulation."
+    exit 1
+fi
+if (( VERILATOR==0 )); then
+#    VSIMFILE=`awk '{if($1 ~ /VSIMFILE/){print $3}}' $testbench`
+    for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+    do  
+        if [ ! -f $SIMULATION_DIR/testcase$SimFile/$VSIMFILE ]; then
+            echo "$SIMULATION_DIR/testcase$SimFile/$VSIMFILE"
+            echo "Error: Modelsim simulation file not found for testcase # $SimFile"
+            exit 1
+        fi
+    done
+else
+    if [ -z "$VERILATOR_RULE" ] || [ -z "$VERILATOR_MAKE_RULE" ] \
+        || [ -z "$VERILATOR_EXECUTABLE" ] || [ -z "$VERILATOR_EXEC_RULE" ]; then
+        echo "Error: missing one or more Verilator variable definitions." >&2
+        echo -n "... Check definitions for VERILATOR_RULE, VERILATOR_MAKE_RULE, " >&2
+        echo "VERILATOR_EXECUTABLE, VERILATOR_EXEC_RULE." >&2
+        exit 1
+    fi
+fi
+#SIMULATION_OUTPUT_FILES
+if [ -z "$SIMULATION_OUTPUT_FILES" ]; then
+    echo "Error: simulation output files are not specified." >&2
+    echo "... \'SIMULATION_OUTPUT_FILES\' must be defined."
+    exit 1
+fi
+
+# Synthesis Files ######################################
+#SYNTH_DIR
+#SYNTH_FILE
+#SYNTH_FILE_0_8
+if  [ ! -d $SYNTH_DIR ] || [ ! -f $SYNTH_DIR/$SYNTH_FILE ] \
+    || [ ! -f $SYNTH_DIR/$SYNTH_FILE_0_8 ]; then
+    echo "Error: synthesis directory and/or file not found!" >&2
+    exit 1
+fi
+#PWR_RPT
+#AREA_RPT
+#STA_RPT
+#PWR_RPT_0_8
+#AREA_RPT_0_8
+#STA_RPT_0_8
+if [ -z "$PWR_RPT" ] || [ -z "$AREA_RPT" ] || [ -z "$STA_RPT" ] \
+    || [ -z "$PWR_RPT_0_8" ] || [ -z "$AREA_RPT_0_8" ] \
+    || [ -z "$STA_RPT_0_8" ]; then
+    echo "Error: missing PWR_RPT or AREA_RPT or STA_RPT definition." >&2
+    exit 1
+fi
+
+# RULE to evaluate simulation and synthesis results ##############################
+if [ -z "$QOS" ]; then
+    echo "Error: missing one or more results evaluation methods." >&2
+    echo "... Check definitions for QOS." >&2
+    exit 1
+fi
+
+# ABACUS Executable ####################################
+ABACUS_DIR=$CUR_DIR"/ABACUS"
+CRITICAL_PATH=$CUR_DIR"/ABACUS/SRC/test.txt"
+if  [ ! -d $ABACUS_DIR ] || [ ! -f $CRITICAL_PATH ]; then
+    echo "Error: ABACUS directory and/or critical path file not found!" >&2
+    exit 1
+fi
+
+# Population Directory for saving intermediate design ##
+#POP_DIR
+if [ -d $POP_DIR ]; then
+    rm -rf $POP_DIR/* 2> /dev/null
+fi
+
+# Report Folders #######################################
+#ORG_DIR
+if [ ! -d "$ORG_DIR" ]; then
+    echo "Error: Directory for original design not found." >&2
+    echo "... Check variable ORG_DIR." >&2
+    exit 1
+fi
+
+for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+do  
+    mkdir $ORG_DIR/testcase$SimFile 2> /dev/null
+done
+
+####### DC_SHELL PIPE #########
+# pipe to dc_shell:
+SYNTH_PIPE=$CUR_DIR"/synthesis_pipe"
+# CREATE a pipe to dc_shell and keep it open:
+if [ ! -p $SYNTH_PIPE ]; then
+    mkfifo $SYNTH_PIPE
+fi
+# keep dc_shell running in the background: 
+if [ -f $CUR_DIR/dc_shell_tmp ]; then
+    rm $CUR_DIR/dc_shell_tmp 2> /dev/null
+fi
+cd $SYNTH_DIR
+nohup dc_shell < $SYNTH_PIPE > $CUR_DIR/dc_shell_tmp 2>&1 &
+echo $! > $CUR_DIR/save_pid.txt
+# Open the pipe:
+exec 3> $SYNTH_PIPE
+cd $CUR_DIR
+
+########## END PIPE ###########
+
+if [ -f runtime.log ]; then
+    rm runtime.log
+fi
+
+# Minimum acceptable of power reduction percentage
+power_threshold=-10
+area_threshold=-10
+file_count_threshold=10
+Gen_Repeat=0
+Gen_Repeat_limit=5 #was 5
+File_Repeat=0
+accuracy_fail_ctr=0
+File_Repeat_limit=30 #was 5
+sim_stat="-1"
+syn_stat="-1"
+unconstrained=0;
+echo "--------------------------------------------------------------------------"
+date;
+echo "Evolution start. Orignal design set."
+echo "--------------------------------------------------------------------------"
+start0=`date +%s`
+Num_perGen=$Num_perGen_1st_gen;
+
+# First process original design or the selected approximate design for the next generation
+# Call DesignCompiler for synthesis
+if (( PARENT==0 )); then
+    echo "--------------------------------------------------------------------------"
+    echo "Processing parent mutant for Generation $Generation"
+    echo -e '\nSynthesising...'
+    cd $SYNTH_DIR
+    if [ -f $PWR_RPT ]; then
+        rm $PWR_RPT
+    fi
+    if [ -f $AREA_RPT ]; then
+        rm $AREA_RPT
+    fi
+    if [ -f $STA_RPT ]; then
+        rm $STA_RPT
+    fi
+    cp $ORG_DIR/*.v $SOURCE_FOLDER/
+    awk -v eof=$(wc -l < $SYNTH_FILE) '{if(NR>eof){}else{print $0}}' $SYNTH_FILE > $SYNTH_PIPE
+
+    start_time=`date +%s`
+    for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+    do
+        # Call Verilator/Vsim for simulation
+        echo 'Simulating testcase # '$SimFile
+        cd $SIMULATION_DIR/testcase$SimFile
+        if ((VERILATOR==0)); then
+            vsim -c -do $VSIMFILE > $CUR_DIR/"sim_log"$SimFile".txt"
+        else
+            if (( SimFile==1 )); then
+                if [ -d obj_dir ]; then
+                    rm -rf obj_dir
+                fi
+
+                # run Verilator to translate Verilog into C++, include C++ testbench
+                eval $VERILATOR_RULE
+                # build the C++ project
+                eval $VERILATOR_MAKE_RULE
+                #mv obj_dir/V$DESIGN_NAME .
+            else
+                cp $SIMULATION_DIR/testcase1/$VERILATOR_EXECUTABLE .
+            fi
+
+            eval $VERILATOR_EXEC_RULE
+        fi
+        mv $SIMULATION_OUTPUT_FILES $ORG_DIR/testcase$SimFile/
+        echo 'Simulation done.'
+    done
+    end_time=`date +%s`
+    echo `expr $end_time - $start_time` >> $CUR_DIR/simulation.log
+
+    start_time=`date +%s`
+    cd $SYNTH_DIR
+    echo "Waiting for results from dc_shell (VDD=1.0V)"
+    while [ ! -f $PWR_RPT ] ;
+    do
+        sleep 0.2
+    done
+    while [ ! -f $AREA_RPT ] ;
+    do
+        sleep 0.2
+    done
+    while [ ! -f $STA_RPT ] ;
+    do
+        sleep 0.2
+    done
+    mv $PWR_RPT $AREA_RPT $STA_RPT $ORG_DIR/
+    end_time=`date +%s`
+    echo `expr $end_time - $start_time` >> $CUR_DIR/synthesis.log
+    echo "Done waiting."
+    echo 'Synthesis done.'
+fi
+
+SYNTAX_ERROR_COUNT=0
+echo "" > $ABACUS_DIR/SRC/test.txt
+cd $CUR_DIR
+echo "------- ABACUS mutation flow begins ----------"
+for ((Generation=1; Generation<=$Num_Generation; Generation++));
+do
+    if ((Generation>1)); then
+		Num_perGen=$Num_perGen_2ndandup;
+	fi
+
+ 	#cd DataAnalyze
+ 	echo -e -n "#File_Name\tMean_Accuracy(%)\t" > $POP_DIR'/FilesInfo_G'$Generation'.txt'
+    echo -e -n "Min_Accuracy(%)\tArea_Saving(%)\t" >> $POP_DIR'/FilesInfo_G'$Generation'.txt'
+    echo -e -n "Power_Saving(%)\tNet_Slack(ns)" >> $POP_DIR'/FilesInfo_G'$Generation'.txt'
+    echo -e "\tAdditional_Savings(%)\n" >> $POP_DIR'/FilesInfo_G'$Generation'.txt'
+    #cd ..
+    for ((SelNo=1; SelNo<=$Num_sel; SelNo++));
+    do
+	    if ((Generation>1)); then
+		    if [ -f $SOURCE_FOLDER/$DESIGN_NAME$SelNo.v ]; then
+		        mv $SOURCE_FOLDER/$DESIGN_NAME$SelNo.v $CUR_DIR/$DESIGN_NAME.v
+		    fi
+        fi
+
+	    if ((Generation==1)); then
+		    Num_perGen=$Num_perGen_1st_gen;
+	    else
+            Num_perGen=$Num_perGen-1;
+	    fi
+
+	    for ((VlogFile=1; VlogFile<=$Num_perGen; VlogFile++));
+        do
+            echo "--------------------------------------------------------------------"
+  		    echo "Generation $Generation Selection $SelNo File No.$VlogFile"
+
+      		# Call the ABACUS tool to do approximation
+            cd $CUR_DIR
+ 
+            ABACUS_stat=''
+  		    #ABACUS_stat=`/usr/bin/time -f "%e" -o $CUR_DIR/timed $ABACUS_DIR/ABACUS -V $ORG_VFILE.v -A \
+            #            | awk '{if($1~/Succesful/) print $1 }'`
+  		    { time -p $ABACUS_DIR/ABACUS -V $ORG_VFILE.v -C $ABACUS_DIR/SRC/test.txt -A > $CUR_DIR/tmp 2>&1 ; } 2> $CUR_DIR/time.txt
+  		    ABACUS_stat=`awk '{if($1~/Succesful/) print $1 }' $CUR_DIR/tmp`
+  	    	echo "ABACUS Stat: "$ABACUS_stat
+            awk 'NR==1 {print $2}' $CUR_DIR/time.txt >> $CUR_DIR/abacus.log
+
+  		    # Move modified Verilog file to directory
+  		    if [ "$ABACUS_stat" == "Succesful" ]; then
+
+                mv $ORG_VFILE'_fromAST.v' $SOURCE_FOLDER/$DESIGN_NAME'.v'
+                #cp $ORG_DIR/$DESIGN_NAME.v $SOURCE_FOLDER/$DESIGN_NAME'.v'
+  		    else
+                echo "ABACUS failed, repeat Generation $Generation Selection $SelNo File $VlogFile."
+                ((File_Repeat++));
+                if (( File_Repeat > File_Repeat_limit )); then
+                    echo -n "File repeat time exceeded, cannot get an acceptable approximate, "
+                    echo "move on to fitness evaluation for Generation $Generation Selection $SelNo..."
+                    File_Repeat=0;
+                    break;
+                fi
+                ((VlogFile--));
+                continue;
+            fi
+
+            start_time=`date +%s` 
+            for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+            do
+                # Call Verilator/Vsim for simulation
+                echo 'Simulating testcase # '$SimFile
+                cd $SIMULATION_DIR/testcase$SimFile
+
+                if [ -f $VERILATOR_EXECUTABLE ]; then
+                    rm $VERILATOR_EXECUTABLE
+                fi
+                
+                echo "Remove output files from previous simulations (if they exist)"
+                rm $SIMULATION_OUTPUT_FILES 2> /dev/null
+
+                if ((VERILATOR==0)); then
+                    SYNTAX_ERROR=""
+                    vsim -c -do $VSIMFILE > $CUR_DIR/tmp 2>&1
+                    SYNTAX_ERROR=`awk '/Error/ {print 1; exit;}' $CUR_DIR/tmp`
+                else
+                    if (( SimFile==1 )); then
+                        if [ -d obj_dir ]; then
+                            rm -rf obj_dir
+                        fi
+                        # run Verilator to translate Verilog into C++, include C++ testbench
+                        SYNTAX_ERROR=''
+                        eval $VERILATOR_RULE > $CUR_DIR/tmp 2>&1
+                        SYNTAX_ERROR=`awk '{if($1 ~ /Error/){print 1; exit;} else if (getline == 0){ print 0}}' $CUR_DIR/tmp`
+                        if (( SYNTAX_ERROR==1  )); then
+                            break;
+                        fi
+
+                        # build the C++ project
+                        SYNTAX_ERROR=''
+                        eval $VERILATOR_MAKE_RULE > $CUR_DIR/tmp 2>&1
+                        SYNTAX_ERROR=`awk '{if($1 ~ /Error/){print 1; exit;} else if (getline == 0){ print 0}}' $CUR_DIR/tmp`
+                        if (( SYNTAX_ERROR==1  )); then
+                            break;
+                        fi
+
+                    else
+                        cp $SIMULATION_DIR/testcase1/$VERILATOR_EXECUTABLE  .
+                    fi
+                    eval $VERILATOR_EXEC_RULE
+                fi
+                echo 'Simulation done.'
+            done
+            end_time=`date +%s`
+            echo `expr $end_time - $start_time` >> $CUR_DIR/simulation.log
+
+            # If ABACUS generates syntax error:
+            if (( SYNTAX_ERROR==1 )); then
+                echo "Either ABACUS generated syntax error or the approximated circuit has error."
+                ((SYNTAX_ERROR_COUNT++));
+                ((VlogFile--));
+                cd $CUR_DIR
+                continue;
+            fi
+
+            # Evaluate the quality of solution
+            sim_output=`echo $SIMULATION_OUTPUT_FILES | awk '{print $1}'`
+            if [ -f $SIMULATION_DIR/testcase1/$sim_output ]; then
+                echo -e '\nPre-select data analysis...'
+                cd $DESIGN_DIR
+
+                # Evaluate mutant's accuracy:
+                #TIME_CMD="/usr/bin/time -f \"%e\" -o $CUR_DIR/timed $QOS > $CUR_DIR/tmp0 2>&1"
+                TIME_CMD="{ time -p $QOS > $CUR_DIR/tmp0 2>&1 ; } 2> $CUR_DIR/time.txt"
+                eval $TIME_CMD
+                awk 'NR==1 {print $2}' $CUR_DIR/time.txt >> $CUR_DIR/evaluation.log
+                #cat $CUR_DIR/timed >> $CUR_DIR/evaluation.log
+
+                sim_stat=`awk 'END{if ($1 ~ /success/){print "0";} else if (getline == 0){print "-1"}}' $CUR_DIR/tmp0`
+                if [ "$sim_stat" == "0" ]; then
+                    echo 'Data analysis passed, start synthesis...'
+
+                    # Call DesignCompiler for synthesis
+                    cd $SYNTH_DIR
+                    if [ -f $PWR_RPT ]; then
+                        rm $PWR_RPT
+                    fi
+                    if [ -f $AREA_RPT ]; then
+                        rm $AREA_RPT
+                    fi
+                    #if [ -f $STA_RPT ]; then
+                    #    rm $STA_RPT
+                    #fi
+
+                    start_time=`date +%s` 
+                    awk -v eof=$(wc -l < $SYNTH_FILE) '{if(NR>eof){}else{print $0}}' $SYNTH_FILE > $SYNTH_PIPE
+                    echo "Waiting for results from dc_shell (VDD=1.0V)"
+                    while [ ! -f $PWR_RPT ] ;
+                    do
+                        sleep 0.2
+                    done
+                    while [ ! -f $AREA_RPT ] ;
+                    do
+                        sleep 0.2
+                    done
+                    while [ ! -f $STA_RPT ] ;
+                    do
+                        sleep 0.2
+                    done
+                    echo "Done waiting."
+                    end_time=`date +%s`
+                    echo `expr $end_time - $start_time` >> $CUR_DIR/synthesis.log
+
+                    if ((VlogFile==1 && Generation>1)); then
+                    #--Added critical path identification part--
+                        cp_slack_mod=`cat $SYNTH_DIR/$STA_RPT | awk '{if ($1=="slack") print $3}' | head -1`
+                        cp_count_mod=`cat $SYNTH_DIR/$STA_RPT | awk -v cp_slack_mod=$cp_slack_mod '{if ($3==cp_slack_mod) print "CP identified"}' | wc -l`
+                        cp_total_regs_mod=$(echo "($cp_count_mod * 2)+10" | bc -l)
+                        
+                        critical_path_mod=`cat output1/sta_stp_rpt | awk '{if ($1=="Startpoint:" || $1=="Endpoint:") print $2}'\
+                            | head -$cp_total_regs_mod | awk -F '_reg\\\[' '{print $1}' | awk -F '\\\/' '{print $1}'`
+                        if [ -z "$critical_path_mod" ]; then
+                            echo 'Problem with critical path identification'
+                        else
+                            echo 'Critical path identified'
+                            echo "$critical_path_mod" > "$ABACUS_DIR/SRC/test.txt"
+                        fi
+                        #--Critical path identification end--
+                    fi       
+
+                    # Derive area & power saving data.
+                    org_area=`cat $ORG_DIR/$AREA_RPT | grep 'Total cell area' | awk '{print $4}'`
+                    mod_area=`cat $AREA_RPT | grep 'Total cell area' | awk '{print $4}'`
+                    #area_saving=$(echo $org_area - $mod_area | bc)
+                    
+                    org_dyn_pwr=`cat $ORG_DIR/$PWR_RPT | grep 'Total Dynamic Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                    org_leakage=`cat $ORG_DIR/$PWR_RPT | grep 'Cell Leakage Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                    org_total_pwr=$(echo $org_dyn_pwr + $org_leakage | bc)
+                    echo 'Original Total Pwr: '$org_total_pwr
+
+                    mod_dyn_pwr=`cat $PWR_RPT | grep 'Total Dynamic Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                    mod_leakage=`cat $PWR_RPT | grep 'Cell Leakage Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                    mod_total_pwr=$(echo $mod_dyn_pwr + $mod_leakage | bc)
+                    echo 'Initial Modified Total Power: ' $mod_total_pwr
+
+                    #pwr_saving=$(echo $org_total_pwr - $mod_total_pwr | bc)
+
+                    org_slack=`cat $ORG_DIR/$STA_RPT | grep 'slack (MET)' | head -1 | awk '{print $3}'`
+                    echo 'Original circuit slack: '$org_slack
+                    mod_slack=`cat $STA_RPT | grep 'slack (MET)' | head -1 | awk '{print $3}'`
+                    echo 'Modified circuit slack: '$mod_slack
+                    
+                    if [ -z "$mod_slack" ]; then
+                        echo "Path became unconstrained, no slack data found! Repeat."
+                        ((VlogFile--));
+
+                        head -n -1 $POP_DIR/FilesInfo_G$Generation.txt > $POP_DIR/tmp
+                        mv $POP_DIR/tmp $POP_DIR/FilesInfo_G$Generation.txt
+                        ((unconstrained++));
+                        cp $SOURCE_FOLDER/$DESIGN_NAME.v $SOURCE_FOLDER/un_$DESIGN_NAME$unconstrained.v
+                        cp $STA_RPT $SOURCE_FOLDER/unconstrained$unconstrained
+                        cd $CUR_DIR
+                        continue;
+                        #org_slack=0
+                        #mod_slack=0
+                        #final_mod_pwr="$mod_total_pwr"
+                        #extra_savings=0
+                    else
+                        net_slack=$(echo $mod_slack - $org_slack | bc)
+                        echo 'net_slack_1.0: '$net_slack
+                        
+                        #-------take the netlist and synthesize against other 
+                        #voltage corners to get interpolated power value based on timing slack-------
+                        if [ -f $PWR_RPT_0_8 ]; then
+                            rm $PWR_RPT_0_8
+                        fi
+                        if [ -f $AREA_RPT_0_8 ]; then
+                            rm $AREA_RPT_0_8
+                        fi
+                        #dc_shell -f ./run_synth_VDD_0_8.tcl > ./output1/syn_VDD_0_8.txt
+                        start_time=`date +%s`
+                        awk -v eof=$(wc -l < $SYNTH_FILE_0_8) '{if(NR>eof){}else{print $0}}' $SYNTH_FILE_0_8 > $SYNTH_PIPE
+                        echo "Waiting for results from dc_shell (VDD = 0.8V)"
+                        while [ ! -f $PWR_RPT_0_8 ] ;
+                        do
+                            sleep 0.2
+                        done
+                        while [ ! -f $AREA_RPT_0_8 ] ;
+                        do
+                            sleep 0.2
+                        done
+                        while [ ! -f $STA_RPT_0_8 ] ;
+                        do
+                            sleep 0.2
+                        done
+                        echo "Done waiting."
+                        end_time=`date +%s`
+                        echo `expr $end_time - $start_time` >> $CUR_DIR/synthesis.log
+
+                        mod_slack_0_8=`cat $STA_RPT_0_8 | grep 'slack' | head -1 | awk '{print $3}'`
+                        net_slack_0_8=$(echo $mod_slack_0_8 - $org_slack | bc)
+                        echo 'net_slack_0_8: '$net_slack_0_8
+
+                        mod_dyn_pwr_0_8=`cat $PWR_RPT_0_8 | grep 'Total Dynamic Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                        mod_leakage_0_8=`cat $PWR_RPT_0_8 | grep 'Cell Leakage Power' | awk '{if ($6 ~ /uW/) print ($5/1000); else print $5}'`
+                        mod_total_pwr_0_8=$(echo $mod_dyn_pwr_0_8 + $mod_leakage_0_8 | bc)
+
+                        echo 'mod_total_pwr_0_8: '$mod_total_pwr_0_8
+                        #echo 'Checkpoint 4'
+
+                        if [ -z "$mod_total_pwr_0_8" ] || [ -z "$mod_total_pwr" ]; then
+                            echo "Empty variable! Redoing loop iteration"
+                            ((VlogFile--));
+                            cd $CUR_DIR
+                            continue;
+                        fi
+
+                        #if [ $(echo "$mod_slack_0_8 > $org_slack" | bc -l) -eq 1 ]; then
+                        #    Vs=0.8
+                        #else
+                        #    Vs=$(echo "(( 0.2 *($org_slack - $mod_slack_0_8)) / ($mod_slack - $mod_slack_0_8))" | bc)
+                        #fi
+
+                        #slack_converted_pwr=$(echo "scale=4;(($Vs - 0.8) * ($mod_total_pwr - $mod_total_pwr_0_8) / 0.2) + $mod_total_pwr_0_8" | bc)
+                        if [ $(echo "$mod_slack_0_8 > $org_slack" | bc -l) -eq 1 ]; then
+                            Vs=0.8
+                        else
+                            Vs=$(echo "scale=4;(( 0.2 *($org_slack - ($mod_slack_0_8))) / ($mod_slack - ($mod_slack_0_8))) + 0.8" | bc)
+                        fi
+
+                        slack_converted_pwr=$(echo "scale=4;(($Vs - 0.8) * ($mod_total_pwr - $mod_total_pwr_0_8) / 0.2) + $mod_total_pwr_0_8" | bc)
+                        #echo 'Checkpoint 5.5'
+                        echo 'Slack_converted_pwr: '$slack_converted_pwr
+                        #echo 'Mod_total_pwr: '$mod_total_pwr
+
+                        if [ $(echo "$net_slack > 0" | bc -l) -eq 1 ]; then
+                           if [ $(echo "$slack_converted_pwr < $mod_total_pwr" | bc -l) -eq 1 ]; then
+                               if [ $(echo "$slack_converted_pwr > 0" | bc -l) -eq 1 ]; then
+                                    final_mod_pwr=$slack_converted_pwr
+                                    extra_savings=$(echo $mod_total_pwr - $slack_converted_pwr | bc -l)
+                               else
+                                    final_mod_pwr=$mod_total_pwr
+                                    extra_savings=0
+                               fi
+                           else
+                               final_mod_pwr=$mod_total_pwr
+                               extra_savings=0
+                           fi
+                        else
+                           final_mod_pwr=$mod_total_pwr
+                           extra_savings=0
+                        fi
+
+                        echo 'Final mod_pwr: '$final_mod_pwr
+                    fi # slack_valid
+
+                    #-------end slack conversion to power--------
+
+                    #echo -e -n "Generation\tArea_threshold\tPower_threshold\tOrg_Area\t" > $SYNTH_DIR/report.txt
+                    #echo -e "Mod_Area\tOrg_pwr\tMod_pwr\tExtra_saving\tOrg_slack\tMod_slack" >> $SYNTH_DIR/report.txt
+                    #echo -e -n "$Generation\t$area_threshold\t$power_threshold\t$org_area\t" >> $SYNTH_DIR/report.txt
+                    #echo -e -n "$mod_area\t$org_total_pwr\t$final_mod_pwr\t$extra_savings" >> $SYNTH_DIR/report.txt
+                    #echo -e "\t$org_slack\t$mod_slack" >> $SYNTH_DIR/report.txt
+                    
+                    cd $CUR_DIR
+                    syn_stat=`sh $CUR_DIR/savings.sh $POP_DIR/FilesInfo_G$Generation.txt $org_area \
+                            $mod_area $org_total_pwr $final_mod_pwr $extra_savings \
+                            $org_slack $mod_slack $POP_DIR`
+                    echo "syn_stat $syn_stat"
+                    syn_stat=`echo $syn_stat | awk '{if($1 == "0"){print $1;}}'`
+                    #cat $REPORT_DIR/FilesInfo_G"$Generation".txt | \
+                    #    awk '{if($5 != "0") print $1"\t\t"$2"\t\t"$3"\t\t"$4"\t\t"$5"\t\t"$6"\t\t"$7}' \
+                    #    > $CUR_DIR/FilesInfo_G"$Generation"_tmp.txt
+                    #mv $CUR_DIR/DataAnalyze/Data/FilesInfo_G"$Generation"_tmp.txt \
+                    #            $REPORT_DIR/FilesInfo_G"$Generation".txt
+                    #valid_file_count=`wc -l 'DataAnalyze/Data/FilesInfo_G'$Generation'.txt' | awk '{print $1}'`
+
+                    if [ "$syn_stat" == "0" ]; then
+                        echo 'Synthesis done!'
+                        echo "--------------------------------------------------------------------"
+                        # Save current mutant to Population.
+
+                        cp $SOURCE_FOLDER/$DESIGN_NAME'.v' $POP_DIR/$DESIGN_NAME"_G"$Generation"_S"$SelNo"_F"$VlogFile.v
+                        File_Repeat=0;
+                    else
+                        echo "Data analysis failed, repeat Generation $Generation Selection $SelNo File $VlogFile."
+                        ((accuracy_fail_ctr++));
+                        if (( valid_file_count > file_count_threshold  )); then
+                            echo "Numbers of files needed for pareto selection reached"
+                            cd $CUR_DIR
+                            break;
+                        fi
+
+                        ((VlogFile--));
+                        cd ..
+                    fi
+                else
+  					echo "Data analysis failed, repeat Generation $Generation Selection $SelNo File $VlogFile."
+  					((accuracy_fail_ctr++));
+  					if ((Generation==1)); then
+                        if (( valid_file_count > file_count_threshold  )); then
+                            echo "Numbers of files needed for pareto selection reached"
+                            cd ..
+                            break;
+                        fi
+  					    
+  					    ((VlogFile--));
+                    else
+  					    ((File_Repeat++));
+                        if (( File_Repeat > File_Repeat_limit )); then
+  						    echo "File repeat time exceeded, cannot get an acceptable approximate, move on to fitness evaluation for Generation $Generation..."
+  						    File_Repeat=0;
+  						    cd ..
+  						    break;
+  					    fi
+  					    ((VlogFile--));
+  					fi
+  				fi
+  			else
+  				# If invalid svm.v file, get another one for this iteration
+  				echo -e "\nSimulation failed, repeat Generation $Generation Selection $SelNo File $VlogFile."
+  				if ((Generation==1)); then
+                    if (( valid_file_count > file_count_threshold  )); then
+                        echo "Numbers of files needed for pareto selection reached"
+                        break;
+                    fi
+ 					((VlogFile--));
+                else
+                    ((File_Repeat++));
+  				    if (( File_Repeat > File_Repeat_limit )); then
+  					    echo "File repeat time exceeded, cannot get an acceptable"\ 
+                            "approximate, move on to fitness evaluation for Generation $Generation..."
+  					    File_Repeat=0;
+  					    break;
+  				    fi
+  				    ((VlogFile--));
+  				fi
+  			fi
+ 	done
+	
+	if ((Generation==1)); then
+		SelNo=$Num_sel;
+	fi
+    done
+                    
+ 
+ 	# Do fitness evaluation for one generation, and if none acceptable repeat this generation
+    echo "--------------------------------------------------------------------"
+    echo 'Fitness evaluation...'
+    evolve='-1';
+    evolve=`echo "sh $CUR_DIR/fitness_evaluation.sh $Generation $DESIGN_NAME $DESIGN_DIR $ACC_THRESHOLD $ACC_COEF $PWR_COEF $AREA_COEF" \
+          | sh | awk '{if ($1 ~ /Error/) {print "Error"; exit;}}'`
+
+    awk '!($3 in arr) {print} {arr[$3]++}' $CUR_DIR/mat2py.txt > $CUR_DIR/mat2py_new_nodist.txt
+    
+    stty echo
+    #cd DataAnalyze
+    
+    #if ((Generation<$Num_Generation)); then
+    #	rm -rf mat2py.txt
+    #fi
+
+    if  [ "$evolve" == "Error" ]; then
+        echo "All mutants are of lower accuracy than desired, repeat Generation $Generation..."
+        ((Gen_Repeat++));
+        if (( Gen_Repeat > Gen_Repeat_limit )); then
+            echo "Generation repeat time exceeded, flow teminates at Generation $Generation..."
+            break;
+        fi
+        ((Generation--));
+    else
+        #evolve_python=`/usr/bin/time -f "%e" -o $CUR_DIR/timed python $CUR_DIR/test_nsga2_hybrid.py > $CUR_DIR/test_nsga2_$Generation.txt`
+        { time -p python $CUR_DIR/test_nsga2_hybrid.py > $CUR_DIR/test_nsga2_$Generation.txt ; } 2> $CUR_DIR/time.txt
+        #cat $CUR_DIR/timed >> $CUR_DIR/evaluation.log
+        awk 'NR==1 {print $2}' $CUR_DIR/time.txt >> $CUR_DIR/evaluation.log
+
+        if [ -f $SOURCE_FOLDER/$DESIGN_NAME'5.v' ]; then
+            rm -r $SOURCE_FOLDER/$DESIGN_NAME'5.v'
+        fi
+        echo 'Fitness evaluation done.'
+        echo "--------------------------------------------------------------------"
+        Gen_Repeat=0;
+    fi
+done
+
+stop0=`date +%s`
+echo `expr $stop0 - $start0` >> $CUR_DIR/runtime.log  
+
+echo "--------------------------------------------------------------------"
+echo 'Flow completed!'
+echo 'Accuracy fail ctr: '$accuracy_fail_ctr > $CUR_DIR/accuracy_fail_ctr.txt
+echo 'Syntax error ctr: '$SYNTAX_ERROR_COUNT >> $CUR_DIR/accuracy_fail_ctr.txt
+date;
+echo "--------------------------------------------------------------------"
+
+########## PIPE ############## // ADDED BY CHHAY
+if [ -f $CUR_DIR/keep_pipe_open ]; then
+    rm $CUR_DIR/keep_pipe_open
+fi
+# close the pipe:
+exec 3>&-
+# delete all the created pipe
+if [ -p $SYNTH_PIPE ]; then
+    rm $SYNTH_PIPE
+fi    
+########## PIPE #################
