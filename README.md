@@ -1,6 +1,6 @@
 # ABACUS
 
-ABACUS stands for Automated Behavioral Approximate CircUit Synthesis. This tool enables the designer to
+ABACUS stands for Automated Behavioral Approximate CircUit Synthesis. This approximate logic synthesis tool enables the designer to
 explore the approximated design space of arbitrary high-level Verilog input. ABACUS, in an automated
 fashion, generates optimal approximate variants of an accurate hardware, using a recursive stochastic
 evolutionary algorithm. For more details please visit our publications:
@@ -47,7 +47,7 @@ Synthesis Tool for CAD Research," Field-Programmable Custom Computing Machines (
 IEEE Annual International Symposium on, Charlotte, NC, 2010, pp. 149-156.
 
 # Compilation
-- First compile libvpr_6 by going to trunk/libvpr_6 and type "make".
+- First compile libvpr_6 by going to trunk/libvpr_6 and type "make". You might need to install libc6-dev-i386 first.
 - Then go to trunk/ABACUS and type "make clean && make".
 
 # Files in The Repository
