@@ -679,7 +679,7 @@ do
     echo "--------------------------------------------------------------------"
     echo 'Fitness evaluation...'
     evolve='-1';
-    evolve=`echo "sh $CUR_DIR/fitness_evaluation.sh $Generation $DESIGN_NAME $DESIGN_DIR $ACC_THRESHOLD $ACC_COEF $PWR_COEF $AREA_COEF" \
+    evolve=`echo "bash $CUR_DIR/fitness_evaluation.sh $Generation $DESIGN_NAME $DESIGN_DIR $ACC_THRESHOLD $ACC_COEF $PWR_COEF $AREA_COEF" \
           | sh | awk '{if ($1 ~ /Error/) {print "Error"; exit;}}'`
 
     awk '!($3 in arr) {print} {arr[$3]++}' $CUR_DIR/mat2py.txt > $CUR_DIR/mat2py_new_nodist.txt
