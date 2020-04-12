@@ -49,7 +49,7 @@ IEEE Annual International Symposium on, Charlotte, NC, 2010, pp. 149-156.
 # Compilation
 - First compile libvpr_6 by going to trunk/libvpr_6 and type "make". You might need to install libc6-dev-i386 first.
 - Then go to trunk/ABACUS and type "make clean && make".
-- go to trunk and chmod 755 run_abacus_flow, and all *.sh files.
+
 # Files in The Repository
 
 Directories:
