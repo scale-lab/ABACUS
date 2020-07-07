@@ -1,0 +1,34 @@
+#!/bin/bash
+VERILATOR_RULE="verilator -Wno-lint --cc fft_test.v $2/fft.v --exe fft_test.cpp"
+VERILATOR_MAKE_RULE="make -j -C obj_dir/ -f Vfft_test.mk Vfft_test && mv obj_dir/Vfft_test ./Vfft"
+VERILATOR_EXECUTABLE=Vfft
+VERILATOR_EXEC_RULE="./Vfft"
+# Output files
+SIMULATION_OUTPUT_FILES="outfft.txt"
+
+mkdir $2/simulation
+Num_testCases=4
+cd $1
+for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+do
+    # Call Verilator/Vsim for simulation
+    echo 'Simulating testcase # '$SimFile
+    cd testcase$SimFile
+    if (( SimFile==1 )); then
+        if [ -d obj_dir ]; then
+            rm -rf obj_dir
+        fi
+
+        # run Verilator to translate Verilog into C++, include C++ testbench
+        eval $VERILATOR_RULE
+        # build the C++ project
+        eval $VERILATOR_MAKE_RULE
+        #mv obj_dir/V$DESIGN_NAME .
+    else
+        cp $1/testcase1/$VERILATOR_EXECUTABLE .
+    fi
+    eval $VERILATOR_EXEC_RULE
+    mkdir $2/simulation/testcase$SimFile
+    mv $SIMULATION_OUTPUT_FILES $2/simulation/testcase$SimFile/
+    cd ..
+done

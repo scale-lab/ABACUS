@@ -1,0 +1,6 @@
+read_verilog SRC/fft.v
+synth -flatten
+dfflibmap -liberty ../gscl45nm.lib
+abc -liberty ../gscl45nm.lib
+opt
+stat -liberty ../gscl45nm.lib
