@@ -1,4 +1,3 @@
-CC = gcc -m32
 
 BUILD = VPR6
 
@@ -29,7 +28,10 @@ else
 endif
 
 FLAGS = $(DEBUG_FLAGS) $(WARN_FLAGS) $(OPT_FLAGS) $(INC_FLAGS)
-C_FLAGS = $(C_DIRECTIVE)
+C_FLAGS = $(C_DIRECTIVE$)
+# modified by sherief
+#CC = gcc -m32
+CC = gcc
 
 YFILES = $(SRC_DIR)/verilog_bison.y
 LFILES = $(SRC_DIR)/verilog_flex.l

@@ -1,4 +1,4 @@
-Terminals which are not used
+Terminals unused in grammar
 
    vNO_ID
    vDEFPARAM
@@ -387,7 +387,7 @@ expression_list (133)
     on left: 146 147, on right: 137 145 146
 
 
-state 0
+State 0
 
     0 $accept: . source_text $end
 
@@ -400,14 +400,14 @@ state 0
     module       go to state 6
 
 
-state 1
+State 1
 
     6 define: vDEFINE . vSYMBOL_ID vNUMBER_ID
 
     vSYMBOL_ID  shift, and go to state 7
 
 
-state 2
+State 2
 
     7 module: vMODULE . vSYMBOL_ID '(' variable_list ')' ';' list_of_module_items vENDMODULE
     8       | vMODULE . vSYMBOL_ID '(' variable_list ',' ')' ';' list_of_module_items vENDMODULE
@@ -416,14 +416,14 @@ state 2
     vSYMBOL_ID  shift, and go to state 8
 
 
-state 3
+State 3
 
     0 $accept: source_text . $end
 
     $end  shift, and go to state 9
 
 
-state 4
+State 4
 
     1 source_text: items .
     2 items: items . module
@@ -438,28 +438,28 @@ state 4
     module  go to state 11
 
 
-state 5
+State 5
 
     5 items: define .
 
     $default  reduce using rule 5 (items)
 
 
-state 6
+State 6
 
     4 items: module .
 
     $default  reduce using rule 4 (items)
 
 
-state 7
+State 7
 
     6 define: vDEFINE vSYMBOL_ID . vNUMBER_ID
 
     vNUMBER_ID  shift, and go to state 12
 
 
-state 8
+State 8
 
     7 module: vMODULE vSYMBOL_ID . '(' variable_list ')' ';' list_of_module_items vENDMODULE
     8       | vMODULE vSYMBOL_ID . '(' variable_list ',' ')' ';' list_of_module_items vENDMODULE
@@ -468,35 +468,35 @@ state 8
     '('  shift, and go to state 13
 
 
-state 9
+State 9
 
     0 $accept: source_text $end .
 
     $default  accept
 
 
-state 10
+State 10
 
     3 items: items define .
 
     $default  reduce using rule 3 (items)
 
 
-state 11
+State 11
 
     2 items: items module .
 
     $default  reduce using rule 2 (items)
 
 
-state 12
+State 12
 
     6 define: vDEFINE vSYMBOL_ID vNUMBER_ID .
 
     $default  reduce using rule 6 (define)
 
 
-state 13
+State 13
 
     7 module: vMODULE vSYMBOL_ID '(' . variable_list ')' ';' list_of_module_items vENDMODULE
     8       | vMODULE vSYMBOL_ID '(' . variable_list ',' ')' ';' list_of_module_items vENDMODULE
@@ -510,7 +510,7 @@ state 13
     variable       go to state 18
 
 
-state 14
+State 14
 
    36 variable: vSYMBOL_ID .
    41         | vSYMBOL_ID . '=' primary
@@ -520,14 +520,14 @@ state 14
     $default  reduce using rule 36 (variable)
 
 
-state 15
+State 15
 
     9 module: vMODULE vSYMBOL_ID '(' ')' . ';' list_of_module_items vENDMODULE
 
     ';'  shift, and go to state 20
 
 
-state 16
+State 16
 
    37 variable: '[' . expression ':' expression ']' vSYMBOL_ID
    38         | '[' . expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']'
@@ -553,7 +553,7 @@ state 16
     primary     go to state 36
 
 
-state 17
+State 17
 
     7 module: vMODULE vSYMBOL_ID '(' variable_list . ')' ';' list_of_module_items vENDMODULE
     8       | vMODULE vSYMBOL_ID '(' variable_list . ',' ')' ';' list_of_module_items vENDMODULE
@@ -563,14 +563,14 @@ state 17
     ','  shift, and go to state 38
 
 
-state 18
+State 18
 
    35 variable_list: variable .
 
     $default  reduce using rule 35 (variable_list)
 
 
-state 19
+State 19
 
    41 variable: vSYMBOL_ID '=' . primary
 
@@ -581,7 +581,7 @@ state 19
     primary  go to state 40
 
 
-state 20
+State 20
 
     9 module: vMODULE vSYMBOL_ID '(' ')' ';' . list_of_module_items vENDMODULE
 
@@ -623,7 +623,7 @@ state 20
     gen_block              go to state 75
 
 
-state 21
+State 21
 
   139 primary: vSYMBOL_ID .
   140        | vSYMBOL_ID . '[' expression ']'
@@ -637,14 +637,14 @@ state 21
     $default  reduce using rule 139 (primary)
 
 
-state 22
+State 22
 
   138 primary: vNUMBER_ID .
 
     $default  reduce using rule 138 (primary)
 
 
-state 23
+State 23
 
   108 expression: voXNOR . expression
 
@@ -667,7 +667,7 @@ state 23
     primary     go to state 36
 
 
-state 24
+State 24
 
   106 expression: voNAND . expression
 
@@ -690,7 +690,7 @@ state 24
     primary     go to state 36
 
 
-state 25
+State 25
 
   107 expression: voNOR . expression
 
@@ -713,7 +713,7 @@ state 25
     primary     go to state 36
 
 
-state 26
+State 26
 
   105 expression: '|' . expression
 
@@ -736,7 +736,7 @@ state 26
     primary     go to state 36
 
 
-state 27
+State 27
 
   110 expression: '^' . expression
 
@@ -759,7 +759,7 @@ state 27
     primary     go to state 36
 
 
-state 28
+State 28
 
   104 expression: '&' . expression
 
@@ -782,7 +782,7 @@ state 28
     primary     go to state 36
 
 
-state 29
+State 29
 
   101 expression: '+' . expression
 
@@ -805,7 +805,7 @@ state 29
     primary     go to state 36
 
 
-state 30
+State 30
 
   102 expression: '-' . expression
 
@@ -828,7 +828,7 @@ state 30
     primary     go to state 36
 
 
-state 31
+State 31
 
   135 expression: '(' . expression ')'
 
@@ -851,7 +851,7 @@ state 31
     primary     go to state 36
 
 
-state 32
+State 32
 
   136 expression: '{' . expression '{' expression '}' '}'
   137           | '{' . expression '{' expression_list '}' '}'
@@ -877,7 +877,7 @@ state 32
     expression_list  go to state 87
 
 
-state 33
+State 33
 
   103 expression: '~' . expression
 
@@ -900,7 +900,7 @@ state 33
     primary     go to state 36
 
 
-state 34
+State 34
 
   109 expression: '!' . expression
 
@@ -923,7 +923,7 @@ state 34
     primary     go to state 36
 
 
-state 35
+State 35
 
    37 variable: '[' expression . ':' expression ']' vSYMBOL_ID
    38         | '[' expression . ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']'
@@ -981,21 +981,21 @@ state 35
     '%'             shift, and go to state 114
 
 
-state 36
+State 36
 
   100 expression: primary .
 
     $default  reduce using rule 100 (expression)
 
 
-state 37
+State 37
 
     7 module: vMODULE vSYMBOL_ID '(' variable_list ')' . ';' list_of_module_items vENDMODULE
 
     ';'  shift, and go to state 115
 
 
-state 38
+State 38
 
     8 module: vMODULE vSYMBOL_ID '(' variable_list ',' . ')' ';' list_of_module_items vENDMODULE
    34 variable_list: variable_list ',' . variable
@@ -1007,7 +1007,7 @@ state 38
     variable  go to state 117
 
 
-state 39
+State 39
 
   145 primary: '{' . expression_list '}'
 
@@ -1031,14 +1031,14 @@ state 39
     expression_list  go to state 87
 
 
-state 40
+State 40
 
    41 variable: vSYMBOL_ID '=' primary .
 
     $default  reduce using rule 41 (variable)
 
 
-state 41
+State 41
 
    54 module_instantiation: vSYMBOL_ID . module_instance
 
@@ -1048,7 +1048,7 @@ state 41
     module_instance  go to state 121
 
 
-state 42
+State 42
 
    67 always: vALWAYS . delay_control statement
 
@@ -1057,7 +1057,7 @@ state 42
     delay_control  go to state 123
 
 
-state 43
+State 43
 
    43 gate_declaration: vAND . gate_instance ';'
 
@@ -1067,7 +1067,7 @@ state 43
     gate_instance  go to state 126
 
 
-state 44
+State 44
 
    42 continuous_assign: vASSIGN . blocking_assignment ';'
 
@@ -1079,7 +1079,7 @@ state 44
     primary              go to state 128
 
 
-state 45
+State 45
 
    68 gen_block: vGENERATE . stmt_list vENDGENERATE
 
@@ -1101,7 +1101,7 @@ state 45
     primary                  go to state 140
 
 
-state 46
+State 46
 
    27 inout_declaration: vINOUT . variable_list ';'
 
@@ -1112,7 +1112,7 @@ state 46
     variable       go to state 18
 
 
-state 47
+State 47
 
    23 input_declaration: vINPUT . variable_list ';'
 
@@ -1123,7 +1123,7 @@ state 47
     variable       go to state 18
 
 
-state 48
+State 48
 
    24 input_declaration: vINPUT_SIGNED . variable_list ';'
 
@@ -1134,7 +1134,7 @@ state 48
     variable       go to state 18
 
 
-state 49
+State 49
 
    44 gate_declaration: vNAND . gate_instance ';'
 
@@ -1144,7 +1144,7 @@ state 49
     gate_instance  go to state 144
 
 
-state 50
+State 50
 
    45 gate_declaration: vNOR . gate_instance ';'
 
@@ -1154,7 +1154,7 @@ state 50
     gate_instance  go to state 145
 
 
-state 51
+State 51
 
    46 gate_declaration: vNOT . gate_instance ';'
 
@@ -1164,7 +1164,7 @@ state 51
     gate_instance  go to state 146
 
 
-state 52
+State 52
 
    47 gate_declaration: vOR . gate_instance ';'
 
@@ -1174,7 +1174,7 @@ state 52
     gate_instance  go to state 147
 
 
-state 53
+State 53
 
    25 output_declaration: vOUTPUT . variable_list ';'
 
@@ -1185,7 +1185,7 @@ state 53
     variable       go to state 18
 
 
-state 54
+State 54
 
    22 parameter_declaration: vPARAMETER . variable_list ';'
 
@@ -1196,7 +1196,7 @@ state 54
     variable       go to state 18
 
 
-state 55
+State 55
 
    29 net_declaration: vREG . variable_list ';'
 
@@ -1207,7 +1207,7 @@ state 55
     variable       go to state 18
 
 
-state 56
+State 56
 
    26 output_declaration: vOUTPUT_REG . variable_list ';'
 
@@ -1218,7 +1218,7 @@ state 56
     variable       go to state 18
 
 
-state 57
+State 57
 
    28 net_declaration: vWIRE . variable_list ';'
 
@@ -1229,7 +1229,7 @@ state 57
     variable       go to state 18
 
 
-state 58
+State 58
 
    30 net_declaration: vINTEGER . variable_list ';'
 
@@ -1240,7 +1240,7 @@ state 58
     variable       go to state 18
 
 
-state 59
+State 59
 
    31 net_declaration: vGENVAR . variable_list ';'
 
@@ -1251,7 +1251,7 @@ state 59
     variable       go to state 18
 
 
-state 60
+State 60
 
    32 net_declaration: vREG_SIGNED . variable_list ';'
 
@@ -1262,7 +1262,7 @@ state 60
     variable       go to state 18
 
 
-state 61
+State 61
 
    33 net_declaration: vWIRE_SIGNED . variable_list ';'
 
@@ -1273,7 +1273,7 @@ state 61
     variable       go to state 18
 
 
-state 62
+State 62
 
    48 gate_declaration: vXNOR . gate_instance ';'
 
@@ -1283,7 +1283,7 @@ state 62
     gate_instance  go to state 157
 
 
-state 63
+State 63
 
    49 gate_declaration: vXOR . gate_instance ';'
 
@@ -1293,7 +1293,7 @@ state 63
     gate_instance  go to state 158
 
 
-state 64
+State 64
 
     9 module: vMODULE vSYMBOL_ID '(' ')' ';' list_of_module_items . vENDMODULE
    10 list_of_module_items: list_of_module_items . module_item
@@ -1336,84 +1336,84 @@ state 64
     gen_block              go to state 75
 
 
-state 65
+State 65
 
    11 list_of_module_items: module_item .
 
     $default  reduce using rule 11 (list_of_module_items)
 
 
-state 66
+State 66
 
    12 module_item: parameter_declaration .
 
     $default  reduce using rule 12 (module_item)
 
 
-state 67
+State 67
 
    13 module_item: input_declaration .
 
     $default  reduce using rule 13 (module_item)
 
 
-state 68
+State 68
 
    14 module_item: output_declaration .
 
     $default  reduce using rule 14 (module_item)
 
 
-state 69
+State 69
 
    15 module_item: inout_declaration .
 
     $default  reduce using rule 15 (module_item)
 
 
-state 70
+State 70
 
    16 module_item: net_declaration .
 
     $default  reduce using rule 16 (module_item)
 
 
-state 71
+State 71
 
    17 module_item: continuous_assign .
 
     $default  reduce using rule 17 (module_item)
 
 
-state 72
+State 72
 
    18 module_item: gate_declaration .
 
     $default  reduce using rule 18 (module_item)
 
 
-state 73
+State 73
 
    19 module_item: module_instantiation .
 
     $default  reduce using rule 19 (module_item)
 
 
-state 74
+State 74
 
    20 module_item: always .
 
     $default  reduce using rule 20 (module_item)
 
 
-state 75
+State 75
 
    21 module_item: gen_block .
 
     $default  reduce using rule 21 (module_item)
 
 
-state 76
+State 76
 
   140 primary: vSYMBOL_ID '[' . expression ']'
   141        | vSYMBOL_ID '[' . expression ']' '[' expression ']'
@@ -1440,7 +1440,7 @@ state 76
     primary     go to state 36
 
 
-state 77
+State 77
 
   108 expression: voXNOR expression .
   111           | expression . '^' expression
@@ -1471,7 +1471,7 @@ state 77
     $default  reduce using rule 108 (expression)
 
 
-state 78
+State 78
 
   106 expression: voNAND expression .
   111           | expression . '^' expression
@@ -1502,7 +1502,7 @@ state 78
     $default  reduce using rule 106 (expression)
 
 
-state 79
+State 79
 
   107 expression: voNOR expression .
   111           | expression . '^' expression
@@ -1533,7 +1533,7 @@ state 79
     $default  reduce using rule 107 (expression)
 
 
-state 80
+State 80
 
   105 expression: '|' expression .
   111           | expression . '^' expression
@@ -1564,7 +1564,7 @@ state 80
     $default  reduce using rule 105 (expression)
 
 
-state 81
+State 81
 
   110 expression: '^' expression .
   111           | expression . '^' expression
@@ -1595,7 +1595,7 @@ state 81
     $default  reduce using rule 110 (expression)
 
 
-state 82
+State 82
 
   104 expression: '&' expression .
   111           | expression . '^' expression
@@ -1626,7 +1626,7 @@ state 82
     $default  reduce using rule 104 (expression)
 
 
-state 83
+State 83
 
   101 expression: '+' expression .
   111           | expression . '^' expression
@@ -1657,7 +1657,7 @@ state 83
     $default  reduce using rule 101 (expression)
 
 
-state 84
+State 84
 
   102 expression: '-' expression .
   111           | expression . '^' expression
@@ -1688,7 +1688,7 @@ state 84
     $default  reduce using rule 102 (expression)
 
 
-state 85
+State 85
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -1743,7 +1743,7 @@ state 85
     ')'             shift, and go to state 162
 
 
-state 86
+State 86
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -1802,7 +1802,7 @@ state 86
     $default  reduce using rule 147 (expression_list)
 
 
-state 87
+State 87
 
   145 primary: '{' expression_list . '}'
   146 expression_list: expression_list . ',' expression
@@ -1811,7 +1811,7 @@ state 87
     ','  shift, and go to state 165
 
 
-state 88
+State 88
 
   103 expression: '~' expression .
   111           | expression . '^' expression
@@ -1842,7 +1842,7 @@ state 88
     $default  reduce using rule 103 (expression)
 
 
-state 89
+State 89
 
   109 expression: '!' expression .
   111           | expression . '^' expression
@@ -1873,7 +1873,7 @@ state 89
     $default  reduce using rule 109 (expression)
 
 
-state 90
+State 90
 
   133 expression: expression voANDAND . expression
 
@@ -1896,7 +1896,7 @@ state 90
     primary     go to state 36
 
 
-state 91
+State 91
 
   132 expression: expression voOROR . expression
 
@@ -1919,7 +1919,7 @@ state 91
     primary     go to state 36
 
 
-state 92
+State 92
 
   128 expression: expression voLTE . expression
 
@@ -1942,7 +1942,7 @@ state 92
     primary     go to state 36
 
 
-state 93
+State 93
 
   129 expression: expression voGTE . expression
 
@@ -1965,7 +1965,7 @@ state 93
     primary     go to state 36
 
 
-state 94
+State 94
 
   125 expression: expression voSLEFT . expression
 
@@ -1988,7 +1988,7 @@ state 94
     primary     go to state 36
 
 
-state 95
+State 95
 
   124 expression: expression voSRIGHT . expression
 
@@ -2011,7 +2011,7 @@ state 95
     primary     go to state 36
 
 
-state 96
+State 96
 
   126 expression: expression voEQUAL . expression
 
@@ -2034,7 +2034,7 @@ state 96
     primary     go to state 36
 
 
-state 97
+State 97
 
   127 expression: expression voNOTEQUAL . expression
 
@@ -2057,7 +2057,7 @@ state 97
     primary     go to state 36
 
 
-state 98
+State 98
 
   130 expression: expression voCASEEQUAL . expression
 
@@ -2080,7 +2080,7 @@ state 98
     primary     go to state 36
 
 
-state 99
+State 99
 
   131 expression: expression voCASENOTEQUAL . expression
 
@@ -2103,7 +2103,7 @@ state 99
     primary     go to state 36
 
 
-state 100
+State 100
 
   121 expression: expression voXNOR . expression
 
@@ -2126,7 +2126,7 @@ state 100
     primary     go to state 36
 
 
-state 101
+State 101
 
   119 expression: expression voNAND . expression
 
@@ -2149,7 +2149,7 @@ state 101
     primary     go to state 36
 
 
-state 102
+State 102
 
   120 expression: expression voNOR . expression
 
@@ -2172,7 +2172,7 @@ state 102
     primary     go to state 36
 
 
-state 103
+State 103
 
   134 expression: expression '?' . expression ':' expression
 
@@ -2195,7 +2195,7 @@ state 103
     primary     go to state 36
 
 
-state 104
+State 104
 
    37 variable: '[' expression ':' . expression ']' vSYMBOL_ID
    38         | '[' expression ':' . expression ']' vSYMBOL_ID '[' expression ':' expression ']'
@@ -2221,7 +2221,7 @@ state 104
     primary     go to state 36
 
 
-state 105
+State 105
 
   118 expression: expression '|' . expression
 
@@ -2244,7 +2244,7 @@ state 105
     primary     go to state 36
 
 
-state 106
+State 106
 
   111 expression: expression '^' . expression
 
@@ -2267,7 +2267,7 @@ state 106
     primary     go to state 36
 
 
-state 107
+State 107
 
   117 expression: expression '&' . expression
 
@@ -2290,7 +2290,7 @@ state 107
     primary     go to state 36
 
 
-state 108
+State 108
 
   122 expression: expression '<' . expression
 
@@ -2313,7 +2313,7 @@ state 108
     primary     go to state 36
 
 
-state 109
+State 109
 
   123 expression: expression '>' . expression
 
@@ -2336,7 +2336,7 @@ state 109
     primary     go to state 36
 
 
-state 110
+State 110
 
   115 expression: expression '+' . expression
 
@@ -2359,7 +2359,7 @@ state 110
     primary     go to state 36
 
 
-state 111
+State 111
 
   116 expression: expression '-' . expression
 
@@ -2382,7 +2382,7 @@ state 111
     primary     go to state 36
 
 
-state 112
+State 112
 
   112 expression: expression '*' . expression
 
@@ -2405,7 +2405,7 @@ state 112
     primary     go to state 36
 
 
-state 113
+State 113
 
   113 expression: expression '/' . expression
 
@@ -2428,7 +2428,7 @@ state 113
     primary     go to state 36
 
 
-state 114
+State 114
 
   114 expression: expression '%' . expression
 
@@ -2451,7 +2451,7 @@ state 114
     primary     go to state 36
 
 
-state 115
+State 115
 
     7 module: vMODULE vSYMBOL_ID '(' variable_list ')' ';' . list_of_module_items vENDMODULE
 
@@ -2493,21 +2493,21 @@ state 115
     gen_block              go to state 75
 
 
-state 116
+State 116
 
     8 module: vMODULE vSYMBOL_ID '(' variable_list ',' ')' . ';' list_of_module_items vENDMODULE
 
     ';'  shift, and go to state 192
 
 
-state 117
+State 117
 
    34 variable_list: variable_list ',' variable .
 
     $default  reduce using rule 34 (variable_list)
 
 
-state 118
+State 118
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -2563,7 +2563,7 @@ state 118
     $default  reduce using rule 147 (expression_list)
 
 
-state 119
+State 119
 
    55 module_instance: vSYMBOL_ID . '(' list_of_module_connections ')' ';'
    57                | vSYMBOL_ID . '(' ')' ';'
@@ -2571,7 +2571,7 @@ state 119
     '('  shift, and go to state 193
 
 
-state 120
+State 120
 
    56 module_instance: '#' . '(' list_of_module_parameters ')' vSYMBOL_ID '(' list_of_module_connections ')' ';'
    58                | '#' . '(' list_of_module_parameters ')' vSYMBOL_ID '(' ')' ';'
@@ -2579,14 +2579,14 @@ state 120
     '('  shift, and go to state 194
 
 
-state 121
+State 121
 
    54 module_instantiation: vSYMBOL_ID module_instance .
 
     $default  reduce using rule 54 (module_instantiation)
 
 
-state 122
+State 122
 
    91 delay_control: '@' . '(' event_expression_list ')'
    92              | '@' . '(' '*' ')'
@@ -2596,7 +2596,7 @@ state 122
     '('  shift, and go to state 196
 
 
-state 123
+State 123
 
    67 always: vALWAYS delay_control . statement
 
@@ -2617,7 +2617,7 @@ state 123
     primary                  go to state 140
 
 
-state 124
+State 124
 
    50 gate_instance: vSYMBOL_ID . '(' expression ',' expression ',' expression ')'
    52              | vSYMBOL_ID . '(' expression ',' expression ')'
@@ -2625,7 +2625,7 @@ state 124
     '('  shift, and go to state 198
 
 
-state 125
+State 125
 
    51 gate_instance: '(' . expression ',' expression ',' expression ')'
    53              | '(' . expression ',' expression ')'
@@ -2649,21 +2649,21 @@ state 125
     primary     go to state 36
 
 
-state 126
+State 126
 
    43 gate_declaration: vAND gate_instance . ';'
 
     ';'  shift, and go to state 200
 
 
-state 127
+State 127
 
    42 continuous_assign: vASSIGN blocking_assignment . ';'
 
     ';'  shift, and go to state 201
 
 
-state 128
+State 128
 
    77 blocking_assignment: primary . '=' expression
    78                    | primary . '=' vDELAY_ID expression
@@ -2671,7 +2671,7 @@ state 128
     '='  shift, and go to state 202
 
 
-state 129
+State 129
 
    88 seq_block: vGENERATE . stmt_list vENDGENERATE
 
@@ -2693,7 +2693,7 @@ state 129
     primary                  go to state 140
 
 
-state 130
+State 130
 
    87 seq_block: vBEGIN . stmt_list vEND
 
@@ -2715,14 +2715,14 @@ state 130
     primary                  go to state 140
 
 
-state 131
+State 131
 
    74 statement: vCASE . '(' expression ')' case_item_list vENDCASE
 
     '('  shift, and go to state 205
 
 
-state 132
+State 132
 
    72 statement: vIF . '(' expression ')' statement
    73          | vIF . '(' expression ')' statement vELSE statement
@@ -2730,49 +2730,49 @@ state 132
     '('  shift, and go to state 206
 
 
-state 133
+State 133
 
    75 statement: vFOR . '(' blocking_assignment ';' expression ';' blocking_assignment ')' statement
 
     '('  shift, and go to state 207
 
 
-state 134
+State 134
 
    76 statement: ';' .
 
     $default  reduce using rule 76 (statement)
 
 
-state 135
+State 135
 
    90 stmt_list: statement .
 
     $default  reduce using rule 90 (stmt_list)
 
 
-state 136
+State 136
 
    70 statement: blocking_assignment . ';'
 
     ';'  shift, and go to state 208
 
 
-state 137
+State 137
 
    71 statement: non_blocking_assignment . ';'
 
     ';'  shift, and go to state 209
 
 
-state 138
+State 138
 
    69 statement: seq_block .
 
     $default  reduce using rule 69 (statement)
 
 
-state 139
+State 139
 
    68 gen_block: vGENERATE stmt_list . vENDGENERATE
    89 stmt_list: stmt_list . statement
@@ -2795,7 +2795,7 @@ state 139
     primary                  go to state 140
 
 
-state 140
+State 140
 
    77 blocking_assignment: primary . '=' expression
    78                    | primary . '=' vDELAY_ID expression
@@ -2808,7 +2808,7 @@ state 140
     '='    shift, and go to state 202
 
 
-state 141
+State 141
 
    27 inout_declaration: vINOUT variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2817,7 +2817,7 @@ state 141
     ','  shift, and go to state 214
 
 
-state 142
+State 142
 
    23 input_declaration: vINPUT variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2826,7 +2826,7 @@ state 142
     ','  shift, and go to state 214
 
 
-state 143
+State 143
 
    24 input_declaration: vINPUT_SIGNED variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2835,35 +2835,35 @@ state 143
     ','  shift, and go to state 214
 
 
-state 144
+State 144
 
    44 gate_declaration: vNAND gate_instance . ';'
 
     ';'  shift, and go to state 217
 
 
-state 145
+State 145
 
    45 gate_declaration: vNOR gate_instance . ';'
 
     ';'  shift, and go to state 218
 
 
-state 146
+State 146
 
    46 gate_declaration: vNOT gate_instance . ';'
 
     ';'  shift, and go to state 219
 
 
-state 147
+State 147
 
    47 gate_declaration: vOR gate_instance . ';'
 
     ';'  shift, and go to state 220
 
 
-state 148
+State 148
 
    25 output_declaration: vOUTPUT variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2872,7 +2872,7 @@ state 148
     ','  shift, and go to state 214
 
 
-state 149
+State 149
 
    22 parameter_declaration: vPARAMETER variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2881,7 +2881,7 @@ state 149
     ','  shift, and go to state 214
 
 
-state 150
+State 150
 
    29 net_declaration: vREG variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2890,7 +2890,7 @@ state 150
     ','  shift, and go to state 214
 
 
-state 151
+State 151
 
    26 output_declaration: vOUTPUT_REG variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2899,7 +2899,7 @@ state 151
     ','  shift, and go to state 214
 
 
-state 152
+State 152
 
    28 net_declaration: vWIRE variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2908,7 +2908,7 @@ state 152
     ','  shift, and go to state 214
 
 
-state 153
+State 153
 
    30 net_declaration: vINTEGER variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2917,7 +2917,7 @@ state 153
     ','  shift, and go to state 214
 
 
-state 154
+State 154
 
    31 net_declaration: vGENVAR variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2926,7 +2926,7 @@ state 154
     ','  shift, and go to state 214
 
 
-state 155
+State 155
 
    32 net_declaration: vREG_SIGNED variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2935,7 +2935,7 @@ state 155
     ','  shift, and go to state 214
 
 
-state 156
+State 156
 
    33 net_declaration: vWIRE_SIGNED variable_list . ';'
    34 variable_list: variable_list . ',' variable
@@ -2944,35 +2944,35 @@ state 156
     ','  shift, and go to state 214
 
 
-state 157
+State 157
 
    48 gate_declaration: vXNOR gate_instance . ';'
 
     ';'  shift, and go to state 230
 
 
-state 158
+State 158
 
    49 gate_declaration: vXOR gate_instance . ';'
 
     ';'  shift, and go to state 231
 
 
-state 159
+State 159
 
     9 module: vMODULE vSYMBOL_ID '(' ')' ';' list_of_module_items vENDMODULE .
 
     $default  reduce using rule 9 (module)
 
 
-state 160
+State 160
 
    10 list_of_module_items: list_of_module_items module_item .
 
     $default  reduce using rule 10 (list_of_module_items)
 
 
-state 161
+State 161
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3032,14 +3032,14 @@ state 161
     ']'             shift, and go to state 233
 
 
-state 162
+State 162
 
   135 expression: '(' expression ')' .
 
     $default  reduce using rule 135 (expression)
 
 
-state 163
+State 163
 
   136 expression: '{' expression '{' . expression '}' '}'
   137           | '{' expression '{' . expression_list '}' '}'
@@ -3064,14 +3064,14 @@ state 163
     expression_list  go to state 235
 
 
-state 164
+State 164
 
   145 primary: '{' expression_list '}' .
 
     $default  reduce using rule 145 (primary)
 
 
-state 165
+State 165
 
   146 expression_list: expression_list ',' . expression
 
@@ -3094,7 +3094,7 @@ state 165
     primary     go to state 36
 
 
-state 166
+State 166
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3147,7 +3147,7 @@ state 166
     $default  reduce using rule 133 (expression)
 
 
-state 167
+State 167
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3201,7 +3201,7 @@ state 167
     $default  reduce using rule 132 (expression)
 
 
-state 168
+State 168
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3240,7 +3240,7 @@ state 168
     $default  reduce using rule 128 (expression)
 
 
-state 169
+State 169
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3279,7 +3279,7 @@ state 169
     $default  reduce using rule 129 (expression)
 
 
-state 170
+State 170
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3316,7 +3316,7 @@ state 170
     $default  reduce using rule 125 (expression)
 
 
-state 171
+State 171
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3353,7 +3353,7 @@ state 171
     $default  reduce using rule 124 (expression)
 
 
-state 172
+State 172
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3396,7 +3396,7 @@ state 172
     $default  reduce using rule 126 (expression)
 
 
-state 173
+State 173
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3439,7 +3439,7 @@ state 173
     $default  reduce using rule 127 (expression)
 
 
-state 174
+State 174
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3482,7 +3482,7 @@ state 174
     $default  reduce using rule 130 (expression)
 
 
-state 175
+State 175
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3525,7 +3525,7 @@ state 175
     $default  reduce using rule 131 (expression)
 
 
-state 176
+State 176
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3574,7 +3574,7 @@ state 176
     $default  reduce using rule 121 (expression)
 
 
-state 177
+State 177
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3621,7 +3621,7 @@ state 177
     $default  reduce using rule 119 (expression)
 
 
-state 178
+State 178
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3670,7 +3670,7 @@ state 178
     $default  reduce using rule 120 (expression)
 
 
-state 179
+State 179
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3725,7 +3725,7 @@ state 179
     '%'             shift, and go to state 114
 
 
-state 180
+State 180
 
    37 variable: '[' expression ':' expression . ']' vSYMBOL_ID
    38         | '[' expression ':' expression . ']' vSYMBOL_ID '[' expression ':' expression ']'
@@ -3783,7 +3783,7 @@ state 180
     ']'             shift, and go to state 238
 
 
-state 181
+State 181
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3835,7 +3835,7 @@ state 181
     $default  reduce using rule 118 (expression)
 
 
-state 182
+State 182
 
   111 expression: expression . '^' expression
   111           | expression '^' expression .
@@ -3884,7 +3884,7 @@ state 182
     $default  reduce using rule 111 (expression)
 
 
-state 183
+State 183
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3931,7 +3931,7 @@ state 183
     $default  reduce using rule 117 (expression)
 
 
-state 184
+State 184
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -3970,7 +3970,7 @@ state 184
     $default  reduce using rule 122 (expression)
 
 
-state 185
+State 185
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4009,7 +4009,7 @@ state 185
     $default  reduce using rule 123 (expression)
 
 
-state 186
+State 186
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4044,7 +4044,7 @@ state 186
     $default  reduce using rule 115 (expression)
 
 
-state 187
+State 187
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4079,7 +4079,7 @@ state 187
     $default  reduce using rule 116 (expression)
 
 
-state 188
+State 188
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4110,7 +4110,7 @@ state 188
     $default  reduce using rule 112 (expression)
 
 
-state 189
+State 189
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4141,7 +4141,7 @@ state 189
     $default  reduce using rule 113 (expression)
 
 
-state 190
+State 190
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4172,7 +4172,7 @@ state 190
     $default  reduce using rule 114 (expression)
 
 
-state 191
+State 191
 
     7 module: vMODULE vSYMBOL_ID '(' variable_list ')' ';' list_of_module_items . vENDMODULE
    10 list_of_module_items: list_of_module_items . module_item
@@ -4215,7 +4215,7 @@ state 191
     gen_block              go to state 75
 
 
-state 192
+State 192
 
     8 module: vMODULE vSYMBOL_ID '(' variable_list ',' ')' ';' . list_of_module_items vENDMODULE
 
@@ -4257,7 +4257,7 @@ state 192
     gen_block              go to state 75
 
 
-state 193
+State 193
 
    55 module_instance: vSYMBOL_ID '(' . list_of_module_connections ')' ';'
    57                | vSYMBOL_ID '(' . ')' ';'
@@ -4285,7 +4285,7 @@ state 193
     primary                     go to state 36
 
 
-state 194
+State 194
 
    56 module_instance: '#' '(' . list_of_module_parameters ')' vSYMBOL_ID '(' list_of_module_connections ')' ';'
    58                | '#' '(' . list_of_module_parameters ')' vSYMBOL_ID '(' ')' ';'
@@ -4312,14 +4312,14 @@ state 194
     primary                    go to state 36
 
 
-state 195
+State 195
 
    93 delay_control: '@' '*' .
 
     $default  reduce using rule 93 (delay_control)
 
 
-state 196
+State 196
 
    91 delay_control: '@' '(' . event_expression_list ')'
    92              | '@' '(' . '*' ')'
@@ -4336,14 +4336,14 @@ state 196
     primary                go to state 255
 
 
-state 197
+State 197
 
    67 always: vALWAYS delay_control statement .
 
     $default  reduce using rule 67 (always)
 
 
-state 198
+State 198
 
    50 gate_instance: vSYMBOL_ID '(' . expression ',' expression ',' expression ')'
    52              | vSYMBOL_ID '(' . expression ',' expression ')'
@@ -4367,7 +4367,7 @@ state 198
     primary     go to state 36
 
 
-state 199
+State 199
 
    51 gate_instance: '(' expression . ',' expression ',' expression ')'
    53              | '(' expression . ',' expression ')'
@@ -4423,21 +4423,21 @@ state 199
     ','             shift, and go to state 257
 
 
-state 200
+State 200
 
    43 gate_declaration: vAND gate_instance ';' .
 
     $default  reduce using rule 43 (gate_declaration)
 
 
-state 201
+State 201
 
    42 continuous_assign: vASSIGN blocking_assignment ';' .
 
     $default  reduce using rule 42 (continuous_assign)
 
 
-state 202
+State 202
 
    77 blocking_assignment: primary '=' . expression
    78                    | primary '=' . vDELAY_ID expression
@@ -4462,7 +4462,7 @@ state 202
     primary     go to state 36
 
 
-state 203
+State 203
 
    88 seq_block: vGENERATE stmt_list . vENDGENERATE
    89 stmt_list: stmt_list . statement
@@ -4485,7 +4485,7 @@ state 203
     primary                  go to state 140
 
 
-state 204
+State 204
 
    87 seq_block: vBEGIN stmt_list . vEND
    89 stmt_list: stmt_list . statement
@@ -4508,7 +4508,7 @@ state 204
     primary                  go to state 140
 
 
-state 205
+State 205
 
    74 statement: vCASE '(' . expression ')' case_item_list vENDCASE
 
@@ -4531,7 +4531,7 @@ state 205
     primary     go to state 36
 
 
-state 206
+State 206
 
    72 statement: vIF '(' . expression ')' statement
    73          | vIF '(' . expression ')' statement vELSE statement
@@ -4555,7 +4555,7 @@ state 206
     primary     go to state 36
 
 
-state 207
+State 207
 
    75 statement: vFOR '(' . blocking_assignment ';' expression ';' blocking_assignment ')' statement
 
@@ -4567,35 +4567,35 @@ state 207
     primary              go to state 128
 
 
-state 208
+State 208
 
    70 statement: blocking_assignment ';' .
 
     $default  reduce using rule 70 (statement)
 
 
-state 209
+State 209
 
    71 statement: non_blocking_assignment ';' .
 
     $default  reduce using rule 71 (statement)
 
 
-state 210
+State 210
 
    68 gen_block: vGENERATE stmt_list vENDGENERATE .
 
     $default  reduce using rule 68 (gen_block)
 
 
-state 211
+State 211
 
    89 stmt_list: stmt_list statement .
 
     $default  reduce using rule 89 (stmt_list)
 
 
-state 212
+State 212
 
    79 non_blocking_assignment: primary voLTE . expression
    80                        | primary voLTE . vSIGNED expression
@@ -4623,14 +4623,14 @@ state 212
     primary     go to state 36
 
 
-state 213
+State 213
 
    27 inout_declaration: vINOUT variable_list ';' .
 
     $default  reduce using rule 27 (inout_declaration)
 
 
-state 214
+State 214
 
    34 variable_list: variable_list ',' . variable
 
@@ -4640,126 +4640,126 @@ state 214
     variable  go to state 117
 
 
-state 215
+State 215
 
    23 input_declaration: vINPUT variable_list ';' .
 
     $default  reduce using rule 23 (input_declaration)
 
 
-state 216
+State 216
 
    24 input_declaration: vINPUT_SIGNED variable_list ';' .
 
     $default  reduce using rule 24 (input_declaration)
 
 
-state 217
+State 217
 
    44 gate_declaration: vNAND gate_instance ';' .
 
     $default  reduce using rule 44 (gate_declaration)
 
 
-state 218
+State 218
 
    45 gate_declaration: vNOR gate_instance ';' .
 
     $default  reduce using rule 45 (gate_declaration)
 
 
-state 219
+State 219
 
    46 gate_declaration: vNOT gate_instance ';' .
 
     $default  reduce using rule 46 (gate_declaration)
 
 
-state 220
+State 220
 
    47 gate_declaration: vOR gate_instance ';' .
 
     $default  reduce using rule 47 (gate_declaration)
 
 
-state 221
+State 221
 
    25 output_declaration: vOUTPUT variable_list ';' .
 
     $default  reduce using rule 25 (output_declaration)
 
 
-state 222
+State 222
 
    22 parameter_declaration: vPARAMETER variable_list ';' .
 
     $default  reduce using rule 22 (parameter_declaration)
 
 
-state 223
+State 223
 
    29 net_declaration: vREG variable_list ';' .
 
     $default  reduce using rule 29 (net_declaration)
 
 
-state 224
+State 224
 
    26 output_declaration: vOUTPUT_REG variable_list ';' .
 
     $default  reduce using rule 26 (output_declaration)
 
 
-state 225
+State 225
 
    28 net_declaration: vWIRE variable_list ';' .
 
     $default  reduce using rule 28 (net_declaration)
 
 
-state 226
+State 226
 
    30 net_declaration: vINTEGER variable_list ';' .
 
     $default  reduce using rule 30 (net_declaration)
 
 
-state 227
+State 227
 
    31 net_declaration: vGENVAR variable_list ';' .
 
     $default  reduce using rule 31 (net_declaration)
 
 
-state 228
+State 228
 
    32 net_declaration: vREG_SIGNED variable_list ';' .
 
     $default  reduce using rule 32 (net_declaration)
 
 
-state 229
+State 229
 
    33 net_declaration: vWIRE_SIGNED variable_list ';' .
 
     $default  reduce using rule 33 (net_declaration)
 
 
-state 230
+State 230
 
    48 gate_declaration: vXNOR gate_instance ';' .
 
     $default  reduce using rule 48 (gate_declaration)
 
 
-state 231
+State 231
 
    49 gate_declaration: vXOR gate_instance ';' .
 
     $default  reduce using rule 49 (gate_declaration)
 
 
-state 232
+State 232
 
   142 primary: vSYMBOL_ID '[' expression ':' . expression ']'
 
@@ -4782,7 +4782,7 @@ state 232
     primary     go to state 36
 
 
-state 233
+State 233
 
   140 primary: vSYMBOL_ID '[' expression ']' .
   141        | vSYMBOL_ID '[' expression ']' . '[' expression ']'
@@ -4794,7 +4794,7 @@ state 233
     $default  reduce using rule 140 (primary)
 
 
-state 234
+State 234
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4853,7 +4853,7 @@ state 234
     $default  reduce using rule 147 (expression_list)
 
 
-state 235
+State 235
 
   137 expression: '{' expression '{' expression_list . '}' '}'
   146 expression_list: expression_list . ',' expression
@@ -4862,7 +4862,7 @@ state 235
     ','  shift, and go to state 165
 
 
-state 236
+State 236
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -4918,7 +4918,7 @@ state 236
     $default  reduce using rule 146 (expression_list)
 
 
-state 237
+State 237
 
   134 expression: expression '?' expression ':' . expression
 
@@ -4941,7 +4941,7 @@ state 237
     primary     go to state 36
 
 
-state 238
+State 238
 
    37 variable: '[' expression ':' expression ']' . vSYMBOL_ID
    38         | '[' expression ':' expression ']' . vSYMBOL_ID '[' expression ':' expression ']'
@@ -4951,14 +4951,14 @@ state 238
     vSYMBOL_ID  shift, and go to state 273
 
 
-state 239
+State 239
 
     7 module: vMODULE vSYMBOL_ID '(' variable_list ')' ';' list_of_module_items vENDMODULE .
 
     $default  reduce using rule 7 (module)
 
 
-state 240
+State 240
 
     8 module: vMODULE vSYMBOL_ID '(' variable_list ',' ')' ';' list_of_module_items . vENDMODULE
    10 list_of_module_items: list_of_module_items . module_item
@@ -5001,21 +5001,21 @@ state 240
     gen_block              go to state 75
 
 
-state 241
+State 241
 
    57 module_instance: vSYMBOL_ID '(' ')' . ';'
 
     ';'  shift, and go to state 275
 
 
-state 242
+State 242
 
    61 module_connection: '.' . vSYMBOL_ID '(' expression ')'
 
     vSYMBOL_ID  shift, and go to state 276
 
 
-state 243
+State 243
 
    55 module_instance: vSYMBOL_ID '(' list_of_module_connections . ')' ';'
    59 list_of_module_connections: list_of_module_connections . ',' module_connection
@@ -5024,14 +5024,14 @@ state 243
     ','  shift, and go to state 278
 
 
-state 244
+State 244
 
    60 list_of_module_connections: module_connection .
 
     $default  reduce using rule 60 (list_of_module_connections)
 
 
-state 245
+State 245
 
    62 module_connection: expression .
   111 expression: expression . '^' expression
@@ -5087,14 +5087,14 @@ state 245
     $default  reduce using rule 62 (module_connection)
 
 
-state 246
+State 246
 
    65 module_parameter: '.' . vSYMBOL_ID '(' expression ')'
 
     vSYMBOL_ID  shift, and go to state 279
 
 
-state 247
+State 247
 
    56 module_instance: '#' '(' list_of_module_parameters . ')' vSYMBOL_ID '(' list_of_module_connections ')' ';'
    58                | '#' '(' list_of_module_parameters . ')' vSYMBOL_ID '(' ')' ';'
@@ -5104,14 +5104,14 @@ state 247
     ','  shift, and go to state 281
 
 
-state 248
+State 248
 
    64 list_of_module_parameters: module_parameter .
 
     $default  reduce using rule 64 (list_of_module_parameters)
 
 
-state 249
+State 249
 
    66 module_parameter: expression .
   111 expression: expression . '^' expression
@@ -5167,28 +5167,28 @@ state 249
     $default  reduce using rule 66 (module_parameter)
 
 
-state 250
+State 250
 
    99 event_expression: vNEGEDGE . vSYMBOL_ID
 
     vSYMBOL_ID  shift, and go to state 282
 
 
-state 251
+State 251
 
    98 event_expression: vPOSEDGE . vSYMBOL_ID
 
     vSYMBOL_ID  shift, and go to state 283
 
 
-state 252
+State 252
 
    92 delay_control: '@' '(' '*' . ')'
 
     ')'  shift, and go to state 284
 
 
-state 253
+State 253
 
    91 delay_control: '@' '(' event_expression_list . ')'
    94 event_expression_list: event_expression_list . vOR event_expression
@@ -5199,21 +5199,21 @@ state 253
     ','  shift, and go to state 287
 
 
-state 254
+State 254
 
    96 event_expression_list: event_expression .
 
     $default  reduce using rule 96 (event_expression_list)
 
 
-state 255
+State 255
 
    97 event_expression: primary .
 
     $default  reduce using rule 97 (event_expression)
 
 
-state 256
+State 256
 
    50 gate_instance: vSYMBOL_ID '(' expression . ',' expression ',' expression ')'
    52              | vSYMBOL_ID '(' expression . ',' expression ')'
@@ -5269,7 +5269,7 @@ state 256
     ','             shift, and go to state 288
 
 
-state 257
+State 257
 
    51 gate_instance: '(' expression ',' . expression ',' expression ')'
    53              | '(' expression ',' . expression ')'
@@ -5293,7 +5293,7 @@ state 257
     primary     go to state 36
 
 
-state 258
+State 258
 
    78 blocking_assignment: primary '=' vDELAY_ID . expression
 
@@ -5316,7 +5316,7 @@ state 258
     primary     go to state 36
 
 
-state 259
+State 259
 
    77 blocking_assignment: primary '=' expression .
   111 expression: expression . '^' expression
@@ -5372,21 +5372,21 @@ state 259
     $default  reduce using rule 77 (blocking_assignment)
 
 
-state 260
+State 260
 
    88 seq_block: vGENERATE stmt_list vENDGENERATE .
 
     $default  reduce using rule 88 (seq_block)
 
 
-state 261
+State 261
 
    87 seq_block: vBEGIN stmt_list vEND .
 
     $default  reduce using rule 87 (seq_block)
 
 
-state 262
+State 262
 
    74 statement: vCASE '(' expression . ')' case_item_list vENDCASE
   111 expression: expression . '^' expression
@@ -5441,7 +5441,7 @@ state 262
     ')'             shift, and go to state 291
 
 
-state 263
+State 263
 
    72 statement: vIF '(' expression . ')' statement
    73          | vIF '(' expression . ')' statement vELSE statement
@@ -5497,14 +5497,14 @@ state 263
     ')'             shift, and go to state 292
 
 
-state 264
+State 264
 
    75 statement: vFOR '(' blocking_assignment . ';' expression ';' blocking_assignment ')' statement
 
     ';'  shift, and go to state 293
 
 
-state 265
+State 265
 
    81 non_blocking_assignment: primary voLTE vDELAY_ID . expression
    82                        | primary voLTE vDELAY_ID . vSIGNED expression
@@ -5529,7 +5529,7 @@ state 265
     primary     go to state 36
 
 
-state 266
+State 266
 
    80 non_blocking_assignment: primary voLTE vSIGNED . expression
 
@@ -5552,7 +5552,7 @@ state 266
     primary     go to state 36
 
 
-state 267
+State 267
 
    79 non_blocking_assignment: primary voLTE expression .
   111 expression: expression . '^' expression
@@ -5608,7 +5608,7 @@ state 267
     $default  reduce using rule 79 (non_blocking_assignment)
 
 
-state 268
+State 268
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -5663,7 +5663,7 @@ state 268
     ']'             shift, and go to state 297
 
 
-state 269
+State 269
 
   141 primary: vSYMBOL_ID '[' expression ']' '[' . expression ']'
   143        | vSYMBOL_ID '[' expression ']' '[' . expression ':' expression ']'
@@ -5688,21 +5688,21 @@ state 269
     primary     go to state 36
 
 
-state 270
+State 270
 
   136 expression: '{' expression '{' expression '}' . '}'
 
     '}'  shift, and go to state 299
 
 
-state 271
+State 271
 
   137 expression: '{' expression '{' expression_list '}' . '}'
 
     '}'  shift, and go to state 300
 
 
-state 272
+State 272
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -5758,7 +5758,7 @@ state 272
     $default  reduce using rule 134 (expression)
 
 
-state 273
+State 273
 
    37 variable: '[' expression ':' expression ']' vSYMBOL_ID .
    38         | '[' expression ':' expression ']' vSYMBOL_ID . '[' expression ':' expression ']'
@@ -5771,35 +5771,35 @@ state 273
     $default  reduce using rule 37 (variable)
 
 
-state 274
+State 274
 
     8 module: vMODULE vSYMBOL_ID '(' variable_list ',' ')' ';' list_of_module_items vENDMODULE .
 
     $default  reduce using rule 8 (module)
 
 
-state 275
+State 275
 
    57 module_instance: vSYMBOL_ID '(' ')' ';' .
 
     $default  reduce using rule 57 (module_instance)
 
 
-state 276
+State 276
 
    61 module_connection: '.' vSYMBOL_ID . '(' expression ')'
 
     '('  shift, and go to state 303
 
 
-state 277
+State 277
 
    55 module_instance: vSYMBOL_ID '(' list_of_module_connections ')' . ';'
 
     ';'  shift, and go to state 304
 
 
-state 278
+State 278
 
    59 list_of_module_connections: list_of_module_connections ',' . module_connection
 
@@ -5824,14 +5824,14 @@ state 278
     primary            go to state 36
 
 
-state 279
+State 279
 
    65 module_parameter: '.' vSYMBOL_ID . '(' expression ')'
 
     '('  shift, and go to state 306
 
 
-state 280
+State 280
 
    56 module_instance: '#' '(' list_of_module_parameters ')' . vSYMBOL_ID '(' list_of_module_connections ')' ';'
    58                | '#' '(' list_of_module_parameters ')' . vSYMBOL_ID '(' ')' ';'
@@ -5839,7 +5839,7 @@ state 280
     vSYMBOL_ID  shift, and go to state 307
 
 
-state 281
+State 281
 
    63 list_of_module_parameters: list_of_module_parameters ',' . module_parameter
 
@@ -5864,28 +5864,28 @@ state 281
     primary           go to state 36
 
 
-state 282
+State 282
 
    99 event_expression: vNEGEDGE vSYMBOL_ID .
 
     $default  reduce using rule 99 (event_expression)
 
 
-state 283
+State 283
 
    98 event_expression: vPOSEDGE vSYMBOL_ID .
 
     $default  reduce using rule 98 (event_expression)
 
 
-state 284
+State 284
 
    92 delay_control: '@' '(' '*' ')' .
 
     $default  reduce using rule 92 (delay_control)
 
 
-state 285
+State 285
 
    94 event_expression_list: event_expression_list vOR . event_expression
 
@@ -5899,14 +5899,14 @@ state 285
     primary           go to state 255
 
 
-state 286
+State 286
 
    91 delay_control: '@' '(' event_expression_list ')' .
 
     $default  reduce using rule 91 (delay_control)
 
 
-state 287
+State 287
 
    95 event_expression_list: event_expression_list ',' . event_expression
 
@@ -5920,7 +5920,7 @@ state 287
     primary           go to state 255
 
 
-state 288
+State 288
 
    50 gate_instance: vSYMBOL_ID '(' expression ',' . expression ',' expression ')'
    52              | vSYMBOL_ID '(' expression ',' . expression ')'
@@ -5944,7 +5944,7 @@ state 288
     primary     go to state 36
 
 
-state 289
+State 289
 
    51 gate_instance: '(' expression ',' expression . ',' expression ')'
    53              | '(' expression ',' expression . ')'
@@ -6001,7 +6001,7 @@ state 289
     ','             shift, and go to state 313
 
 
-state 290
+State 290
 
    78 blocking_assignment: primary '=' vDELAY_ID expression .
   111 expression: expression . '^' expression
@@ -6057,7 +6057,7 @@ state 290
     $default  reduce using rule 78 (blocking_assignment)
 
 
-state 291
+State 291
 
    74 statement: vCASE '(' expression ')' . case_item_list vENDCASE
 
@@ -6083,7 +6083,7 @@ state 291
     primary         go to state 36
 
 
-state 292
+State 292
 
    72 statement: vIF '(' expression ')' . statement
    73          | vIF '(' expression ')' . statement vELSE statement
@@ -6105,7 +6105,7 @@ state 292
     primary                  go to state 140
 
 
-state 293
+State 293
 
    75 statement: vFOR '(' blocking_assignment ';' . expression ';' blocking_assignment ')' statement
 
@@ -6128,7 +6128,7 @@ state 293
     primary     go to state 36
 
 
-state 294
+State 294
 
    82 non_blocking_assignment: primary voLTE vDELAY_ID vSIGNED . expression
 
@@ -6151,7 +6151,7 @@ state 294
     primary     go to state 36
 
 
-state 295
+State 295
 
    81 non_blocking_assignment: primary voLTE vDELAY_ID expression .
   111 expression: expression . '^' expression
@@ -6207,7 +6207,7 @@ state 295
     $default  reduce using rule 81 (non_blocking_assignment)
 
 
-state 296
+State 296
 
    80 non_blocking_assignment: primary voLTE vSIGNED expression .
   111 expression: expression . '^' expression
@@ -6263,14 +6263,14 @@ state 296
     $default  reduce using rule 80 (non_blocking_assignment)
 
 
-state 297
+State 297
 
   142 primary: vSYMBOL_ID '[' expression ':' expression ']' .
 
     $default  reduce using rule 142 (primary)
 
 
-state 298
+State 298
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -6328,21 +6328,21 @@ state 298
     ']'             shift, and go to state 322
 
 
-state 299
+State 299
 
   136 expression: '{' expression '{' expression '}' '}' .
 
     $default  reduce using rule 136 (expression)
 
 
-state 300
+State 300
 
   137 expression: '{' expression '{' expression_list '}' '}' .
 
     $default  reduce using rule 137 (expression)
 
 
-state 301
+State 301
 
    38 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' . expression ':' expression ']'
    39         | '[' expression ':' expression ']' vSYMBOL_ID '[' . expression ':' expression ']' '[' expression ':' expression ']'
@@ -6366,7 +6366,7 @@ state 301
     primary     go to state 36
 
 
-state 302
+State 302
 
    40 variable: '[' expression ':' expression ']' vSYMBOL_ID '=' . primary
 
@@ -6377,7 +6377,7 @@ state 302
     primary  go to state 324
 
 
-state 303
+State 303
 
    61 module_connection: '.' vSYMBOL_ID '(' . expression ')'
 
@@ -6400,21 +6400,21 @@ state 303
     primary     go to state 36
 
 
-state 304
+State 304
 
    55 module_instance: vSYMBOL_ID '(' list_of_module_connections ')' ';' .
 
     $default  reduce using rule 55 (module_instance)
 
 
-state 305
+State 305
 
    59 list_of_module_connections: list_of_module_connections ',' module_connection .
 
     $default  reduce using rule 59 (list_of_module_connections)
 
 
-state 306
+State 306
 
    65 module_parameter: '.' vSYMBOL_ID '(' . expression ')'
 
@@ -6437,7 +6437,7 @@ state 306
     primary     go to state 36
 
 
-state 307
+State 307
 
    56 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID . '(' list_of_module_connections ')' ';'
    58                | '#' '(' list_of_module_parameters ')' vSYMBOL_ID . '(' ')' ';'
@@ -6445,28 +6445,28 @@ state 307
     '('  shift, and go to state 327
 
 
-state 308
+State 308
 
    63 list_of_module_parameters: list_of_module_parameters ',' module_parameter .
 
     $default  reduce using rule 63 (list_of_module_parameters)
 
 
-state 309
+State 309
 
    94 event_expression_list: event_expression_list vOR event_expression .
 
     $default  reduce using rule 94 (event_expression_list)
 
 
-state 310
+State 310
 
    95 event_expression_list: event_expression_list ',' event_expression .
 
     $default  reduce using rule 95 (event_expression_list)
 
 
-state 311
+State 311
 
    50 gate_instance: vSYMBOL_ID '(' expression ',' expression . ',' expression ')'
    52              | vSYMBOL_ID '(' expression ',' expression . ')'
@@ -6523,14 +6523,14 @@ state 311
     ','             shift, and go to state 329
 
 
-state 312
+State 312
 
    53 gate_instance: '(' expression ',' expression ')' .
 
     $default  reduce using rule 53 (gate_instance)
 
 
-state 313
+State 313
 
    51 gate_instance: '(' expression ',' expression ',' . expression ')'
 
@@ -6553,14 +6553,14 @@ state 313
     primary     go to state 36
 
 
-state 314
+State 314
 
    86 case_items: vDEFAULT . ':' statement
 
     ':'  shift, and go to state 331
 
 
-state 315
+State 315
 
    74 statement: vCASE '(' expression ')' case_item_list . vENDCASE
    83 case_item_list: case_item_list . case_items
@@ -6587,14 +6587,14 @@ state 315
     primary     go to state 36
 
 
-state 316
+State 316
 
    84 case_item_list: case_items .
 
     $default  reduce using rule 84 (case_item_list)
 
 
-state 317
+State 317
 
    85 case_items: expression . ':' statement
   111 expression: expression . '^' expression
@@ -6649,7 +6649,7 @@ state 317
     '%'             shift, and go to state 114
 
 
-state 318
+State 318
 
    72 statement: vIF '(' expression ')' statement .
    73          | vIF '(' expression ')' statement . vELSE statement
@@ -6659,7 +6659,7 @@ state 318
     $default  reduce using rule 72 (statement)
 
 
-state 319
+State 319
 
    75 statement: vFOR '(' blocking_assignment ';' expression . ';' blocking_assignment ')' statement
   111 expression: expression . '^' expression
@@ -6714,7 +6714,7 @@ state 319
     ';'             shift, and go to state 336
 
 
-state 320
+State 320
 
    82 non_blocking_assignment: primary voLTE vDELAY_ID vSIGNED expression .
   111 expression: expression . '^' expression
@@ -6770,7 +6770,7 @@ state 320
     $default  reduce using rule 82 (non_blocking_assignment)
 
 
-state 321
+State 321
 
   143 primary: vSYMBOL_ID '[' expression ']' '[' expression ':' . expression ']'
 
@@ -6793,7 +6793,7 @@ state 321
     primary     go to state 36
 
 
-state 322
+State 322
 
   141 primary: vSYMBOL_ID '[' expression ']' '[' expression ']' .
   144        | vSYMBOL_ID '[' expression ']' '[' expression ']' . '[' expression ':' expression ']'
@@ -6803,7 +6803,7 @@ state 322
     $default  reduce using rule 141 (primary)
 
 
-state 323
+State 323
 
    38 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression . ':' expression ']'
    39         | '[' expression ':' expression ']' vSYMBOL_ID '[' expression . ':' expression ']' '[' expression ':' expression ']'
@@ -6859,14 +6859,14 @@ state 323
     '%'             shift, and go to state 114
 
 
-state 324
+State 324
 
    40 variable: '[' expression ':' expression ']' vSYMBOL_ID '=' primary .
 
     $default  reduce using rule 40 (variable)
 
 
-state 325
+State 325
 
    61 module_connection: '.' vSYMBOL_ID '(' expression . ')'
   111 expression: expression . '^' expression
@@ -6921,7 +6921,7 @@ state 325
     ')'             shift, and go to state 340
 
 
-state 326
+State 326
 
    65 module_parameter: '.' vSYMBOL_ID '(' expression . ')'
   111 expression: expression . '^' expression
@@ -6976,7 +6976,7 @@ state 326
     ')'             shift, and go to state 341
 
 
-state 327
+State 327
 
    56 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' . list_of_module_connections ')' ';'
    58                | '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' . ')' ';'
@@ -7004,14 +7004,14 @@ state 327
     primary                     go to state 36
 
 
-state 328
+State 328
 
    52 gate_instance: vSYMBOL_ID '(' expression ',' expression ')' .
 
     $default  reduce using rule 52 (gate_instance)
 
 
-state 329
+State 329
 
    50 gate_instance: vSYMBOL_ID '(' expression ',' expression ',' . expression ')'
 
@@ -7034,7 +7034,7 @@ state 329
     primary     go to state 36
 
 
-state 330
+State 330
 
    51 gate_instance: '(' expression ',' expression ',' expression . ')'
   111 expression: expression . '^' expression
@@ -7089,7 +7089,7 @@ state 330
     ')'             shift, and go to state 345
 
 
-state 331
+State 331
 
    86 case_items: vDEFAULT ':' . statement
 
@@ -7110,21 +7110,21 @@ state 331
     primary                  go to state 140
 
 
-state 332
+State 332
 
    74 statement: vCASE '(' expression ')' case_item_list vENDCASE .
 
     $default  reduce using rule 74 (statement)
 
 
-state 333
+State 333
 
    83 case_item_list: case_item_list case_items .
 
     $default  reduce using rule 83 (case_item_list)
 
 
-state 334
+State 334
 
    85 case_items: expression ':' . statement
 
@@ -7145,7 +7145,7 @@ state 334
     primary                  go to state 140
 
 
-state 335
+State 335
 
    73 statement: vIF '(' expression ')' statement vELSE . statement
 
@@ -7166,7 +7166,7 @@ state 335
     primary                  go to state 140
 
 
-state 336
+State 336
 
    75 statement: vFOR '(' blocking_assignment ';' expression ';' . blocking_assignment ')' statement
 
@@ -7178,7 +7178,7 @@ state 336
     primary              go to state 128
 
 
-state 337
+State 337
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -7233,7 +7233,7 @@ state 337
     ']'             shift, and go to state 350
 
 
-state 338
+State 338
 
   144 primary: vSYMBOL_ID '[' expression ']' '[' expression ']' '[' . expression ':' expression ']'
 
@@ -7256,7 +7256,7 @@ state 338
     primary     go to state 36
 
 
-state 339
+State 339
 
    38 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' . expression ']'
    39         | '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' . expression ']' '[' expression ':' expression ']'
@@ -7280,28 +7280,28 @@ state 339
     primary     go to state 36
 
 
-state 340
+State 340
 
    61 module_connection: '.' vSYMBOL_ID '(' expression ')' .
 
     $default  reduce using rule 61 (module_connection)
 
 
-state 341
+State 341
 
    65 module_parameter: '.' vSYMBOL_ID '(' expression ')' .
 
     $default  reduce using rule 65 (module_parameter)
 
 
-state 342
+State 342
 
    58 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' ')' . ';'
 
     ';'  shift, and go to state 353
 
 
-state 343
+State 343
 
    56 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' list_of_module_connections . ')' ';'
    59 list_of_module_connections: list_of_module_connections . ',' module_connection
@@ -7310,7 +7310,7 @@ state 343
     ','  shift, and go to state 278
 
 
-state 344
+State 344
 
    50 gate_instance: vSYMBOL_ID '(' expression ',' expression ',' expression . ')'
   111 expression: expression . '^' expression
@@ -7365,49 +7365,49 @@ state 344
     ')'             shift, and go to state 355
 
 
-state 345
+State 345
 
    51 gate_instance: '(' expression ',' expression ',' expression ')' .
 
     $default  reduce using rule 51 (gate_instance)
 
 
-state 346
+State 346
 
    86 case_items: vDEFAULT ':' statement .
 
     $default  reduce using rule 86 (case_items)
 
 
-state 347
+State 347
 
    85 case_items: expression ':' statement .
 
     $default  reduce using rule 85 (case_items)
 
 
-state 348
+State 348
 
    73 statement: vIF '(' expression ')' statement vELSE statement .
 
     $default  reduce using rule 73 (statement)
 
 
-state 349
+State 349
 
    75 statement: vFOR '(' blocking_assignment ';' expression ';' blocking_assignment . ')' statement
 
     ')'  shift, and go to state 356
 
 
-state 350
+State 350
 
   143 primary: vSYMBOL_ID '[' expression ']' '[' expression ':' expression ']' .
 
     $default  reduce using rule 143 (primary)
 
 
-state 351
+State 351
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -7462,7 +7462,7 @@ state 351
     '%'             shift, and go to state 114
 
 
-state 352
+State 352
 
    38 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression . ']'
    39         | '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression . ']' '[' expression ':' expression ']'
@@ -7518,28 +7518,28 @@ state 352
     ']'             shift, and go to state 358
 
 
-state 353
+State 353
 
    58 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' ')' ';' .
 
     $default  reduce using rule 58 (module_instance)
 
 
-state 354
+State 354
 
    56 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' list_of_module_connections ')' . ';'
 
     ';'  shift, and go to state 359
 
 
-state 355
+State 355
 
    50 gate_instance: vSYMBOL_ID '(' expression ',' expression ',' expression ')' .
 
     $default  reduce using rule 50 (gate_instance)
 
 
-state 356
+State 356
 
    75 statement: vFOR '(' blocking_assignment ';' expression ';' blocking_assignment ')' . statement
 
@@ -7560,7 +7560,7 @@ state 356
     primary                  go to state 140
 
 
-state 357
+State 357
 
   144 primary: vSYMBOL_ID '[' expression ']' '[' expression ']' '[' expression ':' . expression ']'
 
@@ -7583,7 +7583,7 @@ state 357
     primary     go to state 36
 
 
-state 358
+State 358
 
    38 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' .
    39         | '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' . '[' expression ':' expression ']'
@@ -7593,21 +7593,21 @@ state 358
     $default  reduce using rule 38 (variable)
 
 
-state 359
+State 359
 
    56 module_instance: '#' '(' list_of_module_parameters ')' vSYMBOL_ID '(' list_of_module_connections ')' ';' .
 
     $default  reduce using rule 56 (module_instance)
 
 
-state 360
+State 360
 
    75 statement: vFOR '(' blocking_assignment ';' expression ';' blocking_assignment ')' statement .
 
     $default  reduce using rule 75 (statement)
 
 
-state 361
+State 361
 
   111 expression: expression . '^' expression
   112           | expression . '*' expression
@@ -7662,7 +7662,7 @@ state 361
     ']'             shift, and go to state 363
 
 
-state 362
+State 362
 
    39 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' '[' . expression ':' expression ']'
 
@@ -7685,14 +7685,14 @@ state 362
     primary     go to state 36
 
 
-state 363
+State 363
 
   144 primary: vSYMBOL_ID '[' expression ']' '[' expression ']' '[' expression ':' expression ']' .
 
     $default  reduce using rule 144 (primary)
 
 
-state 364
+State 364
 
    39 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' '[' expression . ':' expression ']'
   111 expression: expression . '^' expression
@@ -7747,7 +7747,7 @@ state 364
     '%'             shift, and go to state 114
 
 
-state 365
+State 365
 
    39 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' '[' expression ':' . expression ']'
 
@@ -7770,7 +7770,7 @@ state 365
     primary     go to state 36
 
 
-state 366
+State 366
 
    39 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' '[' expression ':' expression . ']'
   111 expression: expression . '^' expression
@@ -7825,7 +7825,7 @@ state 366
     ']'             shift, and go to state 367
 
 
-state 367
+State 367
 
    39 variable: '[' expression ':' expression ']' vSYMBOL_ID '[' expression ':' expression ']' '[' expression ':' expression ']' .
 
