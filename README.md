@@ -14,23 +14,14 @@ of Approximate Computing Circuits" in Design, Automation and Test in Europe, 201
 
 # Prerequisites
 
-- Python Version 2.4.3 or newer
+- Python Version 3.7 or newer
 
-- ModelSim (Vsim) or Verilator
+- Verilator for simulation given benchmarks. Other simulators can be also used, but simulation script needs to be modified. 
 
-	Vsim and Verilator are open-source fast Verilog simulators which are used to simulate
-	the design and obtain accuracy. By default ABACUS uses Verilator.
+- Yosys for synthesis. Other synthesis tools can be also used, but synthesis script need to be modified, together with the synthesis parsing function synthesize_sesign in abacus.py
 
-- Synopsys Design Compiler or Other synthesis tools
+- Liberty technology library:
 
-	ABACUS uses Synopsys DC by default for hardware synthesis. However this can be changed
-	as needed.
-
-- Technology Library:
-
-    The benchmarks released with ABACUS were synthesized using a 65nm library at VDD of 1.0V and
-    0.8V. If only one VDD is used, the main script, run_ABACUS_flow will need to be modified from
-    line 500 to 586.
 
 # Known issues
 ABACUS uses ODIN II [3] tool to parse the input verilog codes to an abstract syntax tree (AST).
@@ -60,14 +51,7 @@ Directories:
   - trunk: Contains source codes, header files, binaries, and scripts used by ABACUS. 
     - ABACUS/                  : source codes, and all of the supporting files related to source codes.
     - libvpr_6/                : libvpr_6 is used by ABACUS
-    - cleanup.sh               : Remove junk files created from synthesis and simulations
-    - fitness_evaluation.sh    : Check the fitness of the mutation (called from run_ABACUS_flow)
-    - run_ABACUS_flow          : This is the main script
-    - run_ABACUS_flow_parallel : This script runs the main flow of the ABACUS in parallel
-    - sample.config            : Sample configuration file for each benchmark, see section below
-    - savings.sh               : Computes area and power saving (called from run_ABACUS_flow)
-    - test_nsga2_hybrid.py     : Perform nsga2 hybrid algorithm (see paper, called from run_ABACUS_flow)
-    - nsga2.py                 : Perform nsga2 algorithm (mutually exclusive with nsga2_hybrid version)
+    - abacus.py                : main script to run ABACUS flow
 
 Regular Files:
 
@@ -75,13 +59,8 @@ Regular Files:
   - README.md: The README file. This file.
 
 # Configuration Files
-The run_abacus_flow script glues together multiple tools to transform (ABACUS), simulate (ModelSim/Verilator),
-synthesize (Design Compiler), and evaluates the accuracy (QoS) for each input. Different benchmarks may require
-different calling formats for each tool. The configuration file eliminates the need to modify run_ABACUS_flow
-for each benchmark.
 
-When creating a new benchmark, you will need to create a new configuration file. The sample.config in the
-trunk folder can be used as a starting template.
+When creating a new benchmark, you will need to create a new synthesis (synthesis.script) and simulation script (sim.script) in the folder for the benchmark.
 
 # Benchmarks
 
@@ -120,32 +99,14 @@ In general, to run ABACUS using a single process you need to change directory to
 main script:
 
     cd ABACUS_ROOT/trunk
-    /bin/bash run_ABACUS_flow [TESTBENCH_FOLDER]/[CONFIG_FILE] 0
+    python abacus.py [testbench_name] [TESTBENCH_FOLDER] min_accuracy_threshold(0-100)
 
 Note: there may be error if other shell is used.
 
-Details on how to write the config file can be found in the sample.config(trunk/sample.config).
 
-Replace '0' with '1' to turn off simulation and synthesis for the original script. If you run
-the script multiple times, it is convenient not having to re-simulate and re-synthesize the
-original code (design input) over and over.
+To run with arbitrary input verilog files (MODIFY THIS):
 
-Note: Use ABACUS_ROOT/trunk/cleanup.sh after each run to get rid of all of the residual files.
-
-1) To run one of the 4 included testbenches as a single process: (as an example block matching)
-
-Provide the synthesis libraries and change the .tcl files to point to the libraries.
-ake sure all of the path used in the config files are set properly.
-Then run the ABACUS: 
-
-    cd ABACUS_ROOT/trunk
-    /bin/bash run_ABACUS_flow ../blockmatching/bm.config 0
-
-All benchmarks tested working.
-
-2) To run with arbitrary input verilog files:
-
-Creat a folder in ABACUS root with the testbench name:
+Create a folder in ABACUS root with the testbench name:
 
     cd ABACUS_ROOT
     mkdir random_verilog
