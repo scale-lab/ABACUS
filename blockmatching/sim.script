@@ -1,0 +1,39 @@
+#!/bin/bash
+VERILATOR_RULE="verilator -Wno-lint --cc $2/me_topmodule.v $2/me_control.v $2/me_bram_search_2column.v $2/me_bram_search_3column.v $2/me_comparator.v $2/me_datapath.v $2/me_PE.v $2/me_sad_calculation.v $2/me_sad_reuse.v --exe bm_test.cpp"
+VERILATOR_MAKE_RULE="make -j -C obj_dir/ -f Vme_topmodule.mk Vme_topmodule && mv obj_dir/Vme_topmodule ."
+VERILATOR_EXECUTABLE=Vme_topmodule
+VERILATOR_EXEC_RULE="./Vme_topmodule"
+# Output files
+SIMULATION_OUTPUT_FILES="psnr.txt midframe.txt output16.txt ref_frame.txt"
+
+
+if [ ! -d $2/simulation ]; then
+  mkdir $2/simulation
+fi
+Num_testCases=4
+cd $1
+for ((SimFile=1; SimFile<=$Num_testCases; SimFile++));
+do
+    # Call Verilator/Vsim for simulation
+    echo 'Simulating testcase # '$SimFile
+    cd testcase$SimFile
+    if (( SimFile==1 )); then
+        if [ -d obj_dir ]; then
+            rm -rf obj_dir
+        fi
+
+        # run Verilator to translate Verilog into C++, include C++ testbench
+        eval $VERILATOR_RULE
+        # build the C++ project
+        eval $VERILATOR_MAKE_RULE
+        #mv obj_dir/V$DESIGN_NAME .
+    else
+        cp $1/testcase1/$VERILATOR_EXECUTABLE .
+    fi
+    eval $VERILATOR_EXEC_RULE
+    if [ ! -d $2/simulation/testcase$SimFile ]; then
+      mkdir $2/simulation/testcase$SimFile
+    fi
+    mv $SIMULATION_OUTPUT_FILES $2/simulation/testcase$SimFile/
+    cd ..
+done
