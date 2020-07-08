@@ -2,12 +2,19 @@ import sys
 import os
 import shutil
 import subprocess
+import logging
 #import nsga2_alg
 from operator import itemgetter
 
-design_name='blockmatching'
+design_files=['me_sad_calculation.v']
 path='/home/sreda/Tools/ABACUS/blockmatching'
 ACC_THRESH=90
+#n_args=len(sys.argv)
+#design_files=[]
+#for i in range(1, n_args-2):#
+#	design_files.append(sys.argv[i])
+#path=sys.argv[n_args-2]
+#ACC_THRESH=sys.argv[n_args-1]
 #design_name = sys.argv[1]
 #path = sys.argv[2]
 #ACC_THRESH = sys.argv[3]
@@ -171,23 +178,35 @@ def synthesize_design(path, cwd):
 	area=0
 	os.chdir(path)
 	syn_results=subprocess.run(['yosys', '-s', 'yosys.script'], capture_output=True, text=True)
-	area = -1			
+	#logging.debug(syn_results.replace('\\n', '\n'))
+	logging.debug(syn_results.stdout)
+	area = 0
 	for line in syn_results.stdout.splitlines():
 		fields = line.strip().split()
 		if len(fields) > 0:
 			if fields[0] == 'Chip' and fields[1]=='area':
-				area = fields[5]
+				area += float(fields[5])
 	os.chdir(cwd)
-	return float(area)
+	return area
+
+def merge_files(design_name, source):
+	data=''
+	for file in source:
+		with open(file) as fp:
+			data += fp.read()
+	with open (design_name+'.v', 'w') as fp:
+		fp.write(data)
 
 cwd=os.getcwd()
 
-print('Running ABACUS v1.2 flow using ' + design_name + ' config file');
+print('Running ABACUS v1.1 flow using ' );
 os.chdir(path)
-#config_file = open(design_name + '.config2')
-#config = config_file.readlines()
+file=design_files[0]
+design_name = file[0:len(file) - 2]
+logging.basicConfig(filename=design_name+'.log',level=logging.DEBUG)
 
 # copy files from original to source
+logging.debug('moving original design to SRC folder')
 source = os.listdir(path+'/Original')
 for file in source:
 	if '.v' in file:
@@ -196,22 +215,26 @@ for file in source:
 # synthesize the original design 
 print('Synthesizing original design')
 original_area=synthesize_design(path, cwd)
+logging.debug('original design area ' + str(original_area))
 
 
 print('Simulating original design')
-sim_results=subprocess.run([path+'/sim.script', path+'/simulation', path+'/Original'], capture_output=False, text=True)
+sim_results=subprocess.run([path+'/sim.script', path+'/simulation', path+'/Original'], capture_output=True, text=True)
+logging.debug(sim_results.stdout)
 
 Num_Generation = 5
 Num_perGen = 10
 MAX_SEL = 3
-source = os.listdir(path+'/Original')
-for file in source:
-	if '.v' in file:
-		shutil.copy(path+'/Original/'+file, path+'/SRC/'+file)
-shutil.move(path+'/SRC/'+design_name+'.v', path+'/SRC/'+design_name+'1.v')
+#source = os.listdir(path+'/Original')
+for file in design_files:
+	design_name=file[0:len(file)-2]
+	shutil.copy(path+'/Original/'+file, path+'/SRC/'+design_name+'1.v')
+#shutil.move(path+'/SRC/'+design_name+'.v', path+'/SRC/'+design_name+'1.v')
 
 Generation = 1
 while Generation <= Num_Generation:
+	print('-------------------')
+	print('Generation '+str(Generation))
 	gen_file = open(path+'/Population/FilesInfo_G'+str(Generation)+'.txt', 'w')
 	gen_results=[];
 	if Generation == 1:
@@ -222,31 +245,46 @@ while Generation <= Num_Generation:
 	while SelNo <= NUM_SEL:
 		VlogFile = 1	
 		while VlogFile <= Num_perGen:
-			os.chdir(path+'/SRC')	
-			print('Working with design '+design_name+str(SelNo)+'.v')
-			subprocess.run([cwd+'/ABACUS/ABACUS', '-V', design_name+str(SelNo)+'.v', '-A'])
-			if os.path.exists(design_name+'_fromAST.v'):
-				shutil.move(design_name+'_fromAST.v', design_name+'.v')
-				os.chdir(path+'/simulation')
-				sim_results=subprocess.run([path+'/sim.script', path+'/simulation', path+'/SRC'], capture_output=False, text=True)
-				mean_acc, min_acc = qor.data_compare(path+'/Original', path+'/SRC')
-				if mean_acc < ACC_THRESH:
-					print('design with large error - skipping')
-					continue
-				approx_area=synthesize_design(path, cwd)
-				if approx_area == -1:
-					print('synthesis failed - skipping')
-					continue
-				approx_fname=design_name+'_G'+str(Generation)+'_S'+str(SelNo)+'_F'+str(VlogFile)
-				design_tuple=(approx_fname, (mean_acc, 100*(original_area-approx_area)/original_area))
-				gen_results.append(design_tuple)
-				gen_file.write(approx_fname+'\t'+str(mean_acc)+ '\t'+ str(min_acc) +'\t'+ str(100*(original_area-approx_area)/original_area)+'\n')
-				os.chdir(path+'/SRC')
-				shutil.move(design_name+'.v', path+'/Population/'+approx_fname+'.v')
-				VlogFile = VlogFile + 1
+			os.chdir(path+'/SRC')
+			status = 1
+			for file in design_files:
+				design_name = file[0:len(file) - 2]
+				print('Approximating the design')
+				abacus_out=subprocess.run([cwd+'/ABACUS/ABACUS', '-V', design_name+str(SelNo)+'.v', '-A'], capture_output=True, text=True)
+				logging.debug(abacus_out.stdout)
+				if os.path.exists(design_name+'_fromAST.v'):
+					source = []
+					folder_content = os.listdir('.')
+					for f in folder_content:
+						if '_fromAST.v' in f:
+							source.append(f)
+					merge_files(design_name, source)
+				else:
+					status=-1
+			os.chdir(path+'/simulation')
+			print('Simulating the approximate design')
+			sim_results=subprocess.run([path+'/sim.script', path+'/simulation', path+'/SRC'], capture_output=True, text=True)
+			logging.debug(sim_results.stdout)
+			mean_acc, min_acc = qor.data_compare(path+'/Original', path+'/SRC')
+			if mean_acc < ACC_THRESH:
+				print('approximate design with large error - skipping')
+				continue
+			print('Synthesizing approximate design')
+			approx_area=synthesize_design(path, cwd)
+			if approx_area == 0:
+				print('synthesis failed - skipping')
+				continue
+			approx_fname=design_name+'_G'+str(Generation)+'_S'+str(SelNo)+'_F'+str(VlogFile)
+			print('Success, writing down approximate design ', approx_fname, 'in Population folder')
+			design_tuple=(approx_fname, (mean_acc, 100*(original_area-approx_area)/original_area))
+			gen_results.append(design_tuple)
+			gen_file.write(approx_fname+'\t'+str(mean_acc)+ '\t'+ str(min_acc) +'\t'+ str(100*(original_area-approx_area)/original_area)+'\n')
+			os.chdir(path+'/SRC')
+			shutil.move(design_name+'.v', path+'/Population/'+approx_fname+'.v')
+			VlogFile = VlogFile + 1
 		SelNo = SelNo + 1
 	print(gen_results)
-	result=nsga2_alg.nsga2(gen_results)
+	result = nsga2(gen_results)
 	Generation = Generation + 1 
 	gen_file.close()
 	print('-- FINAL RESULT--')
