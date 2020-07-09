@@ -183,7 +183,7 @@ def synthesize_design(path, cwd):
 		fields = line.strip().split()
 		if len(fields) > 0:
 			if fields[0] == 'Chip' and fields[1]=='area':
-				area += float(fields[5])
+				area += float(fields[len(fields)-1])
 	os.chdir(cwd)
 	return area
 
