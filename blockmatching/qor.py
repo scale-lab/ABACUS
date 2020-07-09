@@ -26,12 +26,12 @@ def QoS(Original, Modified):
         #ModifiedDB[i] = 10 * (math.log10(math.pow(255,2)/(Modified[i]/(im_width * im_height))))
 		# L = min(len(Original[i]),len(Modified[i]))
         # Accuracy of original design:
-        print("Mean square error for entire frame given by original design is: " , Original[i])
+        #print("Mean square error for entire frame given by original design is: " , Original[i])
         # Accuracy of modified design:
-        print("Mean square error for entire frame given by modified design is: " , Modified[i])
+        #print("Mean square error for entire frame given by modified design is: " , Modified[i])
         # count the number of mismatches:
         rel_acc[i] = 100 - ((abs(float(Original[i] - Modified[i])) / Original[i]) * 100)
-        print("Accuracy of modified design is : %0.4g %%\n\n" % rel_acc[i])
+        #print("Accuracy of modified design is : %0.4g %%\n\n" % rel_acc[i])
 
     return numpy.mean(rel_acc), numpy.min(rel_acc)
 

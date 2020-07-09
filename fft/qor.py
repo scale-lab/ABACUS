@@ -74,7 +74,7 @@ def data_compare(dir1, dir2):
 		#data_4 = [x*x for x in [l.real for l in y_ifft_org]]
 		data_4 = [x*x for x in amplitude_org]
 		fft_mse[k-1] = (numpy.mean(diff_square)/numpy.mean(data_4))*100
-		print(('MSE: %f\n'% fft_mse[k-1]))
+		#print(('MSE: %f\n'% fft_mse[k-1]))
 	fft_accuracy = 100 - fft_mse
 	return numpy.mean(fft_accuracy), numpy.min(fft_accuracy)
 #def main(Generation, SelNo, VlogFile, NumtestCases):

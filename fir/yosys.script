@@ -1,4 +1,5 @@
-read_verilog SRC/fir_filter.v
+read_verilog SRC/fir_filter.v SRC/DRUMk_M_N_s.v
+hierarchy -top fir_filter
 synth
 dfflibmap -liberty ../gscl45nm.lib
 abc -liberty ../gscl45nm.lib

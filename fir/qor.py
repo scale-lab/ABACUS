@@ -141,10 +141,10 @@ def data_compare(orig_path, approx_path):
 		sigsq = [pow(a,2) for a in temp[0:len(groundtruthData[x])]]
 		avg=100 - ((numpy.mean(diffsq))/(numpy.mean(sigsq)))*100
 		avg_array[x]=avg
-	print(avg_array)
+	#print(avg_array)
 
 	avgAll = numpy.mean(avg_array)
-	print(avgAll)
+	#print(avgAll)
 	return avgAll, min(avg_array)
 
 

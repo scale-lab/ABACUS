@@ -6,18 +6,16 @@ import logging
 #import nsga2_alg
 from operator import itemgetter
 
-design_files=['me_sad_calculation.v']
-path='/home/sreda/Tools/ABACUS/blockmatching'
-ACC_THRESH=90
-#n_args=len(sys.argv)
-#design_files=[]
-#for i in range(1, n_args-2):#
-#	design_files.append(sys.argv[i])
-#path=sys.argv[n_args-2]
-#ACC_THRESH=sys.argv[n_args-1]
-#design_name = sys.argv[1]
-#path = sys.argv[2]
-#ACC_THRESH = sys.argv[3]
+#design_files=['svm.v']
+#path='/home/sreda/Tools/ABACUS/perceptron'
+#ACC_THRESH=90
+n_args=len(sys.argv)
+design_files=[]
+for i in range(1, n_args-2):
+	design_files.append(sys.argv[i])
+path=sys.argv[n_args-2]
+ACC_THRESH=float(sys.argv[n_args-1])
+
 
 sys.path.insert(1, path)
 import qor
@@ -87,7 +85,7 @@ def compute_distance(pop):
 	if len(pop) > 1:
 		l = len(pop)
 		nb_objs = len(pop[0][1])
-		print("Number of Objectives: %d" % nb_objs)
+		logging.debug("Number of Objectives: %d" % nb_objs)
 		for element in pop:
 			assert (len(element) == 3)
 			element.append(0)
@@ -104,7 +102,7 @@ def compute_distance(pop):
 
 
 def nsga2(population):  # takes 2-uples of (indiv,fitness)
-	print(population)
+	logging.debug(population)
 	new_gen_pop_len = 4
 	assert len(population) > 0
 	# assert len( population )%2 == 0
@@ -128,9 +126,9 @@ def nsga2(population):  # takes 2-uples of (indiv,fitness)
 	if len(rest_pop) == 2:
 		fronts = non_dom_sort_two_objs(rest_pop)
 		# KN
-		print("--Non Dom Sort Two Objects--")
-		print(fronts)
-		print("------\n")
+		logging.debug("--Non Dom Sort Two Objects--")
+		logging.debug(fronts)
+		logging.debug("------\n")
 
 		for front in fronts:
 			if len(selected_pop) < N:
@@ -141,13 +139,13 @@ def nsga2(population):  # takes 2-uples of (indiv,fitness)
 			new_front, rest_pop = find_non_dom_front(rest_pop)
 			# print new_front
 			# print rest_pop
-			print("--New Front--")
-			print(new_front)
-			print("------\n")
+			logging.debug("--New Front--")
+			logging.debug(new_front)
+			logging.debug("------\n")
 
-			print("--Rest Population--")
-			print(rest_pop)
-			print("------\n")
+			logging.debug("--Rest Population--")
+			logging.debug(rest_pop)
+			logging.debug("------\n")
 
 			selected_pop += [[element[0], element[1], i] for element in new_front]
 			i += 1
@@ -155,21 +153,21 @@ def nsga2(population):  # takes 2-uples of (indiv,fitness)
 
 	# getting the distances
 	selected_pop = compute_distance(selected_pop)
-	print("--Final Selection Pool with fitness, pareto front and distance--")
-	print(selected_pop)
-	print("------\n")
+	logging.debug("--Final Selection Pool with fitness, pareto front and distance--")
+	logging.debug(selected_pop)
+	logging.debug("------\n")
 
 	selected_pop = sorted(selected_pop, key=itemgetter(3),
 						  reverse=True)  # secondary objective : distance, to be maximized
-	print("--Final Selection Pool after sorting, round 1")
-	print(selected_pop)
-	print("------\n")
+	logging.debug("--Final Selection Pool after sorting, round 1")
+	logging.debug(selected_pop)
+	logging.debug("------\n")
 
 	selected_pop = sorted(selected_pop, key=itemgetter(2),
 						  reverse=False)  # primary objective : pareto front : to minimize
-	print("--Final Selection Pool after sorting, round2")
-	print(selected_pop)
-	print("------\n")
+	logging.debug("--Final Selection Pool after sorting, round2")
+	logging.debug(selected_pop)
+	logging.debug("------\n")
 
 	return [[element[0], element[1]] for element in selected_pop[0:new_gen_pop_len]]
 
@@ -231,11 +229,15 @@ for file in design_files:
 	shutil.copy(path+'/Original/'+file, path+'/SRC/'+design_name+'1.v')
 #shutil.move(path+'/SRC/'+design_name+'.v', path+'/SRC/'+design_name+'1.v')
 
+all_results_file = open(path+'/Population/all_results.txt', 'w')
+all_results_file.write('Mean Accuracy (%)\t Area Reduction (%)\n')
+all_results_file.flush()
 Generation = 1
 while Generation <= Num_Generation:
 	print('-------------------')
 	print('Generation '+str(Generation))
 	gen_file = open(path+'/Population/FilesInfo_G'+str(Generation)+'.txt', 'w')
+
 	gen_results=[];
 	if Generation == 1:
 		NUM_SEL = 1
@@ -266,6 +268,7 @@ while Generation <= Num_Generation:
 			sim_results=subprocess.run([path+'/sim.script', path+'/simulation', path+'/SRC'], capture_output=True, text=True)
 			logging.debug(sim_results.stdout)
 			mean_acc, min_acc = qor.data_compare(path+'/Original', path+'/SRC')
+			logging.debug('accuracies: '+str(mean_acc)+' '+str(min_acc))
 			if mean_acc < ACC_THRESH:
 				print('approximate design with large error - skipping')
 				continue
@@ -279,24 +282,30 @@ while Generation <= Num_Generation:
 			design_tuple=(approx_fname, (mean_acc, 100*(original_area-approx_area)/original_area))
 			gen_results.append(design_tuple)
 			gen_file.write(approx_fname+'\t'+str(mean_acc)+ '\t'+ str(min_acc) +'\t'+ str(100*(original_area-approx_area)/original_area)+'\n')
+			all_results_file.write(str(mean_acc)+ '\t' + str(100*(original_area-approx_area)/original_area)+'\n')
+			all_results_file.flush()
 			os.chdir(path+'/SRC')
 			shutil.move(design_name+'.v', path+'/Population/'+approx_fname+'.v')
 			VlogFile = VlogFile + 1
 		SelNo = SelNo + 1
-	print(gen_results)
+	logging.debug('Geneeration results')
+	logging.debug(gen_results)
+	print('Identify Pareto frontier using NSGA2')
 	result = nsga2(gen_results)
 	Generation = Generation + 1 
 	gen_file.close()
-	print('-- FINAL RESULT--')
-	print([items[0] for items in result])
+	logging.debug('-- FINAL RESULT--')
+	logging.debug([items[0] for items in result])
 	fitness_rank=[0.6*items[1][0]+0.4*items[1][1] for items in result]
 	final_result=[[items[0], items[1], fitness_rank[idx]] for idx, items in enumerate(result)]
 	fitness_sorted_result = sorted(final_result, key=itemgetter(2), reverse=True)
-	print(fitness_sorted_result)
+	logging.debug(fitness_sorted_result)
 	for idx,items in enumerate(fitness_sorted_result):
 		srcFilename='%s/Population/%s.v' % (path, items[0])
 		destFilename='%s/SRC/%s%d.v' % (path, design_name, (idx+2))
-		print(srcFilename)
-		print(destFilename)
+		logging.debug(srcFilename)
+		logging.debug(destFilename)
 		shutil.copyfile(srcFilename, destFilename)
-	print('--END--\n')
+	logging.debug('--END--\n')
+all_results_file.close()
+print('Results are available in Population folder')
