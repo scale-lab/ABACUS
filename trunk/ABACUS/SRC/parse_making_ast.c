@@ -9336,7 +9336,7 @@ void transformTree (ast_node_t* mult_node,int s1, int s2)
         ast_node_t* module_instance = create_node_w_type(MODULE_INSTANCE,999,current_parse_file);
         ast_node_t* my_mult = create_node_w_type(IDENTIFIERS,999,current_parse_file);
 	//my_mult->types.identifier = "DRUM6";
-	sprintf(tempholder, "DRUM6_%d_%d", s1, s2);
+	sprintf(tempholder, "DRUMk_M_N_s #(%d,%d, %d) ", (int)(min(s1,s2)/2), s1, s2);
 	my_mult->types.identifier = (char*)calloc(sizeof(tempholder), sizeof(char));
 	strcpy(my_mult->types.identifier, tempholder);
         ast_node_t* module_named_instance = create_node_w_type(MODULE_NAMED_INSTANCE,999,current_parse_file);
