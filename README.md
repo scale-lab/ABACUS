@@ -15,7 +15,7 @@ of Approximate Computing Circuits" in Design, Automation and Test in Europe, 201
 
 - Simple single file python-based flow
 
-- Uses open-source tools entirely for simulation and systhesis
+- Uses open-source tools entirely for simulation and synthesis
 
 - Uses more general DRUM implementation for approximate multiplication
 
@@ -28,7 +28,7 @@ of Approximate Computing Circuits" in Design, Automation and Test in Europe, 201
 
 - Yosys for synthesis. Other synthesis tools can be also used, but synthesis script need to be modified, together with the synthesis parsing function synthesize_sesign in abacus.py
 
-- Liberty technology library:
+- Liberty technology library
 
 
 # Known issues
@@ -107,7 +107,7 @@ In general, to run ABACUS using a single process you need to change directory to
 main script:
 
     cd ABACUS_ROOT/trunk
-    python abacus.py [testbench_name] [TESTBENCH_FOLDER] min_accuracy_threshold(0-100)
+    python abacus.py [TESTBENCH_FOLDER] [design_file_to_be_approxamted] min_accuracy_threshold(0-100)
 
 Note: there may be error if other shell is used.
 
@@ -119,12 +119,6 @@ Create a folder in ABACUS root with the testbench name:
     cd ABACUS_ROOT
     mkdir random_verilog
     
-Copy the sample config file from the trunk folder to the new folder and modify it as needed:
-
-    cd random_verilog
-    cp ../trunk/sample.config ./
-    mv sample.config random.config
-    vi random.config
 
 Create the necessary folders for the ABACUS tool and put the required files as follows:
 
@@ -138,27 +132,12 @@ Create the necessary folders for the ABACUS tool and put the required files as f
 		 Put each of the testcases in a seprate folder named as testcaseX. The 4 existing
 		 testbenches can provide good examples.
 
-- synthesis/ -> Provide the .tcl files required for dc compiler synthesis. Synthesis libraries
-	      are also required.
+- syn.script -> synthesis script for the design
 
-The summary would be:
+- sim.script -> simulation script for the design
 
-    mkdir Original
-    cp DESIGN_SOURCE_FILES ./Original/
-    mkdir Population
-    mkdir SRC
-    mkdir simulation
-    mkdir simulation/testcase1/
-    cp SIMULATION_FILES GROUND_TRUTH INPUT_FILES ./simulation/testcase1/
-    # Repeat last two steps as needed for multiple testcases.
-    mkdir synthesis/
-    cp SYNTHESIS_FILES.tcl ./synthesis/
-    cp LIBRARY_FILES ./synthesis/
+- qor.py -> Python script to compare two outputs from sim.script
 
-If all is done correctly, now all you need is to run ABACUS.
-
-    cd ABACUS_ROOT/trunk
-    sh run_ABACUS_flow ../random_verilog/random.config 0
 
 # Output Format
 ABACUS uses genetics algorithm (NSGA II and NSGA II hybrid, see [2] for more detail) to perform mutations
@@ -188,35 +167,29 @@ In addition to the design files, each generation also produces a summary file ca
     FilesInfo_G[X].txt
 where G[X] is for the generation number. The content of this summary file is in the following format:
 
-    #File_Name  Mean_Accuracy(%)    Min_Accuracy(%) Area_Saving(%)  Power_Saving(%) Net_Slack(ns)   Additional_Savings(%)
+    #File_Name  Mean_Accuracy(%)    Min_Accuracy(%) Area_Saving(%)  
     
-    fir_filter_G1_S1_F1     98.243      98.1473             8.9540      18.7309     0        0   
-    fir_filter_G1_S1_F2     89.4577     87.9527             19.8137     24.0762     0        0   
-    fir_filter_G1_S1_F3     76.2976     73.5313             16.8679     21.2852     0        0   
-    fir_filter_G1_S1_F4     79.9836     77.7669             11.1038     19.3790     0        0   
-    fir_filter_G1_S1_F5     97.5239     97.1871             8.0360      12.4602     0        0   
-    fir_filter_G1_S1_F6     85.3439     84.1843             12.6930     20.5033     0        0   
-    fir_filter_G1_S1_F7     76.069      72.0779             24.8852     26.6994     0        0   
-    fir_filter_G1_S1_F8     91.2023     90.3241             20.3369     22.3393     0        0   
-    fir_filter_G1_S1_F9     72.1619     69.246              8.4362      16.7991     0        0   
-    fir_filter_G1_S1_F10    90.9573     89.5009             22.1418     26.6342     0        0
+    fir_filter_G1_S1_F1     98.243      98.1473             8.9540      
+    fir_filter_G1_S1_F2     89.4577     87.9527             19.8137     
+    fir_filter_G1_S1_F3     76.2976     73.5313             16.8679     
+    fir_filter_G1_S1_F4     79.9836     77.7669             11.1038     
+    fir_filter_G1_S1_F5     97.5239     97.1871             8.0360        
+    fir_filter_G1_S1_F6     85.3439     84.1843             12.6930     
+    fir_filter_G1_S1_F7     76.069      72.0779             24.8852     
+    fir_filter_G1_S1_F8     91.2023     90.3241             20.3369    
+    fir_filter_G1_S1_F9     72.1619     69.246              8.4362      
+    fir_filter_G1_S1_F10    90.9573     89.5009             22.1418     
     
     # The best fit approximate design of Generation 1 is fir_filter_G1_S1_F1
 
-Here, the accuracy statics (mean, min) across test cases, area, power saving, net slack are reported for each mutant.
-The additional_saving(%) report the power saving from resulted from Voltage-Frequency Scaling, which are included
-in the total power saving (Power_Saving).
+Here, the accuracy statics (mean, min) across test cases, and area are reported for each mutant.
 
 
 # Troubleshooting and Common Issues
 
-- Make sure dc_shell, and Vsim or Verilator are working properly.
+- Make sure Yosys and Verilator are working properly.
 
-- If verilator (or Vsim) is not system-wide installed, make sure to set VERILATOR_ROOT to proper location.
-You must then export VERILATOR_ROOT.
-
-- Make sure you are in the trunk folder when
-running the main script.
+- Make sure you are in the trunk folder when running the main script.
 
 # License and Citation
 
