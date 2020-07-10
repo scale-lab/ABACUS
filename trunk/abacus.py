@@ -239,15 +239,18 @@ while Generation <= Num_Generation:
 	print('Generation '+str(Generation))
 	gen_file = open(path+'/Population/FilesInfo_G'+str(Generation)+'.txt', 'w')
 
-	gen_results=[];
+	gen_results=[]
 	if Generation == 1:
 		NUM_SEL = 1
 	else:
 		NUM_SEL = MAX_SEL
 	SelNo = 1
 	while SelNo <= NUM_SEL:
-		VlogFile = 1	
+		VlogFile = 1
+		FAILS = 0
 		while VlogFile <= Num_perGen:
+			if FAILS == 10*Num_perGen:
+				break
 			os.chdir(path+'/SRC')
 			status = 1
 			for file in design_files:
@@ -272,11 +275,13 @@ while Generation <= Num_Generation:
 			logging.debug('accuracies: '+str(mean_acc)+' '+str(min_acc))
 			if mean_acc < ACC_THRESH:
 				print('approximate design with large error - skipping')
+				FAILS += 1
 				continue
 			print('Synthesizing approximate design')
 			approx_area=synthesize_design(path, cwd)
 			if approx_area == 0:
 				print('synthesis failed - skipping')
+				FAILS += 1
 				continue
 			approx_fname=design_name+'_G'+str(Generation)+'_S'+str(SelNo)+'_F'+str(VlogFile)
 			print('Success, writing down approximate design ', approx_fname, 'in Population folder')
