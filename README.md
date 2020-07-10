@@ -11,6 +11,14 @@ Low-Power Approximate Computing Circuits", in IEEE Transactions on Emerging Topi
 [2] K. Nepal, Y. Li, R. I. Bahar and S. Reda, " ABACUS: A Technique for Automated Behavioral Synthesis
 of Approximate Computing Circuits" in Design, Automation and Test in Europe, 2014.
 
+# New in Version 1.1 (July 2020)
+
+- Simpler, one file python flow
+
+- Uses open-source tools entirely for simulation and systhesis
+
+- Uses more general DRUM implementation for approximate multiplication
+
 
 # Prerequisites
 
