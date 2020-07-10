@@ -13,7 +13,7 @@ of Approximate Computing Circuits" in Design, Automation and Test in Europe, 201
 
 # New in Version 1.1 (July 2020)
 
-- Simpler, one file python flow
+- Simple single file python-based flow
 
 - Uses open-source tools entirely for simulation and systhesis
 
