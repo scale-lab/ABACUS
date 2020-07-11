@@ -28,7 +28,7 @@ of Approximate Computing Circuits" in Design, Automation and Test in Europe, 201
 
 - Yosys for synthesis. Other synthesis tools can be also used, but synthesis script need to be modified, together with the synthesis parsing function synthesize_sesign in abacus.py
 
-- Liberty technology library
+- Liberty technology library. Our synthesis scripts uses the FreePDK45 and assumes the gscl45nm.lib is located in the benchmarks folder
 
 
 # Known issues
