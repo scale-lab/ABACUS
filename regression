@@ -1,0 +1,14 @@
+#!/bin/bash
+for ben in blockmatching fft fir perceptron
+do
+  cd benchmarks/$ben
+  rm *.log
+  rm Population/*
+  cd ../..
+done
+
+python abacus.py me_sad_calculation.v /home/sreda/Tools/ABACUS/benchmarks/blockmatching 90 &
+python abacus.py fft.v /home/sreda/Tools/ABACUS/benchmarks/fft 90 &
+python abacus.py fir_filter.v /home/sreda/Tools/ABACUS/benchmarks/fir 90 & 
+python abacus.py svm.v /home/sreda/Tools/ABACUS/benchmarks/perceptron 90 &
+

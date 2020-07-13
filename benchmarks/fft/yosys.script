@@ -1,0 +1,7 @@
+read_verilog SRC/fft.v SRC/DRUMk_M_N_s.v
+hierarchy -top fft
+synth -flatten
+dfflibmap -liberty ../gscl45nm.lib
+abc -liberty ../gscl45nm.lib
+opt
+stat -liberty ../gscl45nm.lib

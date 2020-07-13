@@ -1,0 +1,8 @@
+read_verilog SRC/me_topmodule.v SRC/me_control.v SRC/me_bram_search_2column.v SRC/me_bram_search_3column.v SRC/me_comparator.v SRC/me_datapath.v SRC/me_PE.v SRC/me_sad_calculation.v SRC/me_sad_reuse.v SRC/DRUMk_M_N_s.v
+hierarchy -top me_topmodule
+synth
+flatten
+dfflibmap -liberty ../gscl45nm.lib
+abc -liberty ../gscl45nm.lib
+opt
+stat -liberty ../gscl45nm.lib

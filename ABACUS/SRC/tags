@@ -1,0 +1,1184 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACTIVATION	types.h	84;"	d
+ACTIVATION_ERROR	types.h	67;"	d
+ADD	types.h	/^	ADD, \/\/ +$/;"	e	enum:__anon4
+ADD2OR_PRCTG	parse_making_ast.c	2740;"	d	file:
+ADD2OR_PRCTG	parse_making_ast.c	2745;"	d	file:
+ADDER_FUNC	types.h	/^	ADDER_FUNC,$/;"	e	enum:__anon4
+ALWAYS	types.h	/^	ALWAYS,$/;"	e	enum:__anon5
+ARRAY_ARRAY_REF	types.h	/^	ARRAY_ARRAY_REF, \/\/added by Kumud$/;"	e	enum:__anon5
+ARRAY_RANGE_REF	types.h	/^	ARRAY_RANGE_REF, \/\/added by Kumud$/;"	e	enum:__anon5
+ARRAY_REF	types.h	/^	ARRAY_REF,$/;"	e	enum:__anon5
+ASSIGN	types.h	/^	ASSIGN,$/;"	e	enum:__anon5
+AST_TYPES_H	types.h	172;"	d
+AddSameBinaryExpression	parse_making_ast.c	/^void AddSameBinaryExpression(ast_node_t *node, char* statement_text)$/;"	f
+Arch	abacus.c	/^t_arch Arch;$/;"	v
+AstOperation	parse_making_ast.c	/^void AstOperation(ast_node_t *top)$/;"	f
+AstOperation_Mutate	parse_making_ast.c	/^void AstOperation_Mutate(ast_node_t *node)$/;"	f
+AstOperation_copytree	parse_making_ast.c	/^ast_node_t *AstOperation_copytree(ast_node_t *orgnode)$/;"	f
+AstOperation_delete	parse_making_ast.c	/^void AstOperation_delete(ast_node_t *node)$/;"	f
+AstOperation_factorize	parse_making_ast.c	/^void AstOperation_factorize()$/;"	f
+AstOperation_find_paravalue	parse_making_ast.c	/^int AstOperation_find_paravalue(char *target_parameter, record_id *para_lib)$/;"	f
+AstOperation_insert	parse_making_ast.c	/^void AstOperation_insert()$/;"	f
+AstOperation_subtree	parse_making_ast.c	/^void AstOperation_subtree(ast_node_t *node, int side, int conditionid)$/;"	f
+AstOperation_swap	parse_making_ast.c	/^void AstOperation_swap()$/;"	f
+AstOperation_traverse	parse_making_ast.c	/^void AstOperation_traverse(ast_node_t *node, int conditionid)$/;"	f
+AstOperation_unroll	parse_making_ast.c	/^void AstOperation_unroll(ast_node_t *forparent, int forindex)$/;"	f
+AstOperation_unroll_replace	parse_making_ast.c	/^void AstOperation_unroll_replace(ast_node_t *node, char *mainvar, int value)$/;"	f
+Ast_param_substition	parse_making_ast.c	/^void Ast_param_substition(ast_node_t* top, record_id* para_lib)$/;"	f
+BEGIN	verilog_flex.c	126;"	d	file:
+BIN	types.h	/^	BIN,$/;"	e	enum:__anon3
+BINARY_OPERATION	types.h	/^	BINARY_OPERATION,$/;"	e	enum:__anon5
+BITWISE_AND	types.h	/^	BITWISE_AND, \/\/ &$/;"	e	enum:__anon4
+BITWISE_NAND	types.h	/^	BITWISE_NAND, \/\/ ~&$/;"	e	enum:__anon4
+BITWISE_NOR	types.h	/^	BITWISE_NOR, \/\/ ~|$/;"	e	enum:__anon4
+BITWISE_NOT	types.h	/^	BITWISE_NOT, \/\/ ~$/;"	e	enum:__anon4
+BITWISE_OR	types.h	/^	BITWISE_OR, \/\/ |$/;"	e	enum:__anon4
+BITWISE_XNOR	types.h	/^	BITWISE_XNOR, \/\/ ~^$/;"	e	enum:__anon4
+BITWISE_XOR	types.h	/^	BITWISE_XOR, \/\/ ^$/;"	e	enum:__anon4
+BLIF_ERROR	types.h	63;"	d
+BLIF_FUNCTION	types.h	/^	BLIF_FUNCTION,$/;"	e	enum:__anon4
+BLOCK	types.h	/^	BLOCK,$/;"	e	enum:__anon5
+BLOCKING_STATEMENT	types.h	/^	BLOCKING_STATEMENT,$/;"	e	enum:__anon5
+BOOSTER	parse_making_ast.c	2741;"	d	file:
+BOOSTER	parse_making_ast.c	2746;"	d	file:
+BOOSTER_SWAP	parse_making_ast.c	2742;"	d	file:
+BOOSTER_SWAP	parse_making_ast.c	2747;"	d	file:
+BUF_NODE	types.h	/^	BUF_NODE,$/;"	e	enum:__anon4
+BeginBlock	parse_making_ast.c	/^void BeginBlock(ast_node_t *node, char* block, char* if_case, $/;"	f
+BinaryOpsGenerator	parse_making_ast.c	/^void BinaryOpsGenerator(ast_node_t *node, char *bin_op)$/;"	f
+BlockingNonBlockingStatements	parse_making_ast.c	/^void BlockingNonBlockingStatements(ast_node_t *newnode, char *assign_var, int count_op_depth)$/;"	f
+CARRY_FUNC	types.h	/^	CARRY_FUNC,$/;"	e	enum:__anon4
+CASE	types.h	/^	CASE,$/;"	e	enum:__anon5
+CASE_DEFAULT	types.h	/^	CASE_DEFAULT,$/;"	e	enum:__anon5
+CASE_EQUAL	types.h	/^	CASE_EQUAL, \/\/ ===$/;"	e	enum:__anon4
+CASE_ITEM	types.h	/^	CASE_ITEM,$/;"	e	enum:__anon5
+CASE_LIST	types.h	/^	CASE_LIST,$/;"	e	enum:__anon5
+CASE_NOT_EQUAL	types.h	/^	CASE_NOT_EQUAL, \/\/ !==$/;"	e	enum:__anon4
+CLOCK_NODE	types.h	/^	CLOCK_NODE,$/;"	e	enum:__anon4
+COMBO_LOOP	types.h	75;"	d
+COMBO_LOOP_ERROR	types.h	76;"	d
+COMMENT	verilog_flex.c	706;"	d	file:
+CONCATENATE	types.h	/^	CONCATENATE,$/;"	e	enum:__anon5
+COUNT_NODES	types.h	74;"	d
+ConcatNodes	parse_making_ast.c	/^void ConcatNodes(ast_node_t* node, char * concat_id)$/;"	f
+DEC	types.h	/^	DEC,$/;"	e	enum:__anon3
+DEFINE	types.h	/^	DEFINE,$/;"	e	enum:__anon5
+DELAY_CONTROL	types.h	/^	DELAY_CONTROL,$/;"	e	enum:__anon5
+DELETE	parse_making_ast.c	2754;"	d	file:
+DIVIDE	types.h	/^	DIVIDE, \/\/ \/$/;"	e	enum:__anon4
+DOUBLE_ARRAY_DECLARE	types.h	/^	DOUBLE_ARRAY_DECLARE,$/;"	e	enum:__anon5
+DefaultSize	verilog_preprocessor.h	4;"	d
+DeleteBinaryExpression	parse_making_ast.c	/^void DeleteBinaryExpression(ast_node_t *node, char* statement_text)$/;"	f
+ECHO	verilog_flex.c	802;"	d	file:
+EOB_ACT_CONTINUE_SCAN	verilog_flex.c	174;"	d	file:
+EOB_ACT_END_OF_FILE	verilog_flex.c	175;"	d	file:
+EOB_ACT_LAST_MATCH	verilog_flex.c	176;"	d	file:
+EXIT_SUCCESS	verilog_bison.c	390;"	d	file:
+EXIT_SUCCESS	verilog_bison.c	418;"	d	file:
+FACTORIZE	parse_making_ast.c	2752;"	d	file:
+FALSE	types.h	33;"	d
+FF_NODE	types.h	/^	FF_NODE,$/;"	e	enum:__anon4
+FILE_ITEMS	types.h	/^	FILE_ITEMS,$/;"	e	enum:__anon5
+FLEXINT_H	verilog_flex.c	30;"	d	file:
+FLEX_BETA	verilog_flex.c	14;"	d	file:
+FLEX_SCANNER	verilog_flex.c	9;"	d	file:
+FOR	types.h	/^	FOR, \/\/added by Kumud$/;"	e	enum:__anon5
+ForLoop	parse_making_ast.c	/^void ForLoop(ast_node_t* block_node, char* if_case, $/;"	f
+G	parse_making_ast.c	/^int G;$/;"	v
+GATE	types.h	/^	GATE,$/;"	e	enum:__anon5
+GATE_INSTANCE	types.h	/^	GATE_INSTANCE,$/;"	e	enum:__anon5
+GENERATE	types.h	/^	GENERATE,$/;"	e	enum:__anon5
+GENERATE_VECTORS	types.h	/^	GENERATE_VECTORS,$/;"	e	enum:__anon2
+GENERIC	types.h	/^	GENERIC \/*added for the unknown node type *\/$/;"	e	enum:__anon4
+GENVAR	types.h	/^	GENVAR,$/;"	e	enum:__anon5
+GLOBALS_H	globals.h	2;"	d
+GND_NODE	types.h	/^	GND_NODE,$/;"	e	enum:__anon4
+GRAPH_CRUNCH	types.h	77;"	d
+GT	types.h	/^	GT, \/\/ >$/;"	e	enum:__anon4
+GTE	types.h	/^	GTE, \/\/ >=$/;"	e	enum:__anon4
+HARD_BLOCK	types.h	/^	HARD_BLOCK,$/;"	e	enum:__anon5
+HARD_BLOCKS_H	hard_blocks.h	25;"	d
+HARD_BLOCK_CONNECT	types.h	/^	HARD_BLOCK_CONNECT,$/;"	e	enum:__anon5
+HARD_BLOCK_CONNECT_LIST	types.h	/^	HARD_BLOCK_CONNECT_LIST,$/;"	e	enum:__anon5
+HARD_BLOCK_NAMED_INSTANCE	types.h	/^	HARD_BLOCK_NAMED_INSTANCE,$/;"	e	enum:__anon5
+HARD_IP	types.h	/^	HARD_IP,$/;"	e	enum:__anon4
+HEX	types.h	/^	HEX,$/;"	e	enum:__anon3
+IDENTIFIERS	types.h	/^	IDENTIFIERS,$/;"	e	enum:__anon5
+IF	types.h	/^	IF,$/;"	e	enum:__anon5
+IF_Q	types.h	/^	IF_Q,$/;"	e	enum:__anon5
+INITIAL	verilog_flex.c	705;"	d	file:
+INOUT	types.h	/^	INOUT,$/;"	e	enum:__anon5
+INPUT	types.h	/^	INPUT,$/;"	e	enum:__anon5
+INPUT_NODE	types.h	/^	INPUT_NODE,$/;"	e	enum:__anon4
+INPUT_SIGNED	types.h	/^	INPUT_SIGNED,$/;"	e	enum:__anon5
+INSERT	parse_making_ast.c	2751;"	d	file:
+INT16_MAX	verilog_flex.c	72;"	d	file:
+INT16_MIN	verilog_flex.c	63;"	d	file:
+INT32_MAX	verilog_flex.c	75;"	d	file:
+INT32_MIN	verilog_flex.c	66;"	d	file:
+INT8_MAX	verilog_flex.c	69;"	d	file:
+INT8_MIN	verilog_flex.c	60;"	d	file:
+INTEGER	types.h	/^	INTEGER,$/;"	e	enum:__anon5
+IfElse	parse_making_ast.c	/^void IfElse(ast_node_t* block_node,int i, char* if_case, $/;"	f
+LEVELIZE	types.h	83;"	d
+LOGICAL_AND	types.h	/^	LOGICAL_AND, \/\/ &&$/;"	e	enum:__anon4
+LOGICAL_EQUAL	types.h	/^	LOGICAL_EQUAL, \/\/ ==$/;"	e	enum:__anon4
+LOGICAL_NAND	types.h	/^	LOGICAL_NAND, \/\/ No Symbol$/;"	e	enum:__anon4
+LOGICAL_NOR	types.h	/^	LOGICAL_NOR, \/\/ No Symbol$/;"	e	enum:__anon4
+LOGICAL_NOT	types.h	/^	LOGICAL_NOT, \/\/ !$/;"	e	enum:__anon4
+LOGICAL_OR	types.h	/^	LOGICAL_OR, \/\/ ||$/;"	e	enum:__anon4
+LOGICAL_XNOR	types.h	/^	LOGICAL_XNOR, \/\/ No symbol$/;"	e	enum:__anon4
+LOGICAL_XOR	types.h	/^	LOGICAL_XOR, \/\/ No Symbol$/;"	e	enum:__anon4
+LONG_LONG	types.h	/^	LONG_LONG,$/;"	e	enum:__anon3
+LOWER_THAN_ELSE	verilog_bison.c	/^    LOWER_THAN_ELSE = 324$/;"	e	enum:yytokentype	file:
+LOWER_THAN_ELSE	verilog_bison.h	/^    LOWER_THAN_ELSE = 324$/;"	e	enum:yytokentype
+LT	types.h	/^	LT, \/\/ <$/;"	e	enum:__anon4
+LTE	types.h	/^	LTE, \/\/ <=$/;"	e	enum:__anon4
+MATRIX_REF	types.h	/^	MATRIX_REF, \/\/added by Kumud$/;"	e	enum:__anon5
+MAX_BUF	abacus_util.h	5;"	d
+MEMORY	types.h	/^	MEMORY,$/;"	e	enum:__anon4
+MINUS	types.h	/^	MINUS, \/\/ -$/;"	e	enum:__anon4
+MODULE	types.h	/^	MODULE,$/;"	e	enum:__anon5
+MODULE_CONNECT	types.h	/^	MODULE_CONNECT,$/;"	e	enum:__anon5
+MODULE_CONNECT_LIST	types.h	/^	MODULE_CONNECT_LIST,$/;"	e	enum:__anon5
+MODULE_INSTANCE	types.h	/^	MODULE_INSTANCE,$/;"	e	enum:__anon5
+MODULE_ITEMS	types.h	/^	MODULE_ITEMS,$/;"	e	enum:__anon5
+MODULE_ITEMS_ROOT	parse_making_ast.c	/^ast_node_t *MODULE_ITEMS_ROOT;$/;"	v
+MODULE_NAMED_INSTANCE	types.h	/^	MODULE_NAMED_INSTANCE,$/;"	e	enum:__anon5
+MODULE_PARAMETER	types.h	/^	MODULE_PARAMETER,$/;"	e	enum:__anon5
+MODULE_PARAMETER_LIST	types.h	/^	MODULE_PARAMETER_LIST,$/;"	e	enum:__anon5
+MODULO	types.h	/^	MODULO, \/\/ %$/;"	e	enum:__anon4
+MP	verilog_flex.c	700;"	d	file:
+MUL2ADD_PRCTG	parse_making_ast.c	2739;"	d	file:
+MUL2ADD_PRCTG	parse_making_ast.c	2744;"	d	file:
+MULTIPLY	types.h	/^	MULTIPLY, \/\/ *$/;"	e	enum:__anon4
+MULTI_PORT_MUX	types.h	/^	MULTI_PORT_MUX, \/\/ port 1 = control, port 2+ = mux options$/;"	e	enum:__anon4
+MUTATE	parse_making_ast.c	2753;"	d	file:
+MUX_2	types.h	/^	MUX_2,$/;"	e	enum:__anon4
+MaxLine	verilog_preprocessor.h	5;"	d
+NEGEDGE	types.h	/^	NEGEDGE,$/;"	e	enum:__anon5
+NETLIST_ERROR	types.h	61;"	d
+NETLIST_FILE_ERROR	types.h	65;"	d
+NETLIST_FUNCTION	types.h	/^	NETLIST_FUNCTION,$/;"	e	enum:__anon4
+NETLIST_UTILS_H	types.h	416;"	d
+NON_BLOCKING_STATEMENT	types.h	/^	NON_BLOCKING_STATEMENT,$/;"	e	enum:__anon5
+NON_BLOCKING_STATEMENT_SIGNED	types.h	/^	NON_BLOCKING_STATEMENT_SIGNED,$/;"	e	enum:__anon5
+NOT_EQUAL	types.h	/^	NOT_EQUAL, \/\/ !=$/;"	e	enum:__anon4
+NO_ID	types.h	/^	NO_ID,$/;"	e	enum:__anon5
+NO_OP	types.h	/^	NO_OP,$/;"	e	enum:__anon4
+NO_SIMULATION	types.h	/^	NO_SIMULATION = 0,$/;"	e	enum:__anon2
+NUMBERS	types.h	/^	NUMBERS,$/;"	e	enum:__anon5
+NodeReplaceFactorization	parse_making_ast.c	/^void NodeReplaceFactorization(ast_node_t *nodetochange_from, ast_node_t *nodetochange_to)$/;"	f
+NodeReplaceFactorizaton	parse_making_ast.c	/^void NodeReplaceFactorizaton(ast_node_t *nodetochange_from, ast_node_t *nodetochange_to)$/;"	f
+OCT	types.h	/^	OCT,$/;"	e	enum:__anon3
+ODIN_UTIL_H	abacus_util.h	2;"	d
+OUTPUT	types.h	/^	OUTPUT,$/;"	e	enum:__anon5
+OUTPUT_NODE	types.h	/^	OUTPUT_NODE,$/;"	e	enum:__anon4
+OUTPUT_REG	types.h	/^	OUTPUT_REG,$/;"	e	enum:__anon5
+OUTPUT_TRAVERSE_VALUE	types.h	73;"	d
+PAD_NODE	types.h	/^	PAD_NODE,$/;"	e	enum:__anon4
+PARAMETER	types.h	/^	PARAMETER,$/;"	e	enum:__anon5
+PARSE	verilog_bison.c	97;"	d	file:
+PARSE_ERROR	types.h	59;"	d
+PARTIAL_MAP_TRAVERSE_VALUE	types.h	72;"	d
+PORT	types.h	/^	PORT,$/;"	e	enum:__anon5
+POSEDGE	types.h	/^	POSEDGE,$/;"	e	enum:__anon5
+RAM	types.h	/^	RAM,$/;"	e	enum:__anon5
+RANGE_REF	types.h	/^	RANGE_REF,$/;"	e	enum:__anon5
+READ_XML_CONFIG_FILE_H	read_xml_config_file.h	27;"	d
+REG	types.h	/^	REG,$/;"	e	enum:__anon5
+REG_SIGNED	types.h	/^	REG_SIGNED,$/;"	e	enum:__anon5
+REJECT	verilog_flex.c	662;"	d	file:
+RESET	types.h	82;"	d
+ROUND	parse_making_ast.c	2737;"	d	file:
+RecursiveBinaryop	parse_making_ast.c	/^void RecursiveBinaryop(ast_node_t *node, char *assign_var, $/;"	f
+SBIN	types.h	/^    SBIN,$/;"	e	enum:__anon3
+SDEC	types.h	/^    SDEC, $/;"	e	enum:__anon3
+SEQUENTIAL_LEVELIZE	types.h	79;"	d
+SHEX	types.h	/^    SHEX,$/;"	e	enum:__anon3
+SIGNED	types.h	/^	SIGNED$/;"	e	enum:__anon5
+SIMULATION_ERROR	types.h	69;"	d
+SL	types.h	/^	SL, \/\/ <<$/;"	e	enum:__anon4
+SLONG_LONG	types.h	/^    SLONG_LONG,$/;"	e	enum:__anon3
+SOCT	types.h	/^    SOCT,$/;"	e	enum:__anon3
+SR	types.h	/^	SR, \/\/ >>$/;"	e	enum:__anon4
+STATS	types.h	78;"	d
+STRING_CACHE	string_cache.h	/^} STRING_CACHE;$/;"	t	typeref:struct:__anon1
+SWAP	parse_making_ast.c	2750;"	d	file:
+TEST_EXISTING_VECTORS	types.h	/^	TEST_EXISTING_VECTORS,$/;"	e	enum:__anon2
+TREE_ROOT	parse_making_ast.c	/^ast_node_t *TREE_ROOT;$/;"	v
+TRUE	types.h	30;"	d
+TYPES_H	types.h	37;"	d
+TraverseTree	parse_making_ast.c	/^int TraverseTree(ast_node_t* node, int child_cntr)$/;"	f
+UADD	verilog_bison.c	/^    UADD = 322,$/;"	e	enum:yytokentype	file:
+UADD	verilog_bison.h	/^    UADD = 322,$/;"	e	enum:yytokentype
+UAND	verilog_bison.c	/^    UAND = 315,$/;"	e	enum:yytokentype	file:
+UAND	verilog_bison.h	/^    UAND = 315,$/;"	e	enum:yytokentype
+UINT16_MAX	verilog_flex.c	81;"	d	file:
+UINT32_MAX	verilog_flex.c	84;"	d	file:
+UINT8_MAX	verilog_flex.c	78;"	d	file:
+ULNOT	verilog_bison.c	/^    ULNOT = 321,$/;"	e	enum:yytokentype	file:
+ULNOT	verilog_bison.h	/^    ULNOT = 321,$/;"	e	enum:yytokentype
+UMINUS	verilog_bison.c	/^    UMINUS = 323,$/;"	e	enum:yytokentype	file:
+UMINUS	verilog_bison.h	/^    UMINUS = 323,$/;"	e	enum:yytokentype
+UNAND	verilog_bison.c	/^    UNAND = 317,$/;"	e	enum:yytokentype	file:
+UNAND	verilog_bison.h	/^    UNAND = 317,$/;"	e	enum:yytokentype
+UNARY_OPERATION	types.h	/^	UNARY_OPERATION,$/;"	e	enum:__anon5
+UNOR	verilog_bison.c	/^    UNOR = 318,$/;"	e	enum:yytokentype	file:
+UNOR	verilog_bison.h	/^    UNOR = 318,$/;"	e	enum:yytokentype
+UNOT	verilog_bison.c	/^    UNOT = 316,$/;"	e	enum:yytokentype	file:
+UNOT	verilog_bison.h	/^    UNOT = 316,$/;"	e	enum:yytokentype
+UOR	verilog_bison.c	/^    UOR = 314,$/;"	e	enum:yytokentype	file:
+UOR	verilog_bison.h	/^    UOR = 314,$/;"	e	enum:yytokentype
+UXNOR	verilog_bison.c	/^    UXNOR = 319,$/;"	e	enum:yytokentype	file:
+UXNOR	verilog_bison.h	/^    UXNOR = 319,$/;"	e	enum:yytokentype
+UXOR	verilog_bison.c	/^    UXOR = 320,$/;"	e	enum:yytokentype	file:
+UXOR	verilog_bison.h	/^    UXOR = 320,$/;"	e	enum:yytokentype
+UnaryOpsGenerator	parse_making_ast.c	/^void UnaryOpsGenerator(ast_node_t *node, char *unary_op)$/;"	f
+VAR_DECLARE	types.h	/^	VAR_DECLARE,$/;"	e	enum:__anon5
+VAR_DECLARE_LIST	types.h	/^	VAR_DECLARE_LIST,$/;"	e	enum:__anon5
+VCC_NODE	types.h	/^	VCC_NODE,$/;"	e	enum:__anon4
+VerilogOutputAst	parse_making_ast.c	/^void VerilogOutputAst(char* path, ast_node_t *top)$/;"	f
+VerilogOutputAst_traverse_node	parse_making_ast.c	/^void VerilogOutputAst_traverse_node(FILE *fp, ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+WIRE	types.h	/^	WIRE,$/;"	e	enum:__anon5
+WIRE_SIGNED	types.h	/^    WIRE_SIGNED,$/;"	e	enum:__anon5
+YYABORT	verilog_bison.c	1192;"	d	file:
+YYACCEPT	verilog_bison.c	1191;"	d	file:
+YYBACKUP	verilog_bison.c	1198;"	d	file:
+YYBISON	verilog_bison.c	44;"	d	file:
+YYBISON_VERSION	verilog_bison.c	47;"	d	file:
+YYCASE_	verilog_bison.c	1539;"	d	file:
+YYCASE_	verilog_bison.c	1549;"	d	file:
+YYCOPY	verilog_bison.c	482;"	d	file:
+YYCOPY	verilog_bison.c	485;"	d	file:
+YYCOPY_NEEDED	verilog_bison.c	457;"	d	file:
+YYDEBUG	verilog_bison.c	149;"	d	file:
+YYDEBUG	verilog_bison.h	37;"	d
+YYDPRINTF	verilog_bison.c	1229;"	d	file:
+YYDPRINTF	verilog_bison.c	1344;"	d	file:
+YYEMPTY	verilog_bison.c	1188;"	d	file:
+YYEOF	verilog_bison.c	1189;"	d	file:
+YYERRCODE	verilog_bison.c	1217;"	d	file:
+YYERROR	verilog_bison.c	1193;"	d	file:
+YYERROR_VERBOSE	verilog_bison.c	137;"	d	file:
+YYERROR_VERBOSE	verilog_bison.c	138;"	d	file:
+YYERROR_VERBOSE	verilog_bison.c	140;"	d	file:
+YYFINAL	verilog_bison.c	498;"	d	file:
+YYFPRINTF	verilog_bison.c	1226;"	d	file:
+YYFREE	verilog_bison.c	428;"	d	file:
+YYINITDEPTH	verilog_bison.c	1353;"	d	file:
+YYLAST	verilog_bison.c	500;"	d	file:
+YYLINENO	verilog_bison.c	101;"	d	file:
+YYMALLOC	verilog_bison.c	422;"	d	file:
+YYMAXDEPTH	verilog_bison.c	1364;"	d	file:
+YYMAXUTOK	verilog_bison.c	514;"	d	file:
+YYNNTS	verilog_bison.c	505;"	d	file:
+YYNRULES	verilog_bison.c	507;"	d	file:
+YYNSTATES	verilog_bison.c	509;"	d	file:
+YYNTOKENS	verilog_bison.c	503;"	d	file:
+YYPACT_NINF	verilog_bison.c	630;"	d	file:
+YYPOPSTACK	verilog_bison.c	1664;"	d	file:
+YYPULL	verilog_bison.c	59;"	d	file:
+YYPURE	verilog_bison.c	53;"	d	file:
+YYPUSH	verilog_bison.c	56;"	d	file:
+YYRECOVERING	verilog_bison.c	1196;"	d	file:
+YYSIZE_MAXIMUM	verilog_bison.c	301;"	d	file:
+YYSIZE_T	verilog_bison.c	290;"	d	file:
+YYSIZE_T	verilog_bison.c	292;"	d	file:
+YYSIZE_T	verilog_bison.c	295;"	d	file:
+YYSIZE_T	verilog_bison.c	297;"	d	file:
+YYSKELETON_NAME	verilog_bison.c	50;"	d	file:
+YYSTACK_ALLOC	verilog_bison.c	376;"	d	file:
+YYSTACK_ALLOC	verilog_bison.c	380;"	d	file:
+YYSTACK_ALLOC	verilog_bison.c	385;"	d	file:
+YYSTACK_ALLOC	verilog_bison.c	408;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	verilog_bison.c	405;"	d	file:
+YYSTACK_ALLOC_MAXIMUM	verilog_bison.c	411;"	d	file:
+YYSTACK_BYTES	verilog_bison.c	453;"	d	file:
+YYSTACK_FREE	verilog_bison.c	399;"	d	file:
+YYSTACK_FREE	verilog_bison.c	409;"	d	file:
+YYSTACK_GAP_MAXIMUM	verilog_bison.c	449;"	d	file:
+YYSTACK_RELOCATE	verilog_bison.c	464;"	d	file:
+YYSTATE	verilog_flex.c	133;"	d	file:
+YYSTYPE	verilog_bison.c	/^typedef union YYSTYPE YYSTYPE;$/;"	t	typeref:union:YYSTYPE	file:
+YYSTYPE	verilog_bison.c	/^union YYSTYPE$/;"	u	file:
+YYSTYPE	verilog_bison.h	/^typedef union YYSTYPE YYSTYPE;$/;"	t	typeref:union:YYSTYPE
+YYSTYPE	verilog_bison.h	/^union YYSTYPE$/;"	u
+YYSTYPE_IS_DECLARED	verilog_bison.c	246;"	d	file:
+YYSTYPE_IS_DECLARED	verilog_bison.h	134;"	d
+YYSTYPE_IS_TRIVIAL	verilog_bison.c	245;"	d	file:
+YYSTYPE_IS_TRIVIAL	verilog_bison.h	133;"	d
+YYTABLES_NAME	verilog_flex.c	2423;"	d	file:
+YYTABLE_NINF	verilog_bison.c	635;"	d	file:
+YYTERROR	verilog_bison.c	1216;"	d	file:
+YYTOKENTYPE	verilog_bison.c	157;"	d	file:
+YYTOKENTYPE	verilog_bison.h	45;"	d
+YYTRANSLATE	verilog_bison.c	516;"	d	file:
+YYUNDEFTOK	verilog_bison.c	513;"	d	file:
+YYUSE	verilog_bison.c	344;"	d	file:
+YYUSE	verilog_bison.c	346;"	d	file:
+YY_	verilog_bison.c	307;"	d	file:
+YY_	verilog_bison.c	311;"	d	file:
+YY_ATTRIBUTE	verilog_bison.c	319;"	d	file:
+YY_ATTRIBUTE	verilog_bison.c	321;"	d	file:
+YY_ATTRIBUTE_PURE	verilog_bison.c	326;"	d	file:
+YY_ATTRIBUTE_UNUSED	verilog_bison.c	330;"	d	file:
+YY_AT_BOL	verilog_flex.c	341;"	d	file:
+YY_BREAK	verilog_flex.c	881;"	d	file:
+YY_BUFFER_EOF_PENDING	verilog_flex.c	257;"	d	file:
+YY_BUFFER_NEW	verilog_flex.c	245;"	d	file:
+YY_BUFFER_NORMAL	verilog_flex.c	246;"	d	file:
+YY_BUFFER_STATE	verilog_flex.c	/^typedef struct yy_buffer_state *YY_BUFFER_STATE;$/;"	t	typeref:struct:yy_buffer_state	file:
+YY_BUF_SIZE	verilog_flex.c	150;"	d	file:
+YY_BUF_SIZE	verilog_flex.c	152;"	d	file:
+YY_CHAR	verilog_flex.c	/^typedef unsigned char YY_CHAR;$/;"	t	file:
+YY_CURRENT_BUFFER	verilog_flex.c	273;"	d	file:
+YY_CURRENT_BUFFER_LVALUE	verilog_flex.c	280;"	d	file:
+YY_DECL	verilog_flex.c	869;"	d	file:
+YY_DECL_IS_OURS	verilog_flex.c	865;"	d	file:
+YY_DO_BEFORE_ACTION	verilog_flex.c	372;"	d	file:
+YY_END_OF_BUFFER	verilog_flex.c	380;"	d	file:
+YY_END_OF_BUFFER_CHAR	verilog_flex.c	141;"	d	file:
+YY_EXIT_FAILURE	verilog_flex.c	2219;"	d	file:
+YY_EXTRA_TYPE	verilog_flex.c	717;"	d	file:
+YY_FATAL_ERROR	verilog_flex.c	856;"	d	file:
+YY_FLEX_MAJOR_VERSION	verilog_flex.c	10;"	d	file:
+YY_FLEX_MINOR_VERSION	verilog_flex.c	11;"	d	file:
+YY_FLEX_SUBMINOR_VERSION	verilog_flex.c	12;"	d	file:
+YY_FLUSH_BUFFER	verilog_flex.c	309;"	d	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	verilog_bison.c	351;"	d	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN	verilog_bison.c	361;"	d	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_END	verilog_bison.c	355;"	d	file:
+YY_IGNORE_MAYBE_UNINITIALIZED_END	verilog_bison.c	362;"	d	file:
+YY_INITIAL_VALUE	verilog_bison.c	358;"	d	file:
+YY_INITIAL_VALUE	verilog_bison.c	365;"	d	file:
+YY_INPUT	verilog_flex.c	809;"	d	file:
+YY_INT_ALIGNED	verilog_flex.c	5;"	d	file:
+YY_LESS_LINENO	verilog_flex.c	178;"	d	file:
+YY_LINENO_REWIND_TO	verilog_flex.c	179;"	d	file:
+YY_LOCATION_PRINT	verilog_bison.c	1237;"	d	file:
+YY_MORE_ADJ	verilog_flex.c	664;"	d	file:
+YY_NEW_FILE	verilog_flex.c	139;"	d	file:
+YY_NULL	verilog_flex.c	113;"	d	file:
+YY_NULLPTR	verilog_bison.c	129;"	d	file:
+YY_NULLPTR	verilog_bison.c	131;"	d	file:
+YY_NUM_RULES	verilog_flex.c	379;"	d	file:
+YY_READ_BUF_SIZE	verilog_flex.c	791;"	d	file:
+YY_READ_BUF_SIZE	verilog_flex.c	793;"	d	file:
+YY_REDUCE_PRINT	verilog_bison.c	1334;"	d	file:
+YY_REDUCE_PRINT	verilog_bison.c	1347;"	d	file:
+YY_RESTORE_YY_MORE_OFFSET	verilog_flex.c	665;"	d	file:
+YY_RULE_SETUP	verilog_flex.c	884;"	d	file:
+YY_SC_TO_UI	verilog_flex.c	120;"	d	file:
+YY_STACK_PRINT	verilog_bison.c	1303;"	d	file:
+YY_STACK_PRINT	verilog_bison.c	1346;"	d	file:
+YY_START	verilog_flex.c	132;"	d	file:
+YY_START_STACK_INCR	verilog_flex.c	851;"	d	file:
+YY_STATE_BUF_SIZE	verilog_flex.c	158;"	d	file:
+YY_STATE_EOF	verilog_flex.c	136;"	d	file:
+YY_STRUCT_YY_BUFFER_STATE	verilog_flex.c	198;"	d	file:
+YY_SYMBOL_PRINT	verilog_bison.c	1241;"	d	file:
+YY_SYMBOL_PRINT	verilog_bison.c	1345;"	d	file:
+YY_TYPEDEF_YY_BUFFER_STATE	verilog_flex.c	161;"	d	file:
+YY_TYPEDEF_YY_SIZE_T	verilog_flex.c	166;"	d	file:
+YY_USER_ACTION	verilog_flex.c	876;"	d	file:
+YY_USE_CONST	verilog_flex.c	101;"	d	file:
+YY_USE_CONST	verilog_flex.c	94;"	d	file:
+YY_YY_SRC_VERILOG_BISON_H_INCLUDED	verilog_bison.c	146;"	d	file:
+YY_YY_SRC_VERILOG_BISON_H_INCLUDED	verilog_bison.h	34;"	d
+_Noreturn	verilog_bison.c	336;"	d	file:
+_Noreturn	verilog_bison.c	338;"	d	file:
+__STDC_LIMIT_MACROS	verilog_flex.c	40;"	d	file:
+__STRING_CACHE_H__	string_cache.h	2;"	d
+activation_blif_file	types.h	/^	char *activation_blif_file;$/;"	m	struct:global_args_t_t
+activation_netlist_file	types.h	/^	char *activation_netlist_file;$/;"	m	struct:global_args_t_t
+add_child_to_node	ast_util.c	/^void add_child_to_node(ast_node_t* node, ast_node_t *child)$/;"	f
+add_equal_nodes	parse_making_ast.c	/^void add_equal_nodes(ast_node_t *top)$/;"	f
+add_node	parse_making_ast.c	/^void add_node(ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+add_veri_define	verilog_preprocessor.c	/^int add_veri_define(char *symbol, char *value, int line, veri_include *defined_in)$/;"	f
+add_veri_include	verilog_preprocessor.c	/^veri_include* add_veri_include(char *path, int line, veri_include *included_from)$/;"	f
+additional_data	types.h	/^	void *additional_data; \/\/ this is a point where you can add additional data for your optimization or technique$/;"	m	struct:ast_node_t_t
+all_file_items_list	parse_making_ast.c	/^ast_node_t **all_file_items_list;$/;"	v
+all_warnings	types.h	/^	int all_warnings;$/;"	m	struct:global_args_t_t
+alloca	verilog_bison.c	383;"	d	file:
+allocate_children_to_node	ast_util.c	/^void allocate_children_to_node(ast_node_t* node, int num_children, ...)$/;"	f
+app_mult_cnt	parse_making_ast.c	/^int app_mult_cnt;$/;"	v
+append_string	abacus_util.c	/^char *append_string(char *string, char *appendage, ...)$/;"	f
+arch_file	types.h	/^	char *arch_file; \/\/ Name of the FPGA architecture file$/;"	m	struct:config_t_t
+arch_file	types.h	/^	char *arch_file; \/\/ Name of the FPGA architecture file$/;"	m	struct:global_args_t_t
+associated_function	types.h	/^	short *associated_function;$/;"	m	struct:nnode_t_t
+ast_file	types.h	/^    char *ast_file;$/;"	m	struct:global_args_t_t
+ast_modules	parse_making_ast.c	/^ast_node_t **ast_modules;$/;"	v
+ast_node_t	types.h	/^typedef struct ast_node_t_t ast_node_t;$/;"	t	typeref:struct:ast_node_t_t
+ast_node_t_t	types.h	/^struct ast_node_t_t$/;"	s
+average_fanin	types.h	/^	float average_fanin; \/* = to the fanin of all nodes: basic outs, combo and ffs *\/$/;"	m	struct:netlist_stats_t_t
+average_fanout	types.h	/^	float average_fanout; \/* = to the fanout of all nodes: basic IOs, combo and ffs...no vcc, clocks, gnd *\/$/;"	m	struct:netlist_stats_t_t
+average_output_pins_per_node	types.h	/^	float average_output_pins_per_node;$/;"	m	struct:netlist_stats_t_t
+backward_level	types.h	/^	int backward_level; \/\/ this is your reverse logic level relative to POs and FFs .. i.e. farthest PO$/;"	m	struct:nnode_t_t
+backward_levels	types.h	/^	nnode_t ***backward_levels; \/\/ NOTE backward levels isn't neccessarily perfect.  Because of multiple output pins, the node can be put closer to POs than should be.  To fix, run a rebuild of the list afterwards since the marked "node->backward_level" is correct *\/$/;"	m	struct:netlist_t_t
+base	types.h	/^			short base;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+bases	types.h	/^} bases;$/;"	t	typeref:enum:__anon3
+bin_op_exception	parse_making_ast.c	/^char *bin_op_exception[4096][10];$/;"	v
+binary_size	types.h	/^			int binary_size;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+binary_string	types.h	/^			char *binary_string;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+bit_map	types.h	/^	char** bit_map; \/*storing the bit map *\/$/;"	m	struct:nnode_t_t
+bit_map_line_count	types.h	/^	int bit_map_line_count;$/;"	m	struct:nnode_t_t
+bit_strings	types.h	/^			char **bit_strings;$/;"	m	struct:ast_node_t_t::__anon6::__anon11
+bitwidth	types.h	/^    int bitwidth;$/;"	m	struct:node_bw_t_t
+blif_file	types.h	/^	char *blif_file;$/;"	m	struct:global_args_t_t
+block_cnt	parse_making_ast.c	/^int block_cnt=0;$/;"	v
+block_instantiations_instance	parse_making_ast.c	/^ast_node_t **block_instantiations_instance;$/;"	v
+block_tag	abacus.c	/^int block_tag;$/;"	v
+cache_hard_block_names	hard_blocks.c	/^void cache_hard_block_names()$/;"	f
+changeNode	parse_making_ast.c	/^void changeNode (ast_node_t* tempnode)$/;"	f
+change_id_to_range	parse_making_ast.c	/^void change_id_to_range(ast_node_t *node, ast_node_t *top_node, ast_node_t *from, int from_num)$/;"	f
+change_mult_to_plus	parse_making_ast.c	/^void change_mult_to_plus(ast_node_t *top)$/;"	f
+change_signs	parse_making_ast.c	/^void change_signs(ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+char_list_t	types.h	/^typedef struct char_list_t_t char_list_t;$/;"	t	typeref:struct:char_list_t_t
+char_list_t_t	types.h	/^struct char_list_t_t$/;"	s
+child_info_t	types.h	/^typedef struct child_info_t_t child_info_t; $/;"	t	typeref:struct:child_info_t_t
+children	types.h	/^	ast_node_t **children;$/;"	m	struct:ast_node_t_t
+clean_up_parser_for_file	parse_making_ast.c	/^void clean_up_parser_for_file()$/;"	f
+clean_veri_define	verilog_preprocessor.c	/^void clean_veri_define(veri_define *current)$/;"	f
+clean_veri_include	verilog_preprocessor.c	/^void clean_veri_include(veri_include *current)$/;"	f
+cleanup_parser	parse_making_ast.c	/^void cleanup_parser()$/;"	f
+cleanup_veri_preproc	verilog_preprocessor.c	/^int cleanup_veri_preproc()$/;"	f
+clocks	types.h	/^	nnode_t** clocks;$/;"	m	struct:netlist_t_t
+cnt_call	parse_making_ast.c	/^int cnt_call=0;$/;"	v
+cnt_range_var	parse_making_ast.c	/^int cnt_range_var=0;$/;"	v
+combinational_shape	types.h	/^	int **combinational_shape;$/;"	m	struct:netlist_stats_t_t
+combined	types.h	/^	short combined;$/;"	m	struct:nnet_t_t
+concat	types.h	/^		} concat;$/;"	m	union:ast_node_t_t::__anon6	typeref:struct:ast_node_t_t::__anon6::__anon11
+config_file	types.h	/^	char *config_file;$/;"	m	struct:global_args_t_t
+config_t	types.h	/^typedef struct config_t_t config_t;$/;"	t	typeref:struct:config_t_t
+config_t_t	types.h	/^struct config_t_t$/;"	s
+configuration	read_xml_config_file.c	/^config_t configuration;$/;"	v
+constantFold	ast_optimizations.c	/^info_ast_visit_t *constantFold(ast_node_t *node)$/;"	f
+content	types.h	/^	ast_node_t *content;$/;"	m	struct:record_types
+convert_binary_string_of_size_to_bit_string	abacus_util.c	/^char *convert_binary_string_of_size_to_bit_string(char *orig_string, int binary_size)$/;"	f
+convert_dec_string_of_size_to_long_long	abacus_util.c	/^long long convert_dec_string_of_size_to_long_long(char *orig_string, int size)$/;"	f
+convert_hex_string_of_size_to_bit_string	abacus_util.c	/^char *convert_hex_string_of_size_to_bit_string(char *orig_string, int binary_size)$/;"	f
+convert_long_long_to_bit_string	abacus_util.c	/^char *convert_long_long_to_bit_string(long long orig_long, int num_bits)$/;"	f
+convert_oct_string_of_size_to_bit_string	abacus_util.c	/^char *convert_oct_string_of_size_to_bit_string(char *orig_string, int binary_size)$/;"	f
+convert_string_of_radix_to_bit_string	abacus_util.c	/^char *convert_string_of_radix_to_bit_string(char *string, int radix, int binary_size)$/;"	f
+convert_string_of_radix_to_long_long	abacus_util.c	/^long long convert_string_of_radix_to_long_long(char *orig_string, int radix)$/;"	f
+count	types.h	/^	int count;$/;"	m	struct:signal_list_t_t
+count_add	parse_making_ast.c	/^int num_adds = 0, count_add;$/;"	v
+count_always	parse_making_ast.c	/^int num_always = 0, count_always = 1;$/;"	v
+count_mult	parse_making_ast.c	/^int num_mults = 0, count_mult;$/;"	v
+coverage	types.h	/^	unsigned long coverage;$/;"	m	struct:npin_t_t
+create_node_w_type	ast_util.c	/^ast_node_t* create_node_w_type(ids id, int line_number, int file_number)$/;"	f
+create_shift_node	parse_making_ast.c	/^void create_shift_node(ast_node_t* bin_node, ast_node_t *node, int num_bits)$/;"	f
+create_tree_node_id	ast_util.c	/^ast_node_t* create_tree_node_id(char* string, int line_number, int file_number)$/;"	f
+create_tree_node_long_long_number	ast_util.c	/^ast_node_t *create_tree_node_long_long_number(long long number, int constant_bit_size, int line_number, int file_number)$/;"	f
+create_tree_node_number	ast_util.c	/^ast_node_t *create_tree_node_number(char* number, int line_number, int file_number)$/;"	f
+critical_path_file	types.h	/^    char *critical_path_file;$/;"	m	struct:global_args_t_t
+current_index	verilog_preprocessor.h	/^	int current_index;$/;"	m	struct:veri_Defines
+current_index	verilog_preprocessor.h	/^	int current_index;$/;"	m	struct:veri_Includes
+current_parse_file	abacus.c	/^int current_parse_file;$/;"	v
+current_size	verilog_preprocessor.h	/^	int current_size;$/;"	m	struct:veri_Defines
+current_size	verilog_preprocessor.h	/^	int current_size;$/;"	m	struct:veri_Includes
+cycle	types.h	/^	int *cycle;          \/\/ The last cycle the pin was computed for.$/;"	m	struct:npin_t_t
+data	string_cache.h	/^	void **data;$/;"	m	struct:__anon1
+debug_output_path	types.h	/^	char *debug_output_path; \/\/ path for where to output the debug outputs$/;"	m	struct:config_t_t
+define_hard_block	hard_blocks.c	/^void define_hard_block(nnode_t *node, short type, FILE *out)$/;"	f
+defined_constants	verilog_preprocessor.h	/^	veri_define **defined_constants;$/;"	m	struct:veri_Defines
+defined_in	verilog_preprocessor.h	/^	veri_include *defined_in;$/;"	m	struct:veri_define
+defines_for_file_sc	parse_making_ast.c	/^STRING_CACHE *defines_for_file_sc;$/;"	v
+defines_for_module_sc	parse_making_ast.c	/^STRING_CACHE **defines_for_module_sc;$/;"	v
+do_high_level_synthesis	abacus.c	/^void do_high_level_synthesis()$/;"	f
+driver_pin	types.h	/^	npin_t *driver_pin; \/\/ the pin that drives the net$/;"	m	struct:nnet_t_t
+dual_port_rams	hard_blocks.c	/^t_model *dual_port_rams = NULL;$/;"	v
+error_message	errors.c	/^void error_message(short error_type, int line_number, int file, char *message, ...)$/;"	f
+fanin_distribution	types.h	/^	int *fanin_distribution;$/;"	m	struct:netlist_stats_t_t
+fanout_distribution	types.h	/^	int *fanout_distribution;$/;"	m	struct:netlist_stats_t_t
+fanout_pins	types.h	/^	npin_t **fanout_pins; \/\/ the pins pointed to by the net$/;"	m	struct:nnet_t_t
+far_tag	types.h	/^	int far_tag;$/;"	m	struct:ast_node_t_t
+ff_nodes	types.h	/^	nnode_t** ff_nodes;$/;"	m	struct:netlist_t_t
+file_number	types.h	/^	int file_number;$/;"	m	struct:ast_node_t_t
+findRange	parse_making_ast.c	/^int findRange (char *id)$/;"	f
+fixed_hard_multiplier	types.h	/^	int fixed_hard_multiplier;$/;"	m	struct:config_t_t
+flag	verilog_preprocessor.h	/^	int flag;$/;"	m	struct:veri_flag_node
+flex_int16_t	verilog_flex.c	/^typedef int16_t flex_int16_t;$/;"	t	file:
+flex_int16_t	verilog_flex.c	/^typedef short int flex_int16_t;$/;"	t	file:
+flex_int32_t	verilog_flex.c	/^typedef int flex_int32_t;$/;"	t	file:
+flex_int32_t	verilog_flex.c	/^typedef int32_t flex_int32_t;$/;"	t	file:
+flex_int8_t	verilog_flex.c	/^typedef int8_t flex_int8_t;$/;"	t	file:
+flex_int8_t	verilog_flex.c	/^typedef signed char flex_int8_t;$/;"	t	file:
+flex_uint16_t	verilog_flex.c	/^typedef uint16_t flex_uint16_t;$/;"	t	file:
+flex_uint16_t	verilog_flex.c	/^typedef unsigned short int flex_uint16_t;$/;"	t	file:
+flex_uint32_t	verilog_flex.c	/^typedef uint32_t flex_uint32_t;$/;"	t	file:
+flex_uint32_t	verilog_flex.c	/^typedef unsigned int flex_uint32_t;$/;"	t	file:
+flex_uint8_t	verilog_flex.c	/^typedef uint8_t flex_uint8_t;$/;"	t	file:
+flex_uint8_t	verilog_flex.c	/^typedef unsigned char flex_uint8_t; $/;"	t	file:
+forward_level	types.h	/^	int forward_level; \/\/ this is your logic level relative to PIs and FFs .. i.e farthest PI$/;"	m	struct:nnode_t_t
+forward_levels	types.h	/^	nnode_t ***forward_levels;$/;"	m	struct:netlist_t_t
+free	string_cache.h	/^	long free;$/;"	m	struct:__anon1
+free_ast_node	ast_util.c	/^void free_ast_node(ast_node_t *child)$/;"	f
+free_ast_node_only	ast_util.c	/^void free_ast_node_only(ast_node_t *child)$/;"	f
+free_child_in_tree	ast_util.c	/^void free_child_in_tree(ast_node_t *from, int idx_removal)$/;"	f
+from	types.h	/^	ast_node_t *from;$/;"	m	struct:info_ast_visit_t_t
+from_child_position	types.h	/^	int from_child_position;$/;"	m	struct:info_ast_visit_t_t
+generate_sc_hash	string_cache.c	/^generate_sc_hash(STRING_CACHE * sc)$/;"	f
+getG	parse_making_ast.c	/^int getG()$/;"	f
+getRange	parse_making_ast.c	/^int getRange (ast_node_t* child_node)$/;"	f
+get_model_port	hard_blocks.c	/^t_model_ports *get_model_port(t_model_ports *ports, char *name)$/;"	f
+get_name_of_pin_at_bit	ast_util.c	/^char *get_name_of_pin_at_bit(ast_node_t *var_node, int bit, char *instance_name_prefix)$/;"	f
+get_name_of_pins	ast_util.c	/^char_list_t *get_name_of_pins(ast_node_t *var_node, char *instance_name_prefix)$/;"	f
+get_name_of_pins_number	ast_util.c	/^char **get_name_of_pins_number(ast_node_t *var_node, int start, int width)$/;"	f
+get_name_of_pins_with_prefix	ast_util.c	/^char_list_t *get_name_of_pins_with_prefix(ast_node_t *var_node, char *instance_name_prefix)$/;"	f
+get_name_of_var_declare_at_bit	ast_util.c	/^char *get_name_of_var_declare_at_bit(ast_node_t *var_declare, int bit)$/;"	f
+get_options	abacus.c	/^void get_options(int argc, char **argv)$/;"	f
+get_pin_name	abacus_util.c	/^char *get_pin_name(char *name)$/;"	f
+get_pin_number	abacus_util.c	/^int get_pin_number(char *name)$/;"	f
+get_port_name	abacus_util.c	/^char *get_port_name(char *name)$/;"	f
+get_range	ast_util.c	/^int get_range(ast_node_t* first_node)$/;"	f
+get_range_var	parse_making_ast.c	/^int get_range_var(ast_node_t *top, ast_node_t *node, ast_node_t *from, $/;"	f
+global_args	abacus.c	/^global_args_t global_args;$/;"	v
+global_args_read_blif_t	types.h	/^typedef struct global_args_read_blif_t_t global_args_read_blif_t;$/;"	t	typeref:struct:global_args_read_blif_t_t
+global_args_t	types.h	/^typedef struct global_args_t_t global_args_t;$/;"	t	typeref:struct:global_args_t_t
+global_args_t_t	types.h	/^struct global_args_t_t$/;"	s
+global_param_table_sc	globals.h	/^ STRING_CACHE *global_param_table_sc;$/;"	v
+gnd_node	types.h	/^	nnode_t *gnd_node;$/;"	m	struct:netlist_t_t
+graphVizOutputAst	parse_making_ast.c	/^void graphVizOutputAst(char* path, ast_node_t *top)$/;"	f
+graphVizOutputAst_traverse_node	parse_making_ast.c	/^void graphVizOutputAst_traverse_node(FILE *fp, ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+hard_block_names	hard_blocks.c	/^STRING_CACHE *hard_block_names = NULL;$/;"	v
+hard_block_port_direction	hard_blocks.c	/^hard_block_port_direction(t_model *hb, char *pname)$/;"	f
+hard_block_port_size	hard_blocks.c	/^hard_block_port_size(t_model *hb, char *pname)$/;"	f
+hb_port	types.h	/^	void *hb_port;$/;"	m	struct:ast_node_t_t
+high_level_block	types.h	/^	char *high_level_block;$/;"	m	struct:global_args_t_t
+high_number	types.h	/^	int high_number;$/;"	m	struct:ast_node_t_t
+id_lib	parse_making_ast.c	/^record_id *id_lib = NULL, *new_id, *lookup_id;$/;"	v
+id_name	verilog_bison.c	/^	char *id_name;$/;"	m	union:YYSTYPE	file:
+id_name	verilog_bison.h	/^	char *id_name;$/;"	m	union:YYSTYPE
+identif2	parse_making_ast.c	/^char *identif2[4096][4096];$/;"	v
+identifier	types.h	/^		char *identifier;$/;"	m	union:ast_node_t_t::__anon6
+ids	types.h	/^} ids;$/;"	t	typeref:enum:__anon5
+if_flag	parse_making_ast.c	/^int if_flag;$/;"	v
+in_queue	types.h	/^	int in_queue; \/\/ Flag used by the simulator to avoid double queueing.$/;"	m	struct:nnode_t_t
+included_files	verilog_preprocessor.h	/^	veri_include **included_files;$/;"	m	struct:veri_Includes
+included_from	verilog_preprocessor.h	/^	struct veri_include *included_from;$/;"	m	struct:veri_include	typeref:struct:veri_include::veri_include
+index	types.h	/^			int index;$/;"	m	struct:ast_node_t_t::__anon6::__anon10
+info_ast_visit_t	types.h	/^typedef struct info_ast_visit_t_t info_ast_visit_t;$/;"	t	typeref:struct:info_ast_visit_t_t
+info_ast_visit_t_t	types.h	/^struct info_ast_visit_t_t$/;"	s
+init_parser	parse_making_ast.c	/^void init_parser()$/;"	f
+init_parser_for_file	parse_making_ast.c	/^void init_parser_for_file()$/;"	f
+init_veri_preproc	verilog_preprocessor.c	/^int init_veri_preproc()$/;"	f
+input_pins	types.h	/^	npin_t **input_pins; \/\/ the input pins$/;"	m	struct:nnode_t_t
+input_port_sizes	types.h	/^	int *input_port_sizes; \/\/ info about the input ports$/;"	m	struct:nnode_t_t
+instantiate_hard_block	hard_blocks.c	/^instantiate_hard_block(nnode_t *node, short mark, netlist_t *netlist)$/;"	f
+internal_netlist	types.h	/^	netlist_t* internal_netlist; \/\/ this is a point of having a subgraph in a node$/;"	m	struct:nnode_t_t
+internal_nodes	types.h	/^	nnode_t** internal_nodes;$/;"	m	struct:netlist_t_t
+is_adder	types.h	/^	char is_adder;$/;"	m	struct:signal_list_t_t
+is_binary_string	abacus_util.c	/^int is_binary_string(char *string)$/;"	f
+is_constant	types.h	/^	short is_constant;$/;"	m	struct:info_ast_visit_t_t
+is_constant_folded	types.h	/^	short is_constant_folded;$/;"	m	struct:info_ast_visit_t_t
+is_decimal_string	abacus_util.c	/^int is_decimal_string(char *string)$/;"	f
+is_default	types.h	/^	char is_default; \/\/ The pin is feeding a mux from logic representing an else or default.$/;"	m	struct:npin_t_t
+is_genvar	types.h	/^			short is_genvar;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_hex_string	abacus_util.c	/^int is_hex_string(char *string)$/;"	f
+is_implied	types.h	/^	char is_implied; \/\/ This signal is implied.$/;"	m	struct:npin_t_t
+is_inout	types.h	/^			short is_inout;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_input	types.h	/^			short is_input;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_input_signed	types.h	/^			short is_input_signed;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_instantiated	types.h	/^			short is_instantiated;$/;"	m	struct:ast_node_t_t::__anon6::__anon10
+is_integer	types.h	/^			short is_integer;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_memory	types.h	/^	char is_memory;$/;"	m	struct:signal_list_t_t
+is_octal_string	abacus_util.c	/^int is_octal_string(char *string)$/;"	f
+is_output	types.h	/^			short is_output;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_output_reg	types.h	/^			short is_output_reg;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_parameter	types.h	/^			short is_parameter;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_port	types.h	/^			short is_port;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_reg	types.h	/^			short is_reg;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_reg_signed	types.h	/^			short is_reg_signed;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_string_of_radix	abacus_util.c	/^int is_string_of_radix(char *string, int radix)$/;"	f
+is_wire	types.h	/^			short is_wire;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+is_wire_signed	types.h	/^            short is_wire_signed;$/;"	m	struct:ast_node_t_t::__anon6::__anon9
+line	verilog_preprocessor.h	/^	int	line;$/;"	m	struct:veri_include
+line	verilog_preprocessor.h	/^	int line;$/;"	m	struct:veri_define
+line_number	types.h	/^	int line_number;$/;"	m	struct:ast_node_t_t
+list_of_file_names	types.h	/^	char **list_of_file_names;$/;"	m	struct:config_t_t
+local_symbol_table_sc	globals.h	/^ STRING_CACHE *local_symbol_table_sc;$/;"	v
+lookup_bitwidth	parse_making_ast.c	/^int lookup_bitwidth(ast_node_t* top){$/;"	f
+lookup_id	parse_making_ast.c	/^record_id *id_lib = NULL, *new_id, *lookup_id;$/;"	v
+lookup_para	parse_making_ast.c	/^record_id *para_lib = NULL, *new_para, *lookup_para;$/;"	v
+main	abacus.c	/^int main(int argc, char **argv)$/;"	f
+make_concat_into_list_of_strings	ast_util.c	/^void make_concat_into_list_of_strings(ast_node_t *concat_top, char *instance_name_prefix)$/;"	f
+make_constant	parse_making_ast.c	/^void make_constant(ast_node_t *top)$/;"	f
+make_full_ref_name	abacus_util.c	/^char *make_full_ref_name(char *previous, char *module_name, char *module_instance_name, char *signal_name, long bit)$/;"	f
+make_id_constant	parse_making_ast.c	/^void make_id_constant(ast_node_t *node, ast_node_t *from, $/;"	f
+make_module_param_name	ast_util.c	/^char *make_module_param_name(ast_node_t *module_param_list, char *module_name)$/;"	f
+make_ref_range	parse_making_ast.c	/^ast_node_t *make_ref_range(ast_node_t *node, ast_node_t *top_node, int num_bits_truncate)$/;"	f
+make_signal_name	abacus_util.c	/^char *make_signal_name(char *signal_name, int bit)$/;"	f
+make_simple_name	abacus_util.c	/^char *make_simple_name(char *input, char *flatten_string, char flatten_char)$/;"	f
+make_string_based_on_id	abacus_util.c	/^char *make_string_based_on_id(nnode_t *node)$/;"	f
+mapping	types.h	/^	char *mapping;    \/\/ name of mapped port from hard block$/;"	m	struct:npin_t_t
+markAndProcessSymbolListWith	parse_making_ast.c	/^ast_node_t *markAndProcessSymbolListWith(ids id, ast_node_t *symbol_list)$/;"	f
+matlab_input_arg	types.h	/^	char *matlab_input_arg;$/;"	m	struct:global_args_t_t
+matlab_vars	abacus.c	/^char **matlab_vars;$/;"	v
+matlab_vars_cnt	abacus.c	/^int matlab_vars_cnt;$/;"	v
+me	types.h	/^	ast_node_t *me;$/;"	m	struct:info_ast_visit_t_t
+memory_data	types.h	/^	signed char *memory_data;$/;"	m	struct:nnode_t_t
+min_hard_multiplier	types.h	/^	int min_hard_multiplier; \/\/ threshold from hard to soft logic$/;"	m	struct:config_t_t
+mod	string_cache.h	/^	long mod;$/;"	m	struct:__anon1
+module	types.h	/^		} module;$/;"	m	union:ast_node_t_t::__anon6	typeref:struct:ast_node_t_t::__anon6::__anon10
+module_instantiations_instance	parse_making_ast.c	/^ast_node_t **module_instantiations_instance;$/;"	v
+module_instantiations_instance	types.h	/^			ast_node_t **module_instantiations_instance;$/;"	m	struct:ast_node_t_t::__anon6::__anon10
+module_items	parse_making_ast.c	/^ast_node_t *module_items; $/;"	v
+module_items_num	parse_making_ast.c	/^int module_items_num, var_declare_list_num;$/;"	v
+module_names_to_idx	parse_making_ast.c	/^STRING_CACHE *module_names_to_idx;$/;"	v
+modules_inputs_sc	parse_making_ast.c	/^STRING_CACHE *modules_inputs_sc;$/;"	v
+modules_outputs_sc	parse_making_ast.c	/^STRING_CACHE *modules_outputs_sc;$/;"	v
+mul	string_cache.h	/^	long mul;$/;"	m	struct:__anon1
+mult_padding	types.h	/^	int mult_padding; \/\/ setting how multipliers are padded to fit fixed size$/;"	m	struct:config_t_t
+my_malloc_struct	abacus_util.c	/^void *my_malloc_struct(size_t bytes_to_alloc)$/;"	f
+my_power	abacus_util.c	/^long long int my_power(long long int x, long long int y)$/;"	f
+name	types.h	/^	char *name; \/\/ name for the net$/;"	m	struct:nnet_t_t
+name	types.h	/^	char *name; \/\/ unique name of a node$/;"	m	struct:nnode_t_t
+name	types.h	/^	char *name;$/;"	m	struct:npin_t_t
+net	types.h	/^	nnet_t *net;      \/\/ related net$/;"	m	struct:npin_t_t
+net_data	types.h	/^	void *net_data;$/;"	m	struct:nnet_t_t
+net_node	types.h	/^	void *net_node;$/;"	m	struct:ast_node_t_t
+netlist_stats_t	types.h	/^typedef struct netlist_stats_t_t netlist_stats_t;$/;"	t	typeref:struct:netlist_stats_t_t
+netlist_stats_t_t	types.h	/^struct netlist_stats_t_t$/;"	s
+netlist_t	types.h	/^typedef struct netlist_t_t netlist_t;$/;"	t	typeref:struct:netlist_t_t
+netlist_t_t	types.h	/^struct netlist_t_t$/;"	s
+nets_sc	types.h	/^	STRING_CACHE *nets_sc;$/;"	m	struct:netlist_t_t
+newAlways	parse_making_ast.c	/^ast_node_t *newAlways(ast_node_t *delay_control, ast_node_t *statement, int line_number)$/;"	f
+newArrayArrayRef	parse_making_ast.c	/^ast_node_t *newArrayArrayRef(char *id, ast_node_t *expression1, ast_node_t *expression2, int line_number)$/;"	f
+newArrayRangeRef	parse_making_ast.c	/^ast_node_t *newArrayRangeRef(char *id, ast_node_t *expression1, $/;"	f
+newArrayRef	parse_making_ast.c	/^ast_node_t *newArrayRef(char *id, ast_node_t *expression, int line_number)$/;"	f
+newAssign	parse_making_ast.c	/^ast_node_t *newAssign(ast_node_t *statement, int line_number)$/;"	f
+newBinaryOperation	parse_making_ast.c	/^ast_node_t *newBinaryOperation(operation_list op_id, ast_node_t *expression1, $/;"	f
+newBlocking	parse_making_ast.c	/^ast_node_t *newBlocking(ast_node_t *expression1, ast_node_t *expression2, int line_number)$/;"	f
+newCase	parse_making_ast.c	/^ast_node_t *newCase(ast_node_t *compare_expression, ast_node_t *case_list, int line_number)$/;"	f
+newCaseItem	parse_making_ast.c	/^ast_node_t *newCaseItem(ast_node_t *expression, ast_node_t *statement, int line_number)$/;"	f
+newConstant	parse_making_ast.c	/^void newConstant(char *id, char *number, int line_number)$/;"	f
+newDefaultCase	parse_making_ast.c	/^ast_node_t *newDefaultCase(ast_node_t *statement, int line_number)$/;"	f
+newDefine	parse_making_ast.c	/^ast_node_t *newDefine(char *define_id, char *define_num, int line_number)$/;"	f
+newDefparam	parse_making_ast.c	/^void newDefparam(char *inst, char *param, char *val, int line_number)$/;"	f
+newDoubleArray	parse_making_ast.c	/^ast_node_t *newDoubleArray(char* symbol, ast_node_t *expression1, $/;"	f
+newFor	parse_making_ast.c	/^ast_node_t *newFor(ast_node_t *init_statement, ast_node_t *compare_expression, $/;"	f
+newGate	parse_making_ast.c	/^ast_node_t *newGate(operation_list op_id, ast_node_t *gate_instance, int line_number)$/;"	f
+newGateInstance	parse_making_ast.c	/^ast_node_t *newGateInstance(char* gate_instance_name, ast_node_t *expression1, $/;"	f
+newGenerate	parse_making_ast.c	/^ast_node_t *newGenerate(ast_node_t *generate_statement, int line_number)$/;"	f
+newHardBlockInstance	parse_making_ast.c	/^ast_node_t *newHardBlockInstance(char* module_ref_name, $/;"	f
+newIf	parse_making_ast.c	/^ast_node_t *newIf(ast_node_t *compare_expression, ast_node_t *true_expression, $/;"	f
+newIfQuestion	parse_making_ast.c	/^ast_node_t *newIfQuestion(ast_node_t *compare_expression, $/;"	f
+newList	parse_making_ast.c	/^ast_node_t *newList(ids node_type, ast_node_t *child)$/;"	f
+newListReplicate	parse_making_ast.c	/^ast_node_t *newListReplicate(ast_node_t *exp, ast_node_t *child )$/;"	f
+newList_entry	parse_making_ast.c	/^ast_node_t *newList_entry(ast_node_t *list, ast_node_t *child)$/;"	f
+newMatrixRef	parse_making_ast.c	/^ast_node_t *newMatrixRef(char *id, ast_node_t *expression1, $/;"	f
+newModule	parse_making_ast.c	/^ast_node_t *newModule(char* module_name, ast_node_t *list_of_ports, $/;"	f
+newModuleConnection	parse_making_ast.c	/^ast_node_t *newModuleConnection(char* id, ast_node_t *expression, int line_number)$/;"	f
+newModuleInstance	parse_making_ast.c	/^ast_node_t *newModuleInstance(char* module_ref_name, ast_node_t *module_named_instance, int line_number)$/;"	f
+newModuleNamedInstance	parse_making_ast.c	/^ast_node_t *newModuleNamedInstance(char* unique_name, ast_node_t *module_connect_list, $/;"	f
+newModuleParameter	parse_making_ast.c	/^ast_node_t *newModuleParameter(char* id, ast_node_t *expression, int line_number)$/;"	f
+newNegedgeSymbol	parse_making_ast.c	/^ast_node_t *newNegedgeSymbol(char *symbol, int line_number)$/;"	f
+newNonBlocking	parse_making_ast.c	/^ast_node_t *newNonBlocking(char * sign, ast_node_t *expression1, ast_node_t *expression2, int line_number)$/;"	f
+newNumberNode	parse_making_ast.c	/^ast_node_t *newNumberNode(char *num, int line_number)$/;"	f
+newPosedgeSymbol	parse_making_ast.c	/^ast_node_t *newPosedgeSymbol(char *symbol, int line_number)$/;"	f
+newRangeRef	parse_making_ast.c	/^ast_node_t *newRangeRef(char *id, ast_node_t *expression1, ast_node_t *expression2, int line_number)$/;"	f
+newSymbolNode	parse_making_ast.c	/^ast_node_t *newSymbolNode(char *id, int line_number)$/;"	f
+newUnaryOperation	parse_making_ast.c	/^ast_node_t *newUnaryOperation(operation_list op_id, ast_node_t *expression, int line_number)$/;"	f
+newVarDeclare	parse_making_ast.c	/^ast_node_t *newVarDeclare(char* symbol, ast_node_t *expression1, $/;"	f
+new_id	parse_making_ast.c	/^record_id *id_lib = NULL, *new_id, *lookup_id;$/;"	v
+new_para	parse_making_ast.c	/^record_id *para_lib = NULL, *new_para, *lookup_para;$/;"	v
+next	types.h	/^	struct record_types *next;$/;"	m	struct:record_types	typeref:struct:record_types::record_types
+next	verilog_preprocessor.h	/^	struct veri_flag_node *next;$/;"	m	struct:veri_flag_node	typeref:struct:veri_flag_node::veri_flag_node
+next_module	parse_making_ast.c	/^void next_module()$/;"	f
+next_parsed_verilog_file	parse_making_ast.c	/^void next_parsed_verilog_file(ast_node_t *file_items_list)$/;"	f
+next_string	string_cache.h	/^	long *next_string;$/;"	m	struct:__anon1
+nnet_t	types.h	/^typedef struct nnet_t_t nnet_t;$/;"	t	typeref:struct:nnet_t_t
+nnet_t_t	types.h	/^struct nnet_t_t$/;"	s
+nnode_t	types.h	/^typedef struct nnode_t_t nnode_t;$/;"	t	typeref:struct:nnode_t_t
+nnode_t_t	types.h	/^struct nnode_t_t$/;"	s
+node	types.h	/^	nnode_t *node;    \/\/ related node$/;"	m	struct:npin_t_t
+node	verilog_bison.c	/^	ast_node_t *node;$/;"	m	union:YYSTYPE	file:
+node	verilog_bison.h	/^	ast_node_t *node;$/;"	m	union:YYSTYPE
+node_bw_t_t	types.h	/^struct node_bw_t_t$/;"	s
+node_data	types.h	/^	void *node_data; \/\/ this is a point where you can add additional data for your optimization or technique$/;"	m	struct:nnode_t_t
+nodedepth	parse_making_ast.c	/^int side, repitition, probability, nodedepth;$/;"	v
+nodes_sc	types.h	/^	STRING_CACHE *nodes_sc;$/;"	m	struct:netlist_t_t
+nodetochange	parse_making_ast.c	/^ast_node_t *startnode, *nodetochange[2];$/;"	v
+npin_t	types.h	/^typedef struct npin_t_t npin_t;$/;"	t	typeref:struct:npin_t_t
+npin_t_t	types.h	/^struct npin_t_t$/;"	s
+num_adds	parse_making_ast.c	/^int num_adds = 0, count_add;$/;"	v
+num_always	parse_making_ast.c	/^int num_always = 0, count_always = 1;$/;"	v
+num_at_backward_level	types.h	/^	int* num_at_backward_level;$/;"	m	struct:netlist_t_t
+num_at_forward_level	types.h	/^	int* num_at_forward_level;$/;"	m	struct:netlist_t_t
+num_at_sequential_level	types.h	/^	int* num_at_sequential_level;$/;"	m	struct:netlist_t_t
+num_at_sequential_level_combinational_termination_node	types.h	/^	int* num_at_sequential_level_combinational_termination_node;$/;"	m	struct:netlist_t_t
+num_backward_levels	types.h	/^	int num_backward_levels;$/;"	m	struct:netlist_t_t
+num_bit_strings	types.h	/^			int num_bit_strings;$/;"	m	struct:ast_node_t_t::__anon6::__anon11
+num_children	types.h	/^	int num_children;$/;"	m	struct:ast_node_t_t
+num_clocks	types.h	/^	int num_clocks;$/;"	m	struct:netlist_t_t
+num_combinational_shape_for_sequential_level	types.h	/^	int *num_combinational_shape_for_sequential_level;$/;"	m	struct:netlist_stats_t_t
+num_edges_fi	types.h	/^	long num_edges_fi; \/* without control signals like clocks and gnd and vcc...= to number of fanins from output pins *\/$/;"	m	struct:netlist_stats_t_t
+num_edges_fo	types.h	/^	long num_edges_fo; \/* without control signals like clocks and gnd and vcc...= to number of fanouts from output pins *\/$/;"	m	struct:netlist_stats_t_t
+num_fanin_distribution	types.h	/^	int num_fanin_distribution;$/;"	m	struct:netlist_stats_t_t
+num_fanout_distribution	types.h	/^	int num_fanout_distribution;$/;"	m	struct:netlist_stats_t_t
+num_fanout_pins	types.h	/^	int num_fanout_pins; \/\/ the list size of pins$/;"	m	struct:nnet_t_t
+num_ff_nodes	types.h	/^	int num_ff_nodes;$/;"	m	struct:netlist_stats_t_t
+num_ff_nodes	types.h	/^	int num_ff_nodes;$/;"	m	struct:netlist_t_t
+num_forward_levels	types.h	/^	int num_forward_levels;$/;"	m	struct:netlist_t_t
+num_ids	parse_making_ast.c	/^int num_ids = 0;$/;"	v
+num_input_pins	types.h	/^	int num_input_pins;$/;"	m	struct:nnode_t_t
+num_input_port_sizes	types.h	/^	int num_input_port_sizes;$/;"	m	struct:nnode_t_t
+num_inputs	types.h	/^	int num_inputs;$/;"	m	struct:netlist_stats_t_t
+num_internal_nodes	types.h	/^	int num_internal_nodes;$/;"	m	struct:netlist_t_t
+num_list_of_file_names	types.h	/^	int num_list_of_file_names;$/;"	m	struct:config_t_t
+num_logic_nodes	types.h	/^	int num_logic_nodes;$/;"	m	struct:netlist_stats_t_t
+num_modules	parse_making_ast.c	/^int num_modules;$/;"	v
+num_mults	parse_making_ast.c	/^int num_mults = 0, count_mult;$/;"	v
+num_nodes	types.h	/^	int num_nodes;$/;"	m	struct:netlist_stats_t_t
+num_output_pins	types.h	/^	int num_output_pins;$/;"	m	struct:nnode_t_t
+num_output_pins	types.h	/^	long num_output_pins;$/;"	m	struct:netlist_stats_t_t
+num_output_port_sizes	types.h	/^	int num_output_port_sizes;$/;"	m	struct:nnode_t_t
+num_outputs	types.h	/^	int num_outputs;$/;"	m	struct:netlist_stats_t_t
+num_paras	parse_making_ast.c	/^int num_paras;$/;"	v
+num_sequential_level_combinational_termination_nodes	types.h	/^	int num_sequential_level_combinational_termination_nodes;$/;"	m	struct:netlist_t_t
+num_sequential_levels	types.h	/^	int num_sequential_levels;$/;"	m	struct:netlist_t_t
+num_strings	types.h	/^	int num_strings;$/;"	m	struct:char_list_t_t
+num_top_input_nodes	types.h	/^	int num_top_input_nodes;$/;"	m	struct:netlist_t_t
+num_top_output_nodes	types.h	/^	int num_top_output_nodes;$/;"	m	struct:netlist_t_t
+num_undriven_pins	types.h	/^	int  num_undriven_pins;$/;"	m	struct:nnode_t_t
+num_value	verilog_bison.c	/^	char *num_value;$/;"	m	union:YYSTYPE	file:
+num_value	verilog_bison.h	/^	char *num_value;$/;"	m	union:YYSTYPE
+number	types.h	/^			char *number;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+number	types.h	/^		} number;$/;"	m	union:ast_node_t_t::__anon6	typeref:struct:ast_node_t_t::__anon6::__anon7
+oassert	types.h	87;"	d
+ok1	parse_making_ast.c	/^char *ok1;$/;"	v
+ok2	parse_making_ast.c	/^char *ok2;$/;"	v
+one_net	types.h	/^	nnet_t *one_net;$/;"	m	struct:netlist_t_t
+op	types.h	/^			operation_list op;$/;"	m	struct:ast_node_t_t::__anon6::__anon8
+open_source_file	verilog_preprocessor.c	/^FILE* open_source_file(char* filename)$/;"	f
+operation	types.h	/^		} operation;$/;"	m	union:ast_node_t_t::__anon6	typeref:struct:ast_node_t_t::__anon6::__anon8
+operation_list	types.h	/^} operation_list;$/;"	t	typeref:enum:__anon4
+optimizations_on_AST	ast_optimizations.c	/^void optimizations_on_AST(ast_node_t *top)$/;"	f
+out_pins_sc	types.h	/^	STRING_CACHE *out_pins_sc;$/;"	m	struct:netlist_t_t
+output_ast_graphs	types.h	/^	short output_ast_graphs; \/\/ switch that outputs ast graphs per node for use with GRaphViz tools$/;"	m	struct:config_t_t
+output_file	types.h	/^	char *output_file;$/;"	m	struct:global_args_t_t
+output_hard_blocks	hard_blocks.c	/^void output_hard_blocks(FILE *out)$/;"	f
+output_netlist_graphs	types.h	/^	short output_netlist_graphs; \/\/ switch that outputs netlist graphs per node for use with GraphViz tools$/;"	m	struct:config_t_t
+output_pins	types.h	/^	npin_t **output_pins; \/\/ the output pins$/;"	m	struct:nnode_t_t
+output_port_sizes	types.h	/^	int *output_port_sizes; \/\/ info if there is ports$/;"	m	struct:nnode_t_t
+output_preproc_source	types.h	/^	short output_preproc_source; \/\/ switch that outputs the pre-processed source$/;"	m	struct:config_t_t
+output_type	types.h	/^	char *output_type; \/\/ string name of the type of output file$/;"	m	struct:config_t_t
+pad_net	types.h	/^	nnet_t *pad_net;$/;"	m	struct:netlist_t_t
+pad_node	types.h	/^	nnode_t *pad_node;$/;"	m	struct:netlist_t_t
+para_lib	parse_making_ast.c	/^record_id *para_lib = NULL, *new_para, *lookup_para;$/;"	v
+parent_node	parse_making_ast.c	/^ast_node_t *parent_node;$/;"	v
+parse_to_ast	parse_making_ast.c	/^void parse_to_ast()$/;"	f
+path	verilog_preprocessor.h	/^	char *path;$/;"	m	struct:veri_include
+pin_net_idx	types.h	/^	int pin_net_idx;$/;"	m	struct:npin_t_t
+pin_node_idx	types.h	/^	int pin_node_idx; \/\/ pin on the node where we're located$/;"	m	struct:npin_t_t
+pins	types.h	/^	npin_t **pins;$/;"	m	struct:signal_list_t_t
+pop	verilog_preprocessor.c	/^int pop(veri_flag_stack *stack)$/;"	f
+pow2	abacus_util.c	/^long long int pow2(int to_the_power)$/;"	f
+power_estimation	types.h	/^    int power_estimation;$/;"	m	struct:global_args_t_t
+pre_add	parse_making_ast.c	/^void pre_add (ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+print_parse_tokens	types.h	/^	short print_parse_tokens; \/\/ switch that controls whether or not each token is printed during parsing$/;"	m	struct:config_t_t
+print_usage	abacus.c	/^void print_usage()$/;"	f
+proba	parse_making_ast.c	/^int *proba, *proba_index;$/;"	v
+proba_index	parse_making_ast.c	/^int *proba, *proba_index;$/;"	v
+probability	parse_making_ast.c	/^int side, repitition, probability, nodedepth;$/;"	v
+probm	parse_making_ast.c	/^int *probm, *probm_index;$/;"	v
+probm_index	parse_making_ast.c	/^int *probm, *probm_index;$/;"	v
+push	verilog_preprocessor.c	/^void push(veri_flag_stack *stack, int flag)$/;"	f
+range_high	parse_making_ast.c	/^int range_high=0;$/;"	v
+rangetext	parse_making_ast.c	/^char rangetext[4096]="";$/;"	v
+rangetext_clone	parse_making_ast.c	/^char *rangetext_clone="";$/;"	v
+read_AST_connect_child	parse_making_ast.c	/^void read_AST_connect_child(ast_node_t* top, ast_node_t* node, int from_node, int* found)$/;"	f
+read_AST_from_file	parse_making_ast.c	/^ast_node_t* read_AST_from_file(char* file_in)$/;"	f
+read_config_file	read_xml_config_file.c	/^void read_config_file(char *file_name)$/;"	f
+read_debug_switches	read_xml_config_file.c	/^void read_debug_switches(ezxml_t a_node, config_t *config)$/;"	f
+read_optimizations	read_xml_config_file.c	/^void read_optimizations(ezxml_t a_node, config_t *config)$/;"	f
+read_outputs	read_xml_config_file.c	/^void read_outputs(ezxml_t a_node, config_t *config)$/;"	f
+read_verilog_files	read_xml_config_file.c	/^void read_verilog_files(ezxml_t a_node, config_t *config)$/;"	f
+record_id	types.h	/^typedef struct record_types record_id;$/;"	t	typeref:struct:record_types
+record_types	types.h	/^struct record_types$/;"	s
+recursive_truncate	parse_making_ast.c	/^void recursive_truncate(ast_node_t *bin_node, ast_node_t *top_node, int nbits)$/;"	f
+recursive_truncate2	parse_making_ast.c	/^void recursive_truncate2(ast_node_t *bin_node, ast_node_t* top_node, $/;"	f
+reduceAST_traverse_node	ast_optimizations.c	/^info_ast_visit_t *reduceAST_traverse_node(ast_node_t *node, ast_node_t *from, int position_idx)$/;"	f
+related_ast_node	types.h	/^	ast_node_t *related_ast_node; \/\/ the abstract syntax node that made this node$/;"	m	struct:nnode_t_t
+remove_comments	verilog_preprocessor.c	/^FILE *remove_comments(FILE *source)$/;"	f
+remove_equal_nodes	parse_making_ast.c	/^void remove_equal_nodes(ast_node_t *top)$/;"	f
+remove_node	parse_making_ast.c	/^void remove_node(ast_node_t *node, ast_node_t *from, int from_num)$/;"	f
+repitition	parse_making_ast.c	/^int side, repitition, probability, nodedepth;$/;"	v
+replace_with_const	parse_making_ast.c	/^void replace_with_const(ast_node_t *node, char **matlab_vars, int where)$/;"	f
+resolve_node	ast_util.c	/^ast_node_t *resolve_node(char *module_name, ast_node_t *node)$/;"	f
+ret_veri_definedval	verilog_preprocessor.c	/^char* ret_veri_definedval(char *symbol)$/;"	f
+reverse_string	abacus_util.c	/^void reverse_string(char *string, int length)$/;"	f
+sc_add_string	string_cache.c	/^sc_add_string(STRING_CACHE * sc,$/;"	f
+sc_do_alloc	string_cache.c	/^sc_do_alloc(long a,$/;"	f
+sc_free_string_cache	string_cache.c	/^sc_free_string_cache(STRING_CACHE * sc)$/;"	f
+sc_lookup_string	string_cache.c	/^sc_lookup_string(STRING_CACHE * sc,$/;"	f
+sc_new_string_cache	string_cache.c	/^sc_new_string_cache(void)$/;"	f
+sc_valid_id	string_cache.c	/^sc_valid_id(STRING_CACHE * sc,$/;"	f
+sequential_level	types.h	/^	int sequential_level; \/\/ the associated sequential network that the node is in$/;"	m	struct:nnode_t_t
+sequential_level_combinational_termination_node	types.h	/^	nnode_t ***sequential_level_combinational_termination_node;$/;"	m	struct:netlist_t_t
+sequential_level_nodes	types.h	/^	nnode_t ***sequential_level_nodes;$/;"	m	struct:netlist_t_t
+sequential_terminator	types.h	/^	short sequential_terminator; \/\/ if this combinational node is a terminator for the sequential level (connects to flip-flop or Output pin$/;"	m	struct:nnode_t_t
+set_default_optimization_settings	read_xml_config_file.c	/^void set_default_optimization_settings(config_t *config)$/;"	f
+shared_node	types.h	/^	short shared_node;$/;"	m	struct:ast_node_t_t
+shift_flag	parse_making_ast.c	/^int shift_flag;$/;"	v
+short	verilog_bison.c	261;"	d	file:
+side	parse_making_ast.c	/^int side, repitition, probability, nodedepth;$/;"	v
+signal_list_t	types.h	/^typedef struct signal_list_t_t signal_list_t;$/;"	t	typeref:struct:signal_list_t_t
+signal_list_t_t	types.h	/^struct signal_list_t_t$/;"	s
+signed_unsigned	parse_making_ast.c	/^char signed_unsigned[4096]="";$/;"	v
+sim_additional_pins	types.h	/^	char *sim_additional_pins;$/;"	m	struct:global_args_t_t
+sim_generate_three_valued_logic	types.h	/^	int sim_generate_three_valued_logic;$/;"	m	struct:global_args_t_t
+sim_hold_high	types.h	/^	char *sim_hold_high;$/;"	m	struct:global_args_t_t
+sim_hold_low	types.h	/^	char *sim_hold_low;$/;"	m	struct:global_args_t_t
+sim_num_test_vectors	types.h	/^	int sim_num_test_vectors;$/;"	m	struct:global_args_t_t
+sim_output_both_edges	types.h	/^	int sim_output_both_edges;$/;"	m	struct:global_args_t_t
+sim_output_rising_edge	types.h	/^	int sim_output_rising_edge;$/;"	m	struct:global_args_t_t
+sim_state_t	types.h	/^typedef struct sim_state_t_t sim_state_t;$/;"	t	typeref:struct:sim_state_t_t
+sim_vector_input_file	types.h	/^	char *sim_vector_input_file;$/;"	m	struct:global_args_t_t
+sim_vector_output_file	types.h	/^	char *sim_vector_output_file;$/;"	m	struct:global_args_t_t
+simulate_block_cycle	types.h	/^	void (*simulate_block_cycle)(int, int, int*, int, int*);$/;"	m	struct:nnode_t_t
+simulation_type	types.h	/^}simulation_type;$/;"	t	typeref:enum:__anon2
+single_port_rams	hard_blocks.c	/^t_model *single_port_rams = NULL;$/;"	v
+size	string_cache.h	/^	long size;$/;"	m	struct:__anon1
+size	types.h	/^			int size;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+size_all_file_items_list	parse_making_ast.c	/^int size_all_file_items_list;$/;"	v
+size_block_instantiations	parse_making_ast.c	/^int size_block_instantiations;$/;"	v
+size_module_instantiations	parse_making_ast.c	/^int size_module_instantiations;$/;"	v
+size_module_instantiations	types.h	/^			int size_module_instantiations;$/;"	m	struct:ast_node_t_t::__anon6::__anon10
+soft_logic_memory_depth_threshold	types.h	/^	int soft_logic_memory_depth_threshold;$/;"	m	struct:config_t_t
+soft_logic_memory_width_threshold	types.h	/^	int soft_logic_memory_width_threshold;$/;"	m	struct:config_t_t
+split_hard_multiplier	types.h	/^	int split_hard_multiplier;$/;"	m	struct:config_t_t
+split_memory_depth	types.h	/^	int split_memory_depth;$/;"	m	struct:config_t_t
+split_memory_width	types.h	/^	char split_memory_width;$/;"	m	struct:config_t_t
+startnode	parse_making_ast.c	/^ast_node_t *startnode, *nodetochange[2];$/;"	v
+stats	types.h	/^	netlist_stats_t *stats;$/;"	m	struct:netlist_t_t
+string	string_cache.h	/^	char **string;$/;"	m	struct:__anon1
+string_hash	string_cache.c	/^string_hash(STRING_CACHE * sc,$/;"	f
+string_hash	string_cache.h	/^	long *string_hash;$/;"	m	struct:__anon1
+string_hash_size	string_cache.h	/^	long string_hash_size;$/;"	m	struct:__anon1
+string_to_lower	abacus_util.c	/^void string_to_lower(char *string)$/;"	f
+string_to_upper	abacus_util.c	/^void string_to_upper(char *string)$/;"	f
+strings	types.h	/^	char **strings;$/;"	m	struct:char_list_t_t
+symbol	verilog_preprocessor.h	/^	char *symbol;$/;"	m	struct:veri_define
+tempholder	parse_making_ast.c	/^char tempholder[4096]="";$/;"	v
+to_view_parse	parse_making_ast.c	/^short to_view_parse;$/;"	v
+top	verilog_preprocessor.c	/^int top(veri_flag_stack *stack)$/;"	f
+top	verilog_preprocessor.h	/^	veri_flag_node *top;$/;"	m	struct:__anon12
+top_global	parse_making_ast.c	/^ast_node_t *top_global;$/;"	v
+top_input_nodes	types.h	/^	nnode_t** top_input_nodes;$/;"	m	struct:netlist_t_t
+top_output_nodes	types.h	/^	nnode_t** top_output_nodes;$/;"	m	struct:netlist_t_t
+transformTree	parse_making_ast.c	/^void transformTree (ast_node_t* mult_node,int s1, int s2)$/;"	f
+traverse_visited	types.h	/^	short traverse_visited; \/\/ a way to mark if we've visited yet$/;"	m	struct:nnode_t_t
+trim	verilog_preprocessor.c	/^char* trim(char *string)$/;"	f
+truncate_bitwidth	parse_making_ast.c	/^void truncate_bitwidth(ast_node_t *node, ast_node_t* top_node, int num_bits)$/;"	f
+truncate_bitwidth_alternative	parse_making_ast.c	/^void truncate_bitwidth_alternative(ast_node_t *node, ast_node_t* top_node, int num_bits)$/;"	f
+truncate_both_operands	parse_making_ast.c	/^int truncate_both_operands=0;$/;"	v
+truncate_cntr	parse_making_ast.c	/^int truncate_cntr=0;$/;"	v
+truncate_done	parse_making_ast.c	/^int truncate_done=0;$/;"	v
+truncate_flag	parse_making_ast.c	/^int truncate_flag=0;$/;"	v
+truncate_or_not	parse_making_ast.c	/^int truncate_or_not=1;$/;"	v
+two_shift_children_flag	parse_making_ast.c	/^int two_shift_children_flag=0;$/;"	v
+twos_complement	abacus_util.c	/^char *twos_complement(char *str)$/;"	f
+type	types.h	/^	ids type;         \/\/ INPUT or OUTPUT$/;"	m	struct:npin_t_t
+type	types.h	/^	ids type;$/;"	m	struct:ast_node_t_t
+type	types.h	/^	operation_list type; \/\/ the type of node$/;"	m	struct:nnode_t_t
+type	types.h	/^	t_type_ptr type;$/;"	m	struct:netlist_t_t
+type	types.h	/^    ids type; \/\/ ARRAY_REF, RANGE_REF, ARRAY_RANGE_REF, ARRAY_ARRAY_REF, MATRIX_REF$/;"	m	struct:node_bw_t_t
+type_descriptors	abacus.c	/^t_type_descriptor* type_descriptors;$/;"	v
+types	types.h	/^	} types;$/;"	m	struct:ast_node_t_t	typeref:union:ast_node_t_t::__anon6
+undriven_pins	types.h	/^	npin_t **undriven_pins; \/\/ These pins have been found by the simulator to have no driver.$/;"	m	struct:nnode_t_t
+unique_count	types.h	/^	int unique_count;$/;"	m	struct:ast_node_t_t
+unique_id	types.h	/^	long unique_id;$/;"	m	struct:nnet_t_t
+unique_id	types.h	/^	long unique_id;$/;"	m	struct:nnode_t_t
+unique_id	types.h	/^	long unique_id;$/;"	m	struct:npin_t_t
+unique_label_count	parse_making_ast.c	/^int unique_label_count;$/;"	v
+unique_net_data_id	types.h	/^	short unique_net_data_id;$/;"	m	struct:nnet_t_t
+unique_node_data_id	types.h	/^	short unique_node_data_id;$/;"	m	struct:nnode_t_t
+unput	verilog_flex.c	195;"	d	file:
+vALWAYS	verilog_bison.c	/^    vALWAYS = 261,$/;"	e	enum:yytokentype	file:
+vALWAYS	verilog_bison.h	/^    vALWAYS = 261,$/;"	e	enum:yytokentype
+vAND	verilog_bison.c	/^    vAND = 262,$/;"	e	enum:yytokentype	file:
+vAND	verilog_bison.h	/^    vAND = 262,$/;"	e	enum:yytokentype
+vASSIGN	verilog_bison.c	/^    vASSIGN = 263,$/;"	e	enum:yytokentype	file:
+vASSIGN	verilog_bison.h	/^    vASSIGN = 263,$/;"	e	enum:yytokentype
+vBEGIN	verilog_bison.c	/^    vBEGIN = 265,$/;"	e	enum:yytokentype	file:
+vBEGIN	verilog_bison.h	/^    vBEGIN = 265,$/;"	e	enum:yytokentype
+vCASE	verilog_bison.c	/^    vCASE = 266,$/;"	e	enum:yytokentype	file:
+vCASE	verilog_bison.h	/^    vCASE = 266,$/;"	e	enum:yytokentype
+vDEFAULT	verilog_bison.c	/^    vDEFAULT = 267,$/;"	e	enum:yytokentype	file:
+vDEFAULT	verilog_bison.h	/^    vDEFAULT = 267,$/;"	e	enum:yytokentype
+vDEFINE	verilog_bison.c	/^    vDEFINE = 268,$/;"	e	enum:yytokentype	file:
+vDEFINE	verilog_bison.h	/^    vDEFINE = 268,$/;"	e	enum:yytokentype
+vDEFPARAM	verilog_bison.c	/^    vDEFPARAM = 299,$/;"	e	enum:yytokentype	file:
+vDEFPARAM	verilog_bison.h	/^    vDEFPARAM = 299,$/;"	e	enum:yytokentype
+vDELAY_ID	verilog_bison.c	/^    vDELAY_ID = 260,$/;"	e	enum:yytokentype	file:
+vDELAY_ID	verilog_bison.h	/^    vDELAY_ID = 260,$/;"	e	enum:yytokentype
+vELSE	verilog_bison.c	/^    vELSE = 269,$/;"	e	enum:yytokentype	file:
+vELSE	verilog_bison.h	/^    vELSE = 269,$/;"	e	enum:yytokentype
+vEND	verilog_bison.c	/^    vEND = 270,$/;"	e	enum:yytokentype	file:
+vEND	verilog_bison.h	/^    vEND = 270,$/;"	e	enum:yytokentype
+vENDCASE	verilog_bison.c	/^    vENDCASE = 271,$/;"	e	enum:yytokentype	file:
+vENDCASE	verilog_bison.h	/^    vENDCASE = 271,$/;"	e	enum:yytokentype
+vENDGENERATE	verilog_bison.c	/^    vENDGENERATE = 272,$/;"	e	enum:yytokentype	file:
+vENDGENERATE	verilog_bison.h	/^    vENDGENERATE = 272,$/;"	e	enum:yytokentype
+vENDMODULE	verilog_bison.c	/^    vENDMODULE = 273,$/;"	e	enum:yytokentype	file:
+vENDMODULE	verilog_bison.h	/^    vENDMODULE = 273,$/;"	e	enum:yytokentype
+vFOR	verilog_bison.c	/^    vFOR = 275,$/;"	e	enum:yytokentype	file:
+vFOR	verilog_bison.h	/^    vFOR = 275,$/;"	e	enum:yytokentype
+vGENERATE	verilog_bison.c	/^    vGENERATE = 264,$/;"	e	enum:yytokentype	file:
+vGENERATE	verilog_bison.h	/^    vGENERATE = 264,$/;"	e	enum:yytokentype
+vGENVAR	verilog_bison.c	/^    vGENVAR = 294,$/;"	e	enum:yytokentype	file:
+vGENVAR	verilog_bison.h	/^    vGENVAR = 294,$/;"	e	enum:yytokentype
+vIF	verilog_bison.c	/^    vIF = 274,$/;"	e	enum:yytokentype	file:
+vIF	verilog_bison.h	/^    vIF = 274,$/;"	e	enum:yytokentype
+vINOUT	verilog_bison.c	/^    vINOUT = 276,$/;"	e	enum:yytokentype	file:
+vINOUT	verilog_bison.h	/^    vINOUT = 276,$/;"	e	enum:yytokentype
+vINPUT	verilog_bison.c	/^    vINPUT = 277,$/;"	e	enum:yytokentype	file:
+vINPUT	verilog_bison.h	/^    vINPUT = 277,$/;"	e	enum:yytokentype
+vINPUT_SIGNED	verilog_bison.c	/^    vINPUT_SIGNED = 278,$/;"	e	enum:yytokentype	file:
+vINPUT_SIGNED	verilog_bison.h	/^    vINPUT_SIGNED = 278,$/;"	e	enum:yytokentype
+vINTEGER	verilog_bison.c	/^    vINTEGER = 293,$/;"	e	enum:yytokentype	file:
+vINTEGER	verilog_bison.h	/^    vINTEGER = 293,$/;"	e	enum:yytokentype
+vMODULE	verilog_bison.c	/^    vMODULE = 279,$/;"	e	enum:yytokentype	file:
+vMODULE	verilog_bison.h	/^    vMODULE = 279,$/;"	e	enum:yytokentype
+vNAND	verilog_bison.c	/^    vNAND = 280,$/;"	e	enum:yytokentype	file:
+vNAND	verilog_bison.h	/^    vNAND = 280,$/;"	e	enum:yytokentype
+vNEGEDGE	verilog_bison.c	/^    vNEGEDGE = 281,$/;"	e	enum:yytokentype	file:
+vNEGEDGE	verilog_bison.h	/^    vNEGEDGE = 281,$/;"	e	enum:yytokentype
+vNOR	verilog_bison.c	/^    vNOR = 282,$/;"	e	enum:yytokentype	file:
+vNOR	verilog_bison.h	/^    vNOR = 282,$/;"	e	enum:yytokentype
+vNOT	verilog_bison.c	/^    vNOT = 283,$/;"	e	enum:yytokentype	file:
+vNOT	verilog_bison.h	/^    vNOT = 283,$/;"	e	enum:yytokentype
+vNOT_SUPPORT	verilog_bison.c	/^    vNOT_SUPPORT = 313,$/;"	e	enum:yytokentype	file:
+vNOT_SUPPORT	verilog_bison.h	/^    vNOT_SUPPORT = 313,$/;"	e	enum:yytokentype
+vNO_ID	verilog_bison.c	/^    vNO_ID = 285,$/;"	e	enum:yytokentype	file:
+vNO_ID	verilog_bison.h	/^    vNO_ID = 285,$/;"	e	enum:yytokentype
+vNUMBER_ID	verilog_bison.c	/^    vNUMBER_ID = 259,$/;"	e	enum:yytokentype	file:
+vNUMBER_ID	verilog_bison.h	/^    vNUMBER_ID = 259,$/;"	e	enum:yytokentype
+vOR	verilog_bison.c	/^    vOR = 284,$/;"	e	enum:yytokentype	file:
+vOR	verilog_bison.h	/^    vOR = 284,$/;"	e	enum:yytokentype
+vOUTPUT	verilog_bison.c	/^    vOUTPUT = 287,$/;"	e	enum:yytokentype	file:
+vOUTPUT	verilog_bison.h	/^    vOUTPUT = 287,$/;"	e	enum:yytokentype
+vOUTPUT_REG	verilog_bison.c	/^    vOUTPUT_REG = 291,$/;"	e	enum:yytokentype	file:
+vOUTPUT_REG	verilog_bison.h	/^    vOUTPUT_REG = 291,$/;"	e	enum:yytokentype
+vPARAMETER	verilog_bison.c	/^    vPARAMETER = 288,$/;"	e	enum:yytokentype	file:
+vPARAMETER	verilog_bison.h	/^    vPARAMETER = 288,$/;"	e	enum:yytokentype
+vPOSEDGE	verilog_bison.c	/^    vPOSEDGE = 289,$/;"	e	enum:yytokentype	file:
+vPOSEDGE	verilog_bison.h	/^    vPOSEDGE = 289,$/;"	e	enum:yytokentype
+vREG	verilog_bison.c	/^    vREG = 290,$/;"	e	enum:yytokentype	file:
+vREG	verilog_bison.h	/^    vREG = 290,$/;"	e	enum:yytokentype
+vREG_SIGNED	verilog_bison.c	/^    vREG_SIGNED = 295,$/;"	e	enum:yytokentype	file:
+vREG_SIGNED	verilog_bison.h	/^    vREG_SIGNED = 295,$/;"	e	enum:yytokentype
+vSIGNED	verilog_bison.c	/^    vSIGNED = 286,$/;"	e	enum:yytokentype	file:
+vSIGNED	verilog_bison.h	/^    vSIGNED = 286,$/;"	e	enum:yytokentype
+vSYMBOL_ID	verilog_bison.c	/^    vSYMBOL_ID = 258,$/;"	e	enum:yytokentype	file:
+vSYMBOL_ID	verilog_bison.h	/^    vSYMBOL_ID = 258,$/;"	e	enum:yytokentype
+vWIRE	verilog_bison.c	/^    vWIRE = 292,$/;"	e	enum:yytokentype	file:
+vWIRE	verilog_bison.h	/^    vWIRE = 292,$/;"	e	enum:yytokentype
+vWIRE_SIGNED	verilog_bison.c	/^    vWIRE_SIGNED = 296,$/;"	e	enum:yytokentype	file:
+vWIRE_SIGNED	verilog_bison.h	/^    vWIRE_SIGNED = 296,$/;"	e	enum:yytokentype
+vXNOR	verilog_bison.c	/^    vXNOR = 297,$/;"	e	enum:yytokentype	file:
+vXNOR	verilog_bison.h	/^    vXNOR = 297,$/;"	e	enum:yytokentype
+vXOR	verilog_bison.c	/^    vXOR = 298,$/;"	e	enum:yytokentype	file:
+vXOR	verilog_bison.h	/^    vXOR = 298,$/;"	e	enum:yytokentype
+value	types.h	/^			long long value;$/;"	m	struct:ast_node_t_t::__anon6::__anon7
+value	types.h	/^	long long value;$/;"	m	struct:info_ast_visit_t_t
+value	types.h	/^	long long value;$/;"	m	struct:record_types
+value	verilog_preprocessor.h	/^	char *value;$/;"	m	struct:veri_define
+values	types.h	/^	signed char *values; \/\/ The values for the current wave.$/;"	m	struct:npin_t_t
+var_declare_list	parse_making_ast.c	/^ast_node_t *var_declare_list;$/;"	v
+var_declare_list_num	parse_making_ast.c	/^int module_items_num, var_declare_list_num;$/;"	v
+variable	types.h	/^		} variable;$/;"	m	union:ast_node_t_t::__anon6	typeref:struct:ast_node_t_t::__anon6::__anon9
+vcc_node	types.h	/^	nnode_t *vcc_node;$/;"	m	struct:netlist_t_t
+veri_Defines	verilog_preprocessor.h	/^struct veri_Defines $/;"	s
+veri_Includes	verilog_preprocessor.h	/^struct veri_Includes $/;"	s
+veri_define	verilog_preprocessor.h	/^typedef struct veri_define$/;"	s
+veri_define	verilog_preprocessor.h	/^} veri_define;$/;"	t	typeref:struct:veri_define
+veri_defines	verilog_preprocessor.c	/^struct veri_Defines veri_defines;$/;"	v	typeref:struct:veri_Defines
+veri_flag_node	verilog_preprocessor.h	/^typedef struct veri_flag_node$/;"	s
+veri_flag_node	verilog_preprocessor.h	/^} veri_flag_node;$/;"	t	typeref:struct:veri_flag_node
+veri_flag_stack	verilog_preprocessor.h	/^} veri_flag_stack;$/;"	t	typeref:struct:__anon12
+veri_include	verilog_preprocessor.h	/^typedef struct veri_include$/;"	s
+veri_include	verilog_preprocessor.h	/^} veri_include;$/;"	t	typeref:struct:veri_include
+veri_includes	verilog_preprocessor.c	/^struct veri_Includes veri_includes;$/;"	v	typeref:struct:veri_Includes
+veri_is_defined	verilog_preprocessor.c	/^int veri_is_defined(char * symbol)$/;"	f
+veri_preproc	verilog_preprocessor.c	/^FILE* veri_preproc(FILE *source)$/;"	f
+veri_preproc_bootstraped	verilog_preprocessor.c	/^void veri_preproc_bootstraped(FILE *original_source, FILE *preproc_producer, veri_include *current_include)$/;"	f
+verilog_file	types.h	/^	char *verilog_file;$/;"	m	struct:global_args_t_t
+verilog_preprocessor_h	verilog_preprocessor.h	2;"	d
+voANDAND	verilog_bison.c	/^    voANDAND = 300,$/;"	e	enum:yytokentype	file:
+voANDAND	verilog_bison.h	/^    voANDAND = 300,$/;"	e	enum:yytokentype
+voCASEEQUAL	verilog_bison.c	/^    voCASEEQUAL = 308,$/;"	e	enum:yytokentype	file:
+voCASEEQUAL	verilog_bison.h	/^    voCASEEQUAL = 308,$/;"	e	enum:yytokentype
+voCASENOTEQUAL	verilog_bison.c	/^    voCASENOTEQUAL = 309,$/;"	e	enum:yytokentype	file:
+voCASENOTEQUAL	verilog_bison.h	/^    voCASENOTEQUAL = 309,$/;"	e	enum:yytokentype
+voEQUAL	verilog_bison.c	/^    voEQUAL = 306,$/;"	e	enum:yytokentype	file:
+voEQUAL	verilog_bison.h	/^    voEQUAL = 306,$/;"	e	enum:yytokentype
+voGTE	verilog_bison.c	/^    voGTE = 303,$/;"	e	enum:yytokentype	file:
+voGTE	verilog_bison.h	/^    voGTE = 303,$/;"	e	enum:yytokentype
+voLTE	verilog_bison.c	/^    voLTE = 302,$/;"	e	enum:yytokentype	file:
+voLTE	verilog_bison.h	/^    voLTE = 302,$/;"	e	enum:yytokentype
+voNAND	verilog_bison.c	/^    voNAND = 311,$/;"	e	enum:yytokentype	file:
+voNAND	verilog_bison.h	/^    voNAND = 311,$/;"	e	enum:yytokentype
+voNOR	verilog_bison.c	/^    voNOR = 312,$/;"	e	enum:yytokentype	file:
+voNOR	verilog_bison.h	/^    voNOR = 312,$/;"	e	enum:yytokentype
+voNOTEQUAL	verilog_bison.c	/^    voNOTEQUAL = 307,$/;"	e	enum:yytokentype	file:
+voNOTEQUAL	verilog_bison.h	/^    voNOTEQUAL = 307,$/;"	e	enum:yytokentype
+voOROR	verilog_bison.c	/^    voOROR = 301,$/;"	e	enum:yytokentype	file:
+voOROR	verilog_bison.h	/^    voOROR = 301,$/;"	e	enum:yytokentype
+voSLEFT	verilog_bison.c	/^    voSLEFT = 304,$/;"	e	enum:yytokentype	file:
+voSLEFT	verilog_bison.h	/^    voSLEFT = 304,$/;"	e	enum:yytokentype
+voSRIGHT	verilog_bison.c	/^    voSRIGHT = 305,$/;"	e	enum:yytokentype	file:
+voSRIGHT	verilog_bison.h	/^    voSRIGHT = 305,$/;"	e	enum:yytokentype
+voXNOR	verilog_bison.c	/^    voXNOR = 310,$/;"	e	enum:yytokentype	file:
+voXNOR	verilog_bison.h	/^    voXNOR = 310,$/;"	e	enum:yytokentype
+warning_message	errors.c	/^void warning_message(short error_type, int line_number, int file, char *message, ...)$/;"	f
+write_AST_to_file	parse_making_ast.c	/^void write_AST_to_file(FILE* fp, ast_node_t* node, int from_node)$/;"	f
+yy_accept	verilog_flex.c	/^static yyconst flex_int16_t yy_accept[329] =$/;"	v	file:
+yy_at_bol	verilog_flex.c	/^	int yy_at_bol;$/;"	m	struct:yy_buffer_state	file:
+yy_base	verilog_flex.c	/^static yyconst flex_uint16_t yy_base[335] =$/;"	v	file:
+yy_bs_column	verilog_flex.c	/^    int yy_bs_column; \/**< The column count. *\/$/;"	m	struct:yy_buffer_state	file:
+yy_bs_lineno	verilog_flex.c	/^    int yy_bs_lineno; \/**< The line count. *\/$/;"	m	struct:yy_buffer_state	file:
+yy_buf_pos	verilog_flex.c	/^	char *yy_buf_pos;		\/* current position in input buffer *\/$/;"	m	struct:yy_buffer_state	file:
+yy_buf_size	verilog_flex.c	/^	yy_size_t yy_buf_size;$/;"	m	struct:yy_buffer_state	file:
+yy_buffer_stack	verilog_flex.c	/^static YY_BUFFER_STATE * yy_buffer_stack = 0; \/**< Stack as an array. *\/$/;"	v	file:
+yy_buffer_stack_max	verilog_flex.c	/^static size_t yy_buffer_stack_max = 0; \/**< capacity of stack. *\/$/;"	v	file:
+yy_buffer_stack_top	verilog_flex.c	/^static size_t yy_buffer_stack_top = 0; \/**< index of top of stack. *\/$/;"	v	file:
+yy_buffer_state	verilog_flex.c	/^struct yy_buffer_state$/;"	s	file:
+yy_buffer_status	verilog_flex.c	/^	int yy_buffer_status;$/;"	m	struct:yy_buffer_state	file:
+yy_c_buf_p	verilog_flex.c	/^static char *yy_c_buf_p = (char *) 0;$/;"	v	file:
+yy_ch_buf	verilog_flex.c	/^	char *yy_ch_buf;		\/* input buffer *\/$/;"	m	struct:yy_buffer_state	file:
+yy_chk	verilog_flex.c	/^static yyconst flex_int16_t yy_chk[423] =$/;"	v	file:
+yy_create_buffer	verilog_flex.c	/^    YY_BUFFER_STATE yy_create_buffer  (FILE * file, int  size )$/;"	f
+yy_def	verilog_flex.c	/^static yyconst flex_int16_t yy_def[335] =$/;"	v	file:
+yy_delete_buffer	verilog_flex.c	/^    void yy_delete_buffer (YY_BUFFER_STATE  b )$/;"	f
+yy_did_buffer_switch_on_eof	verilog_flex.c	/^static int yy_did_buffer_switch_on_eof;$/;"	v	file:
+yy_ec	verilog_flex.c	/^static yyconst YY_CHAR yy_ec[256] =$/;"	v	file:
+yy_fatal_error	verilog_flex.c	/^static void yy_fatal_error (yyconst char* msg )$/;"	f	file:
+yy_fill_buffer	verilog_flex.c	/^	int yy_fill_buffer;$/;"	m	struct:yy_buffer_state	file:
+yy_flex_debug	verilog_flex.c	/^int yy_flex_debug = 0;$/;"	v
+yy_flex_strlen	verilog_flex.c	/^static int yy_flex_strlen (yyconst char * s )$/;"	f	file:
+yy_flex_strncpy	verilog_flex.c	/^static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )$/;"	f	file:
+yy_flush_buffer	verilog_flex.c	/^    void yy_flush_buffer (YY_BUFFER_STATE  b )$/;"	f
+yy_get_next_buffer	verilog_flex.c	/^static int yy_get_next_buffer (void)$/;"	f	file:
+yy_get_previous_state	verilog_flex.c	/^    static yy_state_type yy_get_previous_state (void)$/;"	f	file:
+yy_hold_char	verilog_flex.c	/^static char yy_hold_char;$/;"	v	file:
+yy_init	verilog_flex.c	/^static int yy_init = 0;		\/* whether we need to initialize *\/$/;"	v	file:
+yy_init_buffer	verilog_flex.c	/^    static void yy_init_buffer  (YY_BUFFER_STATE  b, FILE * file )$/;"	f	file:
+yy_init_globals	verilog_flex.c	/^static int yy_init_globals (void)$/;"	f	file:
+yy_input_file	verilog_flex.c	/^	FILE *yy_input_file;$/;"	m	struct:yy_buffer_state	file:
+yy_is_interactive	verilog_flex.c	/^	int yy_is_interactive;$/;"	m	struct:yy_buffer_state	file:
+yy_is_our_buffer	verilog_flex.c	/^	int yy_is_our_buffer;$/;"	m	struct:yy_buffer_state	file:
+yy_last_accepting_cpos	verilog_flex.c	/^static char *yy_last_accepting_cpos;$/;"	v	file:
+yy_last_accepting_state	verilog_flex.c	/^static yy_state_type yy_last_accepting_state;$/;"	v	file:
+yy_load_buffer_state	verilog_flex.c	/^static void yy_load_buffer_state  (void)$/;"	f	file:
+yy_meta	verilog_flex.c	/^static yyconst YY_CHAR yy_meta[50] =$/;"	v	file:
+yy_n_chars	verilog_flex.c	/^	int yy_n_chars;$/;"	m	struct:yy_buffer_state	file:
+yy_n_chars	verilog_flex.c	/^static int yy_n_chars;		\/* number of characters read into yy_ch_buf *\/$/;"	v	file:
+yy_new_buffer	verilog_flex.c	319;"	d	file:
+yy_nxt	verilog_flex.c	/^	flex_int32_t yy_nxt;$/;"	m	struct:yy_trans_info	file:
+yy_nxt	verilog_flex.c	/^static yyconst flex_uint16_t yy_nxt[423] =$/;"	v	file:
+yy_reduce_print	verilog_bison.c	/^yy_reduce_print (yytype_int16 *yyssp, YYSTYPE *yyvsp, int yyrule)$/;"	f	file:
+yy_scan_buffer	verilog_flex.c	/^YY_BUFFER_STATE yy_scan_buffer  (char * base, yy_size_t  size )$/;"	f
+yy_scan_bytes	verilog_flex.c	/^YY_BUFFER_STATE yy_scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len )$/;"	f
+yy_scan_string	verilog_flex.c	/^YY_BUFFER_STATE yy_scan_string (yyconst char * yystr )$/;"	f
+yy_set_bol	verilog_flex.c	331;"	d	file:
+yy_set_interactive	verilog_flex.c	321;"	d	file:
+yy_size_t	verilog_flex.c	/^typedef size_t yy_size_t;$/;"	t	file:
+yy_stack_print	verilog_bison.c	/^yy_stack_print (yytype_int16 *yybottom, yytype_int16 *yytop)$/;"	f	file:
+yy_start	verilog_flex.c	/^static int yy_start = 0;	\/* start state number *\/$/;"	v	file:
+yy_state_type	verilog_flex.c	/^typedef int yy_state_type;$/;"	t	file:
+yy_switch_to_buffer	verilog_flex.c	/^    void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )$/;"	f
+yy_symbol_print	verilog_bison.c	/^yy_symbol_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_symbol_value_print	verilog_bison.c	/^yy_symbol_value_print (FILE *yyoutput, int yytype, YYSTYPE const * const yyvaluep)$/;"	f	file:
+yy_trans_info	verilog_flex.c	/^struct yy_trans_info$/;"	s	file:
+yy_try_NUL_trans	verilog_flex.c	/^    static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )$/;"	f	file:
+yy_verify	verilog_flex.c	/^	flex_int32_t yy_verify;$/;"	m	struct:yy_trans_info	file:
+yyalloc	verilog_bison.c	/^union yyalloc$/;"	u	file:
+yyalloc	verilog_flex.c	/^void *yyalloc (yy_size_t  size )$/;"	f
+yychar	verilog_bison.c	/^int yychar;$/;"	v
+yycheck	verilog_bison.c	/^static const yytype_int16 yycheck[] =$/;"	v	file:
+yyclearin	verilog_bison.c	1187;"	d	file:
+yyconst	verilog_flex.c	107;"	d	file:
+yyconst	verilog_flex.c	109;"	d	file:
+yydebug	verilog_bison.c	/^int yydebug;$/;"	v
+yydefact	verilog_bison.c	/^static const yytype_uint8 yydefact[] =$/;"	v	file:
+yydefgoto	verilog_bison.c	/^static const yytype_int16 yydefgoto[] =$/;"	v	file:
+yydestruct	verilog_bison.c	/^yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep)$/;"	f	file:
+yyensure_buffer_stack	verilog_flex.c	/^static void yyensure_buffer_stack (void)$/;"	f	file:
+yyerrok	verilog_bison.c	1186;"	d	file:
+yyerror	verilog_bison.c	/^void yyerror(const char *str)$/;"	f
+yyfree	verilog_flex.c	/^void yyfree (void * ptr )$/;"	f
+yyget_debug	verilog_flex.c	/^int yyget_debug  (void)$/;"	f
+yyget_in	verilog_flex.c	/^FILE *yyget_in  (void)$/;"	f
+yyget_leng	verilog_flex.c	/^yy_size_t yyget_leng  (void)$/;"	f
+yyget_lineno	verilog_flex.c	/^int yyget_lineno  (void)$/;"	f
+yyget_out	verilog_flex.c	/^FILE *yyget_out  (void)$/;"	f
+yyget_text	verilog_flex.c	/^char *yyget_text  (void)$/;"	f
+yyin	verilog_flex.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
+yyinput	verilog_flex.c	/^    static int yyinput (void)$/;"	f	file:
+yyleng	verilog_flex.c	/^yy_size_t yyleng;$/;"	v
+yyless	verilog_flex.c	182;"	d	file:
+yyless	verilog_flex.c	2230;"	d	file:
+yyless	verilog_flex.c	2231;"	d	file:
+yylex_destroy	verilog_flex.c	/^int yylex_destroy  (void)$/;"	f
+yylineno	verilog_bison.c	/^int yylineno;$/;"	v
+yylineno	verilog_flex.c	/^int yylineno = 1;$/;"	v
+yylval	verilog_bison.c	/^YYSTYPE yylval;$/;"	v
+yymore	verilog_flex.c	663;"	d	file:
+yynerrs	verilog_bison.c	/^int yynerrs;$/;"	v
+yyout	verilog_flex.c	/^FILE *yyin = (FILE *) 0, *yyout = (FILE *) 0;$/;"	v
+yypact	verilog_bison.c	/^static const yytype_int16 yypact[] =$/;"	v	file:
+yypact_value_is_default	verilog_bison.c	632;"	d	file:
+yyparse	verilog_bison.c	/^yyparse (void)$/;"	f
+yypgoto	verilog_bison.c	/^static const yytype_int16 yypgoto[] =$/;"	v	file:
+yypop_buffer_state	verilog_flex.c	/^void yypop_buffer_state (void)$/;"	f
+yypush_buffer_state	verilog_flex.c	/^void yypush_buffer_state (YY_BUFFER_STATE new_buffer )$/;"	f
+yyr1	verilog_bison.c	/^static const yytype_uint8 yyr1[] =$/;"	v	file:
+yyr2	verilog_bison.c	/^static const yytype_uint8 yyr2[] =$/;"	v	file:
+yyrealloc	verilog_flex.c	/^void *yyrealloc  (void * ptr, yy_size_t  size )$/;"	f
+yyrestart	verilog_flex.c	/^    void yyrestart  (FILE * input_file )$/;"	f
+yyrline	verilog_bison.c	/^static const yytype_uint16 yyrline[] =$/;"	v	file:
+yyset_debug	verilog_flex.c	/^void yyset_debug (int  _bdebug )$/;"	f
+yyset_in	verilog_flex.c	/^void yyset_in (FILE *  _in_str )$/;"	f
+yyset_lineno	verilog_flex.c	/^void yyset_lineno (int  _line_number )$/;"	f
+yyset_out	verilog_flex.c	/^void yyset_out (FILE *  _out_str )$/;"	f
+yyss_alloc	verilog_bison.c	/^  yytype_int16 yyss_alloc;$/;"	m	union:yyalloc	file:
+yystos	verilog_bison.c	/^static const yytype_uint8 yystos[] =$/;"	v	file:
+yystpcpy	verilog_bison.c	/^yystpcpy (char *yydest, const char *yysrc)$/;"	f	file:
+yystpcpy	verilog_bison.c	1388;"	d	file:
+yystrlen	verilog_bison.c	/^yystrlen (const char *yystr)$/;"	f	file:
+yystrlen	verilog_bison.c	1372;"	d	file:
+yysyntax_error	verilog_bison.c	/^yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,$/;"	f	file:
+yytable	verilog_bison.c	/^static const yytype_uint16 yytable[] =$/;"	v	file:
+yytable_value_is_error	verilog_bison.c	637;"	d	file:
+yyterminate	verilog_flex.c	846;"	d	file:
+yytext	verilog_flex.c	/^char *yytext;$/;"	v
+yytext_ptr	verilog_flex.c	357;"	d	file:
+yytext_ptr	verilog_flex.c	359;"	d	file:
+yytname	verilog_bison.c	/^static const char *const yytname[] =$/;"	v	file:
+yytnamerr	verilog_bison.c	/^yytnamerr (char *yyres, const char *yystr)$/;"	f	file:
+yytokentype	verilog_bison.c	/^  enum yytokentype$/;"	g	file:
+yytokentype	verilog_bison.h	/^  enum yytokentype$/;"	g
+yytoknum	verilog_bison.c	/^static const yytype_uint16 yytoknum[] =$/;"	v	file:
+yytranslate	verilog_bison.c	/^static const yytype_uint8 yytranslate[] =$/;"	v	file:
+yytype_int16	verilog_bison.c	/^typedef YYTYPE_INT16 yytype_int16;$/;"	t	file:
+yytype_int16	verilog_bison.c	/^typedef short int yytype_int16;$/;"	t	file:
+yytype_int8	verilog_bison.c	/^typedef YYTYPE_INT8 yytype_int8;$/;"	t	file:
+yytype_int8	verilog_bison.c	/^typedef signed char yytype_int8;$/;"	t	file:
+yytype_uint16	verilog_bison.c	/^typedef YYTYPE_UINT16 yytype_uint16;$/;"	t	file:
+yytype_uint16	verilog_bison.c	/^typedef unsigned short int yytype_uint16;$/;"	t	file:
+yytype_uint8	verilog_bison.c	/^typedef YYTYPE_UINT8 yytype_uint8;$/;"	t	file:
+yytype_uint8	verilog_bison.c	/^typedef unsigned char yytype_uint8;$/;"	t	file:
+yyunput	verilog_flex.c	/^    static void yyunput (int c, char * yy_bp )$/;"	f	file:
+yyvs_alloc	verilog_bison.c	/^  YYSTYPE yyvs_alloc;$/;"	m	union:yyalloc	file:
+yywrap	verilog_bison.c	/^int yywrap()$/;"	f
+zero_net	types.h	/^	nnet_t *zero_net;$/;"	m	struct:netlist_t_t
